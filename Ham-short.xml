@@ -1,0 +1,4015 @@
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="editions.xsl"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+<teiHeader>
+<fileDesc>
+<titleStmt>
+<title>Hamlet</title>
+<author>William Shakespeare</author>
+<editor xml:id="BAM">Barbara A. Mowat</editor>
+<editor xml:id="PW">Paul Werstine</editor>
+<respStmt>
+<resp>Edited for XML and encoded by</resp>
+<persName xml:id="MSP">Michael Poston</persName>
+<persName xml:id="RLN">Rebecca Niles</persName>
+</respStmt>
+</titleStmt>
+<editionStmt>
+<edition n="0.8">Beta version</edition>
+</editionStmt>
+<publicationStmt>
+<idno>Ham</idno>
+<publisher>Folger Shakespeare Library</publisher>
+<address>
+<addrLine>201 East Capitol Street, SE</addrLine>
+<addrLine>Washington, DC 20003</addrLine>
+<addrLine>http://www.folgerdigitaltexts.org</addrLine>
+<addrLine>folgertexts@folger.edu</addrLine>
+</address>
+<availability>
+<licence target="http://creativecommons.org/licenses/by-nc/3.0/deed.en_US">Distributed under a Creative Commons Attribution-NonCommercial 3.0 Unported License</licence>
+</availability>
+<date>December, 2012</date>
+</publicationStmt>
+<seriesStmt>
+<title>Folger Digital Texts</title>
+</seriesStmt>
+<sourceDesc>
+<listWit>
+<witness xml:id="print">
+<biblStruct>
+<monogr>
+<author>William Shakespeare</author>
+<title>The Tragedy of Hamlet</title>
+<editor>Barbara A. Mowat</editor>
+<editor>Paul Werstine</editor>
+<imprint>
+<pubPlace>New York</pubPlace>
+<publisher>Washington Square Press</publisher>
+<date>2012</date>
+</imprint>
+</monogr>
+</biblStruct>
+</witness>
+<witness xml:id="prt1992">
+<biblStruct>
+<monogr>
+<author>William Shakespeare</author>
+<title>The Tragedy of Hamlet</title>
+<editor>Barbara A. Mowat</editor>
+<editor>Paul Werstine</editor>
+<imprint>
+<pubPlace>New York</pubPlace>
+<publisher>Washington Square Press</publisher>
+<date>1992</date>
+</imprint>
+</monogr>
+</biblStruct>
+</witness>
+<witness xml:id="ebook">Adobe Digital Edition</witness>
+<witness xml:id="lemma">The current version of the base text</witness>
+</listWit>
+</sourceDesc>
+</fileDesc>
+<encodingDesc>
+<projectDesc>
+<p>The Folger Digital Texts project makes the texts of the  Folger Shakespeare Library editions freely available for noncommercial use. The primary goal is to represent the source text faithfully, as simply as possible within the TEI P5 schema. Lineation and other typographic features from the print edition are reproduced, with he interpretations previously implicit in the print layout now made explicit in the encoding.</p>
+<p>In addition, most elements are assigned a unique identifier. This facilitates our use of stand-off markup and provides the means for future works to point very specifically to words, lines, speeches, and arbitrary sections of the text.</p>
+<p>Please note this project offers only the encoded text and textual notes (textual notes are forthcoming). For the explanatory notes, glosses, and illustrations, refer to the print edition and/or ebook published by Simon &amp; Schuster.</p>
+</projectDesc>
+<editorialDecl>
+<correction><p>This XML document may include corrections and revisions made by the original Folger Edition editors. Where the text deviates from prior publications, the earlier readings are noted within critical apparatus entry tags.</p></correction>
+<quotation><p>Quotation marks (single and double quotes) are replaced with the <gi>q</gi> element, except when the quoted text refers to a name or title, in which case the <gi>name</gi> or <gi>title</gi> element is used. Apostrophes, as distinct from single quotes, are not tagged and are retained as-is within the text.</p></quotation>
+<hyphenation eol="hard">
+<p>Hyphenation is generally retained. Hyphenated words are considered to be a single word, enclosed within a single word tag (<gi>w</gi>).</p>
+<p>For all end-of-line hyphenation, the word fragments are rejoined into a single <gi>w</gi> tag. Often, the word is placed on the line where the word begins. When this would affect lineation (e.g., when the second word fragment is the only element on its line), the word is moved to the next line.</p>
+<p>Soft end-of-line hyphens (i.e., those added only because of the line break) are silently removed. Editors Barbara A. Mowat and Paul Werstine determine whether the hyphen should be retained.</p>
+</hyphenation>
+<segmentation>
+<p>Acts are enclosed in <gi>div1</gi> tags. Scenes are enclosed in <gi>div2</gi> tags. Prologues, epilogues, inductions, and choruses are tagged using either <gi>div1</gi> or <gi>div2</gi>, whichever is most appropriate.</p>
+<p>Page breaks from the print edition are included in <gi>pb</gi> tags.  Line breaks from the print edition are included in <gi>lb</gi> tags.</p>
+<p>Speeches are enclosed in <gi>sp</gi> tags. Speech tags usually contain a speech prefix (in the <gi>speaker</gi> tag), and an anonymous block (<gi>ab</gi>) containing the text of the speech.</p>
+<p>Stage Directions are enclosed within <gi>stage</gi> tags. They may occur within or between speeches.</p>
+<p>Poems, songs, and letters are enclosed in <gi>seg</gi> tags, with the <att>type</att> attribute specifying the type. Segments split between speeches are linked through <att>next</att> and <att>prev</att> attributes. Songs that appear more separated from the text, which may or may not be attributable to a given speaker, may be enclosed in <gi>floatingText</gi> tags, which then contains the <gi>seg</gi> tag.</p>
+<p>Foreign words and phrases are enclosed in <gi>foreign</gi> tags.</p>
+<p>Words, spaces, and punctuation marks are enclosed in <gi>w</gi>, <gi>c</gi>, and <gi>pc</gi> tags respectively.</p>
+<p>Lines (verse and prose) are not explicitly segmented. They are noted through stand-off markup.</p>
+</segmentation>
+<interpretation> 
+<p>As much as possible, interpretations are separated from the base text. In other words, tags that offer non-essential interpretations point to, but do not enclose, <gi>w</gi>, <gi>c</gi>, and <gi>pc</gi> tags.</p>
+<p>Lineation is determined by critical judgments, complicated by accidental features of publication. While this document marks the line breaks as they appear in the Folger editions, it is understood that other projects may wish to format the text differently. Therefore, the text itself is not enclosed in any kind of line tag (<gi>l</gi> or <gi>ab</gi>). Instead, the elements of a typographic line are combined using a <gi>join</gi> tag. Using <gi>join</gi> tags allows us to maintain the Folger line numbering system and offer additional information about the verse without imposing these features on the base text. Not insignificantly, this also helps to avoid overlapping hierarchies in the XML.</p>
+<p>The <att>ana</att> attribute of the <gi>join</gi> tags designates the line as <val>verse</val>, <val>prose</val>, or <val>short</val>. Verse lines may use <att>prev</att> and <att>next</att> attributes to point to other typographic lines that complete the metrical line. When it is unclear how to combine an incomplete line into a full metrical line, or when it is unclear whether the line represents verse or prose, the line is designated as <val>short</val>.</p>
+<p>Identifying formal units of verse requires another interpretation. This document notes when stanzas are indicated in the edition, often by indentation. Couplets are not generally indented, and therefore, unless part of a larger formal structure, their presence is not always acknowledged.</p>
+<p>Stanzas often occur in poems and songs, but they may also be found in conversational verse. Indentations might have been noted through <att>rend</att> attributes, but this is less useful than attempting to define the structure of the stanza. However, marking verse units through <gi>lg</gi> tags is not feasible, because the text is not enclosed in <gi>l</gi> tags. Using <gi>l</gi> tags only here would be inconsistent with our encoding elsewhere and would lead to further difficulties with overlapping hierarchies (quotes spanning lines, verse lines split between speakers, etc.).</p>
+<p>Instead, pointers (<gi>ptr</gi> elements) link the typographic line (using the <gi>join</gi> tag) to a stanza definition. The <att>n</att> attribute notes the corresponding line within the stanza. If the line is split, more than one typographic line may share the same <att>n</att> attribute. The <att>prev</att> and <att>next</att> attributes point to the next lines in the stanza. Couplets are generally marked only when they appear near other </p>
+<p>Identifying exactly who participates in a given stage direction requires another interpretation. Sometimes a participant is directly named, but often, only general or ambiguous directions are given. The <att>ana</att> attribute of the <gi>stage</gi> tag links the stage direction to the characters believed to be involved. The preference might be to use the <att>who</att> attribute, if TEI allowed this. Still, it is worth noting that judgment is involved. Ambiguity may be conveyed by linking to <gi>personGrp</gi> references. For example, it may be impossible to know how many attendants and servants are on stage, or whether the messenger in one scene is the same as the messenger in another.</p>
+</interpretation>
+</editorialDecl>
+<tagsDecl>
+<namespace name="http://www.tei-c.org/ns/1.0">
+<tagUsage gi="pb">Marks the beginning of a page in the print edition. The <att>n</att> attribute gives the page number. The <att>spanTo</att> attribute gives the <att>xml:id</att> of a milestone element marking the end of the page.</tagUsage>
+<tagUsage gi="milestone">Marks the end of a page in the print edition. The <att>n</att> attribute gives the page number.  The <att>unit</att> attribute has the value <val>page</val>.</tagUsage>
+<tagUsage gi="fw">Provides the act/scene header for the page, as given in the print edition. The <att>n</att> attribute gives the page number.  The <att>type</att> attribute has the value <val>header</val>.</tagUsage>
+<tagUsage gi="lb">Marks a line break in the print edition.</tagUsage>
+<tagUsage gi="div1">Marks an act (or induction, prologue, epilogue). The <att>type</att> attribute gives the division type. The <att>n</att> attribute gives the canonical act number, where appropriate.</tagUsage>
+<tagUsage gi="div2">Marks a scene (or prologue, epilogue, chorus). The <att>type</att> attribute gives the division type. The <att>n</att> attribute gives the canonical scene number, where appropriate.</tagUsage>
+<tagUsage gi="head">Provides the act/scene/floatingText header, as given in the print edition.</tagUsage>
+<tagUsage gi="stage">Marks stage directions. The <att>n</att> attribute gives the stage direction line number. The <att>type</att> attribute identifies the type of stage direction, as follows:
+<list>
+<item><val>entrance</val>: marks character entrances</item>
+<item><val>exit</val>: marks character exits. At the end of scenes (though not necessarily at the end of the play), dead characters are included in the exit direction</item>
+<item><val>delivery</val>: marks directions on how a character speaks (asides, speaking to a specific character, reading, singing, disguising a voice)</item>
+<item><val>location</val>: marks where the character speaks ("within", "above")</item>
+<item><val>modifier</val>: usually marks a character in disguise (e.g., "as Balthazar")</item>
+<item><val>business</val>: any other action, whether performed by a character or not. Directions such as "flourish" and "thunder and lightning" are considered to be "business", since someone will have to make them happen</item>
+<item><val>dumbshow</val>: describes the action of a dumbshow</item>
+<item><val>mixed</val>: a stage direction that combines several of the above</item>
+</list>
+The <att>ana</att> attribute identifies the characters associated with that stage direction.</tagUsage>
+<tagUsage gi="sp">Marks a speech within the text. The <att>who</att> attribute identifies the characters associated with that speech.</tagUsage>
+<tagUsage gi="speaker">Provides the speech prefix, as given in the print edition.</tagUsage>
+<tagUsage gi="ab">Within <gi>sp</gi> tags, contains the text of the speech.</tagUsage>
+<tagUsage gi="w">Marks a word in a speech, stage direction, speech prefix, or header. The <att>n</att> attribute gives the line number, where appropriate.</tagUsage>
+<tagUsage gi="c">Marks a space character in a speech, stage direction, speech prefix, or header. The <att>n</att> attribute gives the line number, where appropriate.</tagUsage>
+<tagUsage gi="pc">Marks a punctuation character in a speech, stage direction, speech prefix, or header. The <att>n</att> attribute gives the line number, where appropriate.</tagUsage>
+<tagUsage gi="gap">Marks editorial placeholders where words are missing or unclear in the primary text.</tagUsage>
+<tagUsage gi="join">Joins <gi>w</gi>, <gi>c</gi>, <gi>pc</gi> and <gi>anchor</gi> elements into a typographic line. The <att>n</att> attribute gives the line number. The <att>type</att> attribute has the value <val>line</val>. The <att>ana</att> attribute has the value <val>verse</val>, <val>prose</val>, or <val>short</val>. The <gi>prev</gi> and <gi>next</gi> attributes provide the means for reconstructing split verse lines.</tagUsage>
+<tagUsage gi="ptr">Creates a pointer for one or more <gi>w</gi>, <gi>c</gi>, <gi>pc</gi>, and <gi>anchor</gi> elements, used to link them to analytical interpretations such as textual notes or stanza identification.</tagUsage>
+<tagUsage gi="seg">Often contains a song, poem, or letter, identified by its <att>type</att> attribute; or, if inside a <gi>w</gi> tag, identifies a word segment that may be quoted or emended.</tagUsage>
+<tagUsage gi="floatingText">Used sparingly to contain a song or poem that seems distinct from the surrounding text and may not be attributed to a specific speaker.</tagUsage>
+<tagUsage gi="q">Contains quoted sections of text.</tagUsage>
+<tagUsage gi="foreign">Marks non-English words. The <att>xml:lang</att> attribute identifies the foreign language, where appropriate.</tagUsage>
+<tagUsage gi="name">Marks a proper name that may be quoted or italicized in the text.</tagUsage>
+<tagUsage gi="title">Marks a title that may be quoted or italicized in the text.</tagUsage>
+<tagUsage gi="hi">Marks sections of text that are otherwise highlighted (generally italicized).</tagUsage>
+<tagUsage gi="anchor">Marks areas where content in a prior source text is not present in the current reading.</tagUsage>
+<tagUsage gi="app">Critical apparatus containing variant readings from prior publications.</tagUsage>
+</namespace>
+</tagsDecl>
+<refsDecl>
+<p>Words, spaces, and punctuation characters are numbered sequentially, incremented by 10.</p>
+<p>Most other elements begin with an element-specific prefix, followed by a reference to the Folger Through Line Number, a sequential numbering of the numbered lines in the text. If an element is inline with play text, it has the same line number as the line where it begins. If it begins on a line following play text, a decimal number is appended and incremented as necessary. If it falls between a speech prefix and the play text, a ".0" is appended to the value of the following line number.</p>
+</refsDecl>
+<variantEncoding method="double-end-point" location="internal"/>
+</encodingDesc>
+<profileDesc>
+<langUsage>
+<language ident="en">English</language>
+<language ident="fr">French</language>
+<language ident="it">Italian</language>
+<language ident="la">Latin</language>
+<language ident="es">Spanish</language>
+</langUsage>
+<particDesc>
+<listPerson>
+<person xml:id="GHOST-HAM">
+<persName><roleName>The Ghost</roleName></persName>
+<sex value="1">male</sex>
+</person>
+<person xml:id="HAMLET">
+<persName><name>Hamlet</name></persName>
+<state><p>Prince of Denmark, son of the late King Hamlet</p></state>
+<sex value="1">male</sex>
+<death when-custom="ftln-4114"/>
+</person>
+<person xml:id="GERTRUDE">
+<persName><name>Queen Gertrude</name></persName>
+<state><p>widow of King Hamlet, now married to Claudius</p></state>
+<sex value="2">female</sex>
+<death when-custom="ftln-4059"/>
+</person>
+<person xml:id="CLAUDIUS-HAM">
+<persName><name>King Claudius</name></persName>
+<state><p>brother to the late King Hamlet</p></state>
+<sex value="1">male</sex>
+<death when-custom="ftln-4076"/>
+</person>
+</listPerson>
+<listPerson>
+<person xml:id="OPHELIA">
+<persName><name>Ophelia</name></persName>
+<sex value="2">female</sex>
+<death notBefore-custom="ftln-3123" notAfter-custom="ftln-3366"/>
+</person>
+<person xml:id="LAERTES">
+<persName><name>Laertes</name></persName>
+<state><p><rs ref="#OPHELIA">her</rs> brother</p></state>
+<sex value="1">male</sex>
+<death when-custom="ftln-4081"/>
+</person>
+<person xml:id="POLONIUS">
+<persName><name>Polonius</name></persName>
+<state><p>father of Ophelia and Laertes, councillor to King Claudius</p></state>
+<sex value="1">male</sex>
+<death when-custom="ftln-2466"/>
+</person>
+<person xml:id="REYNALDO">
+<persName><name>Reynaldo</name></persName>
+<state><p>servant to Polonius</p></state>
+<sex value="1">male</sex>
+</person>
+</listPerson>
+<listPerson>
+<person xml:id="HORATIO">
+<persName><name>Horatio</name></persName>
+<state><p>Hamlet’s friend and confidant</p></state>
+<sex value="1">male</sex>
+</person>
+</listPerson>
+<listPerson>
+<listPerson>
+<head>courtiers at the Danish court</head>
+<person xml:id="VOLTEMAND">
+<persName><name>Voltemand</name></persName>
+<sex value="1">male</sex>
+</person>
+<person xml:id="CORNELIUS-HAM">
+<persName><name>Cornelius</name></persName>
+<sex value="1">male</sex>
+</person>
+<person xml:id="ROSENCRANTZ">
+<persName><name>Rosencrantz</name></persName>
+<sex value="1">male</sex>
+<death notBefore-custom="ftln-2863" notAfter-custom="ftln-4129"/>
+</person>
+<person xml:id="GUILDENSTERN">
+<persName><name>Guildenstern</name></persName>
+<sex value="1">male</sex>
+<death notBefore-custom="ftln-2863" notAfter-custom="ftln-4129"/>
+</person>
+<person xml:id="OSRIC">
+<persName><name>Osric</name></persName>
+<sex value="1">male</sex>
+</person>
+<personGrp xml:id="GENTLEMEN">
+<p>Gentlemen</p>
+</personGrp>
+<person xml:id="GENTLEMAN" corresp="#GENTLEMEN">
+<sex value="1">male</sex>
+</person>
+<person xml:id="LORD-HAM">
+<persName>A Lord</persName>
+<sex value="1">male</sex>
+</person>
+</listPerson>
+</listPerson>
+<listPerson>
+<listPerson>
+<head>Danish soldiers</head>
+<person xml:id="FRANCISCO-HAM">
+<persName><name>Francisco</name></persName>
+<sex value="1">male</sex>
+</person>
+<person xml:id="BARNARDO">
+<persName><name>Barnardo</name></persName>
+<sex value="1">male</sex>
+</person>
+<person xml:id="MARCELLUS">
+<persName><name>Marcellus</name></persName>
+<sex value="1">male</sex>
+</person>
+</listPerson>
+</listPerson>
+<listPerson>
+<person xml:id="FORTINBRAS">
+<persName><name>Fortinbras</name></persName>
+<state><p>Prince of Norway</p></state>
+<sex value="1">male</sex>
+</person>
+<person xml:id="CAPTAIN-HAM">
+<persName>A Captain in Fortinbras’s army</persName>
+<sex value="1">male</sex>
+</person>
+</listPerson>
+<listPerson>
+<personGrp xml:id="AMBASSADORS">
+<p>Ambassadors to Denmark from England</p>
+</personGrp>
+</listPerson>
+<listPerson>
+<personGrp xml:id="PLAYERS">
+<p>Players who take the roles of Prologue, Player King, Player Queen, and Lucianus in <title>The Murder of Gonzago</title></p>
+</personGrp>
+<person xml:id="FIRST_PLAYER" corresp="#PLAYERS"/>
+<person xml:id="PLAYER" corresp="#PLAYERS"/>
+<person xml:id="PLAYER_KING" corresp="#PLAYERS"/>
+<person xml:id="PLAYER_QUEEN" corresp="#PLAYERS"/>
+<person xml:id="PROLOGUE" corresp="#PLAYERS"/>
+<person xml:id="LUCIANUS" corresp="#PLAYERS"/>
+</listPerson>
+<listPerson>
+<personGrp xml:id="MESSENGERS">
+<p>Two Messengers</p>
+</personGrp>
+<listPerson>
+<personGrp xml:id="SAILORS">
+<p>Sailors</p>
+</personGrp>
+</listPerson>
+<person xml:id="GRAVEDIGGER">
+<persName>Gravedigger</persName>
+<sex value="1">male</sex>
+</person>
+<person xml:id="GRAVEDIGGERS_COMPANION">
+<persName>Gravedigger’s companion</persName>
+<sex value="1">male</sex>
+</person>
+<person xml:id="DOCTOR-HAM">
+<persName>Doctor of Divinity</persName>
+<sex value="1">male</sex>
+</person>
+</listPerson>
+<listPerson>
+<head>Attendants, Lords, Guards, Musicians, Laertes’s Followers, Soldiers, Officers</head>
+<personGrp xml:id="ATTENDANTS"/>
+<personGrp xml:id="LORDS"/>
+<personGrp xml:id="GUARDS"/>
+<personGrp xml:id="MUSICIANS"/>
+<personGrp xml:id="FOLLOWERS"/>
+<personGrp xml:id="SOLDIERS"/>
+<personGrp xml:id="OFFICERS"/>
+</listPerson>
+</particDesc>
+</profileDesc>
+<revisionDesc>
+<change when="2012-12-05" who="#MSP #RLN">Released as Beta version.</change>
+</revisionDesc>
+</teiHeader>
+<text>
+<body>
+<pb xml:id="pb-007" n="7" spanTo="#ms-007"/>
+<div1 type="act" n="1">
+<head>
+<w xml:id="w0000010">ACT</w>
+<c xml:id="c0000020"> </c>
+<w xml:id="w0000030">1</w>
+</head>
+<div2 type="scene" n="1">
+<head>
+<w xml:id="w0000040">Scene</w>
+<c xml:id="c0000050"> </c>
+<w xml:id="w0000060">1</w>
+</head>
+<stage xml:id="stg-0000" n="SD 1.1.0" type="entrance" ana="#BARNARDO #FRANCISCO-HAM">
+<w xml:id="w0000070" n="SD 1.1.0">Enter</w>
+<c xml:id="c0000080" n="SD 1.1.0"> </c>
+<w xml:id="w0000090" n="SD 1.1.0">Barnardo</w>
+<c xml:id="c0000100" n="SD 1.1.0"> </c>
+<w xml:id="w0000110" n="SD 1.1.0">and</w>
+<c xml:id="c0000120" n="SD 1.1.0"> </c>
+<w xml:id="w0000130" n="SD 1.1.0">Francisco</w>
+<pc xml:id="p0000140" n="SD 1.1.0">,</pc>
+<c xml:id="c0000150" n="SD 1.1.0"> </c>
+<w xml:id="w0000160" n="SD 1.1.0">two</w>
+<c xml:id="c0000170" n="SD 1.1.0"> </c>
+<w xml:id="w0000180" n="SD 1.1.0">sentinels</w>
+<pc xml:id="p0000190" n="SD 1.1.0">.</pc>
+</stage>
+<lb xml:id="lb-00000"/>
+<lb xml:id="lb-00001"/>
+<sp xml:id="sp-0001" who="#BARNARDO">
+<speaker xml:id="spk-0001">
+<w xml:id="w0000200">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0001">
+<join type="line" xml:id="ftln-0001" n="1.1.1" ana="#prose" target="#w0000210 #c0000220 #w0000230 #p0000240"/>
+<w xml:id="w0000210" n="1.1.1">Who’s</w>
+<c xml:id="c0000220" n="1.1.1"> </c>
+<w xml:id="w0000230" n="1.1.1">there</w>
+<pc xml:id="p0000240" n="1.1.1">?</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00010"/>
+<sp xml:id="sp-0002" who="#FRANCISCO-HAM">
+<speaker xml:id="spk-0002">
+<w xml:id="w0000250">FRANCISCO</w>
+</speaker>
+<ab xml:id="ab-0002">
+<lb xml:id="lb-00011"/>
+<join type="line" xml:id="ftln-0002" n="1.1.2" ana="#verse" target="#w0000260 #p0000270 #c0000280 #w0000290 #c0000300 #w0000310 #p0000320 #c0000330 #w0000340 #c0000350 #w0000360 #c0000370 #w0000380 #c0000390 #w0000400 #p0000410"/>
+<w xml:id="w0000260" n="1.1.2">Nay</w>
+<pc xml:id="p0000270" n="1.1.2">,</pc>
+<c xml:id="c0000280" n="1.1.2"> </c>
+<w xml:id="w0000290" n="1.1.2">answer</w>
+<c xml:id="c0000300" n="1.1.2"> </c>
+<w xml:id="w0000310" n="1.1.2">me</w>
+<pc xml:id="p0000320" n="1.1.2">.</pc>
+<c xml:id="c0000330" n="1.1.2"> </c>
+<w xml:id="w0000340" n="1.1.2">Stand</w>
+<c xml:id="c0000350" n="1.1.2"> </c>
+<w xml:id="w0000360" n="1.1.2">and</w>
+<c xml:id="c0000370" n="1.1.2"> </c>
+<w xml:id="w0000380" n="1.1.2">unfold</w>
+<c xml:id="c0000390" n="1.1.2"> </c>
+<w xml:id="w0000400" n="1.1.2">yourself</w>
+<pc xml:id="p0000410" n="1.1.2">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00020"/>
+<sp xml:id="sp-0003" who="#BARNARDO">
+<speaker xml:id="spk-0003">
+<w xml:id="w0000420">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0003">
+<join type="line" xml:id="ftln-0003" n="1.1.3" ana="#prose" target="#w0000430 #c0000440 #w0000450 #c0000460 #w0000470 #c0000480 #w0000490 #p0000500"/>
+<w xml:id="w0000430" n="1.1.3">Long</w>
+<c xml:id="c0000440" n="1.1.3"> </c>
+<w xml:id="w0000450" n="1.1.3">live</w>
+<c xml:id="c0000460" n="1.1.3"> </c>
+<w xml:id="w0000470" n="1.1.3">the</w>
+<c xml:id="c0000480" n="1.1.3"> </c>
+<w xml:id="w0000490" n="1.1.3">King</w>
+<pc xml:id="p0000500" n="1.1.3">!</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00030"/>
+<sp xml:id="sp-0004" who="#FRANCISCO-HAM">
+<speaker xml:id="spk-0004">
+<w xml:id="w0000510">FRANCISCO</w>
+</speaker>
+<ab xml:id="ab-0004">
+<join type="line" xml:id="ftln-0004" n="1.1.4" ana="#prose" target="#w0000520 #p0000530"/>
+<w xml:id="w0000520" n="1.1.4">Barnardo</w>
+<pc xml:id="p0000530" n="1.1.4">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00040"/>
+<sp xml:id="sp-0005" who="#BARNARDO">
+<speaker xml:id="spk-0005">
+<w xml:id="w0000540">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0005">
+<join type="line" xml:id="ftln-0005" n="1.1.5" ana="#prose" target="#w0000550 #p0000560"/>
+<w xml:id="w0000550" n="1.1.5">He</w>
+<pc xml:id="p0000560" n="1.1.5">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00050"/>
+<sp xml:id="sp-0006" who="#FRANCISCO-HAM">
+<speaker xml:id="spk-0006">
+<w xml:id="w0000570">FRANCISCO</w>
+</speaker>
+<ab xml:id="ab-0006">
+<lb xml:id="lb-00051"/>
+<join type="line" xml:id="ftln-0006" n="1.1.6" ana="#verse" target="#w0000580 #c0000590 #w0000600 #c0000610 #w0000620 #c0000630 #w0000640 #c0000650 #w0000660 #c0000670 #w0000680 #c0000690 #w0000700 #p0000710"/>
+<w xml:id="w0000580" n="1.1.6">You</w>
+<c xml:id="c0000590" n="1.1.6"> </c>
+<w xml:id="w0000600" n="1.1.6">come</w>
+<c xml:id="c0000610" n="1.1.6"> </c>
+<w xml:id="w0000620" n="1.1.6">most</w>
+<c xml:id="c0000630" n="1.1.6"> </c>
+<w xml:id="w0000640" n="1.1.6">carefully</w>
+<c xml:id="c0000650" n="1.1.6"> </c>
+<w xml:id="w0000660" n="1.1.6">upon</w>
+<c xml:id="c0000670" n="1.1.6"> </c>
+<w xml:id="w0000680" n="1.1.6">your</w>
+<c xml:id="c0000690" n="1.1.6"> </c>
+<w xml:id="w0000700" n="1.1.6">hour</w>
+<pc xml:id="p0000710" n="1.1.6">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00060"/>
+<sp xml:id="sp-0007" who="#BARNARDO">
+<speaker xml:id="spk-0007">
+<w xml:id="w0000720">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0007">
+<lb xml:id="lb-00061"/>
+<join type="line" xml:id="ftln-0007" n="1.1.7" ana="#verse" target="#w0000730 #c0000740 #w0000750 #c0000760 #w0000770 #c0000780 #w0000790 #p0000800 #c0000810 #w0000820 #c0000830 #w0000840 #c0000850 #w0000860 #c0000870 #w0000880 #p0000890 #c0000900 #w0000910 #p0000920"/>
+<w xml:id="w0000730" n="1.1.7">’Tis</w>
+<c xml:id="c0000740" n="1.1.7"> </c>
+<w xml:id="w0000750" n="1.1.7">now</w>
+<c xml:id="c0000760" n="1.1.7"> </c>
+<w xml:id="w0000770" n="1.1.7">struck</w>
+<c xml:id="c0000780" n="1.1.7"> </c>
+<w xml:id="w0000790" n="1.1.7">twelve</w>
+<pc xml:id="p0000800" n="1.1.7">.</pc>
+<c xml:id="c0000810" n="1.1.7"> </c>
+<w xml:id="w0000820" n="1.1.7">Get</w>
+<c xml:id="c0000830" n="1.1.7"> </c>
+<w xml:id="w0000840" n="1.1.7">thee</w>
+<c xml:id="c0000850" n="1.1.7"> </c>
+<w xml:id="w0000860" n="1.1.7">to</w>
+<c xml:id="c0000870" n="1.1.7"> </c>
+<w xml:id="w0000880" n="1.1.7">bed</w>
+<pc xml:id="p0000890" n="1.1.7">,</pc>
+<c xml:id="c0000900" n="1.1.7"> </c>
+<w xml:id="w0000910" n="1.1.7">Francisco</w>
+<pc xml:id="p0000920" n="1.1.7">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00070"/>
+<sp xml:id="sp-0008" who="#FRANCISCO-HAM">
+<speaker xml:id="spk-0008">
+<w xml:id="w0000930">FRANCISCO</w>
+</speaker>
+<ab xml:id="ab-0008">
+<lb xml:id="lb-00071"/>
+<join type="line" xml:id="ftln-0008" n="1.1.8" ana="#verse" target="#w0000940 #c0000950 #w0000960 #c0000970 #w0000980 #c0000990 #w0001000 #c0001010 #w0001020 #p0001030 #c0001040 #w0001050 #c0001060 #w0001070 #c0001080 #w0001090 #p0001100"/>
+<w xml:id="w0000940" n="1.1.8">For</w>
+<c xml:id="c0000950" n="1.1.8"> </c>
+<w xml:id="w0000960" n="1.1.8">this</w>
+<c xml:id="c0000970" n="1.1.8"> </c>
+<w xml:id="w0000980" n="1.1.8">relief</w>
+<c xml:id="c0000990" n="1.1.8"> </c>
+<w xml:id="w0001000" n="1.1.8">much</w>
+<c xml:id="c0001010" n="1.1.8"> </c>
+<w xml:id="w0001020" n="1.1.8">thanks</w>
+<pc xml:id="p0001030" n="1.1.8">.</pc>
+<c xml:id="c0001040" n="1.1.8"> </c>
+<w xml:id="w0001050" n="1.1.8">’Tis</w>
+<c xml:id="c0001060" n="1.1.8"> </c>
+<w xml:id="w0001070" n="1.1.8">bitter</w>
+<c xml:id="c0001080" n="1.1.8"> </c>
+<w xml:id="w0001090" n="1.1.8">cold</w>
+<pc xml:id="p0001100" n="1.1.8">,</pc>
+<lb xml:id="lb-00080"/>
+<join type="line" xml:id="ftln-0009" n="1.1.9" ana="#verse" target="#w0001110 #c0001120 #w0001130 #c0001140 #w0001150 #c0001160 #w0001170 #c0001180 #w0001190 #c0001200 #w0001210 #p0001220"/>
+<w xml:id="w0001110" n="1.1.9">And</w>
+<c xml:id="c0001120" n="1.1.9"> </c>
+<w xml:id="w0001130" n="1.1.9">I</w>
+<c xml:id="c0001140" n="1.1.9"> </c>
+<w xml:id="w0001150" n="1.1.9">am</w>
+<c xml:id="c0001160" n="1.1.9"> </c>
+<w xml:id="w0001170" n="1.1.9">sick</w>
+<c xml:id="c0001180" n="1.1.9"> </c>
+<w xml:id="w0001190" n="1.1.9">at</w>
+<c xml:id="c0001200" n="1.1.9"> </c>
+<w xml:id="w0001210" n="1.1.9">heart</w>
+<pc xml:id="p0001220" n="1.1.9">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00090"/>
+<sp xml:id="sp-0010" who="#BARNARDO">
+<speaker xml:id="spk-0010">
+<w xml:id="w0001230">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0010">
+<join type="line" xml:id="ftln-0010" n="1.1.10" ana="#prose" target="#w0001240 #c0001250 #w0001260 #c0001270 #w0001280 #c0001290 #w0001300 #c0001310 #w0001320 #p0001330"/>
+<w xml:id="w0001240" n="1.1.10">Have</w>
+<c xml:id="c0001250" n="1.1.10"> </c>
+<w xml:id="w0001260" n="1.1.10">you</w>
+<c xml:id="c0001270" n="1.1.10"> </c>
+<w xml:id="w0001280" n="1.1.10">had</w>
+<c xml:id="c0001290" n="1.1.10"> </c>
+<w xml:id="w0001300" n="1.1.10">quiet</w>
+<c xml:id="c0001310" n="1.1.10"> </c>
+<w xml:id="w0001320" n="1.1.10">guard</w>
+<pc xml:id="p0001330" n="1.1.10">?</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00100"/>
+<sp xml:id="sp-0011" who="#FRANCISCO-HAM">
+<speaker xml:id="spk-0011">
+<w xml:id="w0001340">FRANCISCO</w>
+</speaker>
+<ab xml:id="ab-0011">
+<join type="line" xml:id="ftln-0011" n="1.1.11" ana="#prose" target="#w0001350 #c0001360 #w0001370 #c0001380 #w0001390 #c0001400 #w0001410 #p0001420"/>
+<w xml:id="w0001350" n="1.1.11">Not</w>
+<c xml:id="c0001360" n="1.1.11"> </c>
+<w xml:id="w0001370" n="1.1.11">a</w>
+<c xml:id="c0001380" n="1.1.11"> </c>
+<w xml:id="w0001390" n="1.1.11">mouse</w>
+<c xml:id="c0001400" n="1.1.11"> </c>
+<w xml:id="w0001410" n="1.1.11">stirring</w>
+<pc xml:id="p0001420" n="1.1.11">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00110"/>
+<sp xml:id="sp-0012" who="#BARNARDO">
+<speaker xml:id="spk-0012">
+<w xml:id="w0001430">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0012">
+<join type="line" xml:id="ftln-0012" n="1.1.12" ana="#short" target="#w0001440 #p0001450 #c0001460 #w0001470 #c0001480 #w0001490 #p0001500"/>
+<w xml:id="w0001440" n="1.1.12">Well</w>
+<pc xml:id="p0001450" n="1.1.12">,</pc>
+<c xml:id="c0001460" n="1.1.12"> </c>
+<w xml:id="w0001470" n="1.1.12">good</w>
+<c xml:id="c0001480" n="1.1.12"> </c>
+<w xml:id="w0001490" n="1.1.12">night</w>
+<pc xml:id="p0001500" n="1.1.12">.</pc>
+<lb xml:id="lb-00120"/>
+<join type="line" xml:id="ftln-0013" n="1.1.13" ana="#verse" target="#w0001510 #c0001520 #w0001530 #c0001540 #w0001550 #c0001560 #w0001570 #c0001580 #w0001590 #c0001600 #w0001610 #c0001620 #w0001630 #p0001640"/>
+<w xml:id="w0001510" n="1.1.13">If</w>
+<c xml:id="c0001520" n="1.1.13"> </c>
+<w xml:id="w0001530" n="1.1.13">you</w>
+<c xml:id="c0001540" n="1.1.13"> </c>
+<w xml:id="w0001550" n="1.1.13">do</w>
+<c xml:id="c0001560" n="1.1.13"> </c>
+<w xml:id="w0001570" n="1.1.13">meet</w>
+<c xml:id="c0001580" n="1.1.13"> </c>
+<w xml:id="w0001590" n="1.1.13">Horatio</w>
+<c xml:id="c0001600" n="1.1.13"> </c>
+<w xml:id="w0001610" n="1.1.13">and</w>
+<c xml:id="c0001620" n="1.1.13"> </c>
+<w xml:id="w0001630" n="1.1.13">Marcellus</w>
+<pc xml:id="p0001640" n="1.1.13">,</pc>
+<lb xml:id="lb-00130"/>
+<join type="line" xml:id="ftln-0014" n="1.1.14" ana="#verse" target="#w0001650 #c0001660 #w0001670 #c0001680 #w0001690 #c0001700 #w0001710 #c0001720 #w0001730 #p0001740 #c0001750 #w0001760 #c0001770 #w0001780 #c0001790 #w0001800 #c0001810 #w0001820 #p0001830"/>
+<w xml:id="w0001650" n="1.1.14">The</w>
+<c xml:id="c0001660" n="1.1.14"> </c>
+<w xml:id="w0001670" n="1.1.14">rivals</w>
+<c xml:id="c0001680" n="1.1.14"> </c>
+<w xml:id="w0001690" n="1.1.14">of</w>
+<c xml:id="c0001700" n="1.1.14"> </c>
+<w xml:id="w0001710" n="1.1.14">my</w>
+<c xml:id="c0001720" n="1.1.14"> </c>
+<w xml:id="w0001730" n="1.1.14">watch</w>
+<pc xml:id="p0001740" n="1.1.14">,</pc>
+<c xml:id="c0001750" n="1.1.14"> </c>
+<w xml:id="w0001760" n="1.1.14">bid</w>
+<c xml:id="c0001770" n="1.1.14"> </c>
+<w xml:id="w0001780" n="1.1.14">them</w>
+<c xml:id="c0001790" n="1.1.14"> </c>
+<w xml:id="w0001800" n="1.1.14">make</w>
+<c xml:id="c0001810" n="1.1.14"> </c>
+<w xml:id="w0001820" n="1.1.14">haste</w>
+<pc xml:id="p0001830" n="1.1.14">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00140"/>
+<lb xml:id="lb-00141"/>
+<stage xml:id="stg-0014.1" n="SD 1.1.14.1" type="entrance" ana="#HORATIO #MARCELLUS">
+<w xml:id="w0001840" n="SD 1.1.14.1">Enter</w>
+<c xml:id="c0001850" n="SD 1.1.14.1"> </c>
+<w xml:id="w0001860" n="SD 1.1.14.1">Horatio</w>
+<c xml:id="c0001870" n="SD 1.1.14.1"> </c>
+<w xml:id="w0001880" n="SD 1.1.14.1">and</w>
+<c xml:id="c0001890" n="SD 1.1.14.1"> </c>
+<w xml:id="w0001900" n="SD 1.1.14.1">Marcellus</w>
+<pc xml:id="p0001910" n="SD 1.1.14.1">.</pc>
+</stage>
+<lb xml:id="lb-00142"/>
+<lb xml:id="lb-00143"/>
+<sp xml:id="sp-0015" who="#FRANCISCO-HAM">
+<speaker xml:id="spk-0015">
+<w xml:id="w0001920">FRANCISCO</w>
+</speaker>
+<ab xml:id="ab-0015">
+<lb xml:id="lb-00144"/>
+<join type="line" xml:id="ftln-0015" n="1.1.15" ana="#verse" target="#w0001930 #c0001940 #w0001950 #c0001960 #w0001970 #c0001980 #w0001990 #c0002000 #w0002010 #p0002020 #p0002030 #w0002040 #c0002050 #w0002060 #p0002070 #c0002080 #w0002090 #c0002100 #w0002110 #c0002120 #w0002130 #p0002140"/>
+<w xml:id="w0001930" n="1.1.15">I</w>
+<c xml:id="c0001940" n="1.1.15"> </c>
+<w xml:id="w0001950" n="1.1.15">think</w>
+<c xml:id="c0001960" n="1.1.15"> </c>
+<w xml:id="w0001970" n="1.1.15">I</w>
+<c xml:id="c0001980" n="1.1.15"> </c>
+<w xml:id="w0001990" n="1.1.15">hear</w>
+<c xml:id="c0002000" n="1.1.15"> </c>
+<w xml:id="w0002010" n="1.1.15">them</w>
+<pc xml:id="p0002020" n="1.1.15">.</pc>
+<pc xml:id="p0002030" n="1.1.15">—</pc>
+<w xml:id="w0002040" n="1.1.15">Stand</w>
+<c xml:id="c0002050" n="1.1.15"> </c>
+<w xml:id="w0002060" n="1.1.15">ho</w>
+<pc xml:id="p0002070" n="1.1.15">!</pc>
+<c xml:id="c0002080" n="1.1.15"> </c>
+<w xml:id="w0002090" n="1.1.15">Who</w>
+<c xml:id="c0002100" n="1.1.15"> </c>
+<w xml:id="w0002110" n="1.1.15">is</w>
+<c xml:id="c0002120" n="1.1.15"> </c>
+<w xml:id="w0002130" n="1.1.15">there</w>
+<pc xml:id="p0002140" n="1.1.15">?</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00150"/>
+<sp xml:id="sp-0016" who="#HORATIO">
+<speaker xml:id="spk-0016">
+<w xml:id="w0002150">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0016">
+<join type="line" xml:id="ftln-0016" n="1.1.16" ana="#short" target="#w0002160 #c0002170 #w0002180 #c0002190 #w0002200 #c0002210 #w0002220 #p0002230"/>
+<w xml:id="w0002160" n="1.1.16">Friends</w>
+<c xml:id="c0002170" n="1.1.16"> </c>
+<w xml:id="w0002180" n="1.1.16">to</w>
+<c xml:id="c0002190" n="1.1.16"> </c>
+<w xml:id="w0002200" n="1.1.16">this</w>
+<c xml:id="c0002210" n="1.1.16"> </c>
+<w xml:id="w0002220" n="1.1.16">ground</w>
+<pc xml:id="p0002230" n="1.1.16">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00160"/>
+<milestone xml:id="ms-007" n="7" unit="page"/>
+<pb xml:id="pb-009" n="9" spanTo="#ms-009"/>
+<fw xml:id="ph-009" type="header" n="9">ACT 1. SC. 1</fw>
+<sp xml:id="sp-0017" who="#MARCELLUS">
+<speaker xml:id="spk-0017">
+<w xml:id="w0002240">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0017">
+<join type="line" xml:id="ftln-0017" n="1.1.17" ana="#short" target="#w0002250 #c0002260 #w0002270 #c0002280 #w0002290 #c0002300 #w0002310 #c0002320 #w0002330 #p0002340"/>
+<w xml:id="w0002250" n="1.1.17">And</w>
+<c xml:id="c0002260" n="1.1.17"> </c>
+<w xml:id="w0002270" n="1.1.17">liegemen</w>
+<c xml:id="c0002280" n="1.1.17"> </c>
+<w xml:id="w0002290" n="1.1.17">to</w>
+<c xml:id="c0002300" n="1.1.17"> </c>
+<w xml:id="w0002310" n="1.1.17">the</w>
+<c xml:id="c0002320" n="1.1.17"> </c>
+<w xml:id="w0002330" n="1.1.17">Dane</w>
+<pc xml:id="p0002340" n="1.1.17">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00170"/>
+<sp xml:id="sp-0018" who="#FRANCISCO-HAM">
+<speaker xml:id="spk-0018">
+<w xml:id="w0002350">FRANCISCO</w>
+</speaker>
+<ab xml:id="ab-0018">
+<join type="line" xml:id="ftln-0018" n="1.1.18" ana="#short" target="#w0002360 #c0002370 #w0002380 #c0002390 #w0002400 #c0002410 #w0002420 #p0002430"/>
+<w xml:id="w0002360" n="1.1.18">Give</w>
+<c xml:id="c0002370" n="1.1.18"> </c>
+<w xml:id="w0002380" n="1.1.18">you</w>
+<c xml:id="c0002390" n="1.1.18"> </c>
+<w xml:id="w0002400" n="1.1.18">good</w>
+<c xml:id="c0002410" n="1.1.18"> </c>
+<w xml:id="w0002420" n="1.1.18">night</w>
+<pc xml:id="p0002430" n="1.1.18">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00180"/>
+<sp xml:id="sp-0019" who="#MARCELLUS">
+<speaker xml:id="spk-0019">
+<w xml:id="w0002440">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0019">
+<lb xml:id="lb-00181"/>
+<join type="line" xml:id="ftln-0019" n="1.1.19" ana="#verse" next="#ftln-0020" target="#w0002450 #c0002460 #w0002470 #p0002480 #c0002490 #w0002500 #c0002510 #w0002520 #p0002530 #c0002540 #w0002550 #c0002560 #w0002570 #c0002580 #w0002590"/>
+<w xml:id="w0002450" n="1.1.19">O</w>
+<c xml:id="c0002460" n="1.1.19"> </c>
+<w xml:id="w0002470" n="1.1.19">farewell</w>
+<pc xml:id="p0002480" n="1.1.19">,</pc>
+<c xml:id="c0002490" n="1.1.19"> </c>
+<w xml:id="w0002500" n="1.1.19">honest</w>
+<c xml:id="c0002510" n="1.1.19"> </c>
+<w xml:id="w0002520" n="1.1.19">soldier</w>
+<pc xml:id="p0002530" n="1.1.19">.</pc>
+<c xml:id="c0002540" n="1.1.19"> </c>
+<w xml:id="w0002550" n="1.1.19">Who</w>
+<c xml:id="c0002560" n="1.1.19"> </c>
+<w xml:id="w0002570" n="1.1.19">hath</w>
+<c xml:id="c0002580" n="1.1.19"> </c>
+<w xml:id="w0002590" n="1.1.19">relieved</w>
+<lb xml:id="lb-00190"/>
+<join type="line" xml:id="ftln-0020" n="1.1.20" ana="#verse" prev="#ftln-0019" target="#w0002600 #p0002610"/>
+<w xml:id="w0002600" n="1.1.20">you</w>
+<pc xml:id="p0002610" n="1.1.20">?</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00200"/>
+<sp xml:id="sp-0021" who="#FRANCISCO-HAM">
+<speaker xml:id="spk-0021">
+<w xml:id="w0002620">FRANCISCO</w>
+</speaker>
+<ab xml:id="ab-0021">
+<lb xml:id="lb-00201"/>
+<join type="line" xml:id="ftln-0021" n="1.1.21" ana="#verse" target="#w0002630 #c0002640 #w0002650 #c0002660 #w0002670 #c0002680 #w0002690 #p0002700 #c0002710 #w0002720 #c0002730 #w0002740 #c0002750 #w0002760 #c0002770 #w0002780 #p0002790"/>
+<w xml:id="w0002630" n="1.1.21">Barnardo</w>
+<c xml:id="c0002640" n="1.1.21"> </c>
+<w xml:id="w0002650" n="1.1.21">hath</w>
+<c xml:id="c0002660" n="1.1.21"> </c>
+<w xml:id="w0002670" n="1.1.21">my</w>
+<c xml:id="c0002680" n="1.1.21"> </c>
+<w xml:id="w0002690" n="1.1.21">place</w>
+<pc xml:id="p0002700" n="1.1.21">.</pc>
+<c xml:id="c0002710" n="1.1.21"> </c>
+<w xml:id="w0002720" n="1.1.21">Give</w>
+<c xml:id="c0002730" n="1.1.21"> </c>
+<w xml:id="w0002740" n="1.1.21">you</w>
+<c xml:id="c0002750" n="1.1.21"> </c>
+<w xml:id="w0002760" n="1.1.21">good</w>
+<c xml:id="c0002770" n="1.1.21"> </c>
+<w xml:id="w0002780" n="1.1.21">night</w>
+<pc xml:id="p0002790" n="1.1.21">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00210"/>
+<stage xml:id="stg-0021.1" n="SD 1.1.21.1" type="exit" ana="#FRANCISCO-HAM">
+<w xml:id="w0002800" n="SD 1.1.21.1">Francisco</w>
+<c xml:id="c0002810" n="SD 1.1.21.1"> </c>
+<w xml:id="w0002820" n="SD 1.1.21.1">exits</w>
+<pc xml:id="p0002830" n="SD 1.1.21.1">.</pc>
+</stage>
+<lb xml:id="lb-00211"/>
+<sp xml:id="sp-0022" who="#MARCELLUS">
+<speaker xml:id="spk-0022">
+<w xml:id="w0002840">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0022">
+<join type="line" xml:id="ftln-0022" n="1.1.22" ana="#short" target="#w0002850 #p0002860 #c0002870 #w0002880 #p0002890"/>
+<w xml:id="w0002850" n="1.1.22">Holla</w>
+<pc xml:id="p0002860" n="1.1.22">,</pc>
+<c xml:id="c0002870" n="1.1.22"> </c>
+<w xml:id="w0002880" n="1.1.22">Barnardo</w>
+<pc xml:id="p0002890" n="1.1.22">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00220"/>
+<sp xml:id="sp-0023" who="#BARNARDO">
+<speaker xml:id="spk-0023">
+<w xml:id="w0002900">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0023">
+<join type="line" xml:id="ftln-0023" n="1.1.23" ana="#short" target="#w0002910 #p0002920 #c0002930 #w0002940 #p0002950 #c0002960 #w0002970 #c0002980 #w0002990 #c0003000 #w0003010 #p0003020"/>
+<w xml:id="w0002910" n="1.1.23">Say</w>
+<pc xml:id="p0002920" n="1.1.23">,</pc>
+<c xml:id="c0002930" n="1.1.23"> </c>
+<w xml:id="w0002940" n="1.1.23">what</w>
+<pc xml:id="p0002950" n="1.1.23">,</pc>
+<c xml:id="c0002960" n="1.1.23"> </c>
+<w xml:id="w0002970" n="1.1.23">is</w>
+<c xml:id="c0002980" n="1.1.23"> </c>
+<w xml:id="w0002990" n="1.1.23">Horatio</w>
+<c xml:id="c0003000" n="1.1.23"> </c>
+<w xml:id="w0003010" n="1.1.23">there</w>
+<pc xml:id="p0003020" n="1.1.23">?</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00230"/>
+<sp xml:id="sp-0024" who="#HORATIO">
+<speaker xml:id="spk-0024">
+<w xml:id="w0003030">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0024">
+<join type="line" xml:id="ftln-0024" n="1.1.24" ana="#short" target="#w0003040 #c0003050 #w0003060 #c0003070 #w0003080 #c0003090 #w0003100 #p0003110"/>
+<w xml:id="w0003040" n="1.1.24">A</w>
+<c xml:id="c0003050" n="1.1.24"> </c>
+<w xml:id="w0003060" n="1.1.24">piece</w>
+<c xml:id="c0003070" n="1.1.24"> </c>
+<w xml:id="w0003080" n="1.1.24">of</w>
+<c xml:id="c0003090" n="1.1.24"> </c>
+<w xml:id="w0003100" n="1.1.24">him</w>
+<pc xml:id="p0003110" n="1.1.24">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00240"/>
+<sp xml:id="sp-0025" who="#BARNARDO">
+<speaker xml:id="spk-0025">
+<w xml:id="w0003120">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0025">
+<lb xml:id="lb-00241"/>
+<join type="line" xml:id="ftln-0025" n="1.1.25" ana="#verse" target="#w0003130 #p0003140 #c0003150 #w0003160 #p0003170 #p0003180 #w0003190 #p0003200 #c0003210 #w0003220 #c0003230 #w0003240 #p0003250"/>
+<w xml:id="w0003130" n="1.1.25">Welcome</w>
+<pc xml:id="p0003140" n="1.1.25">,</pc>
+<c xml:id="c0003150" n="1.1.25"> </c>
+<w xml:id="w0003160" n="1.1.25">Horatio</w>
+<pc xml:id="p0003170" n="1.1.25">.</pc>
+<pc xml:id="p0003180" n="1.1.25">—</pc>
+<w xml:id="w0003190" n="1.1.25">Welcome</w>
+<pc xml:id="p0003200" n="1.1.25">,</pc>
+<c xml:id="c0003210" n="1.1.25"> </c>
+<w xml:id="w0003220" n="1.1.25">good</w>
+<c xml:id="c0003230" n="1.1.25"> </c>
+<w xml:id="w0003240" n="1.1.25">Marcellus</w>
+<pc xml:id="p0003250" n="1.1.25">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00250"/>
+<sp xml:id="sp-0026" who="#HORATIO">
+<speaker xml:id="spk-0026">
+<w xml:id="w0003260">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0026">
+<lb xml:id="lb-00251"/>
+<join type="line" xml:id="ftln-0026" n="1.1.26" ana="#verse" target="#w0003270 #p0003280 #c0003290 #w0003300 #c0003310 #w0003320 #c0003330 #w0003340 #c0003350 #w0003360 #c0003370 #w0003380 #c0003390 #w0003400 #p0003410"/>
+<w xml:id="w0003270" n="1.1.26">What</w>
+<pc xml:id="p0003280" n="1.1.26">,</pc>
+<c xml:id="c0003290" n="1.1.26"> </c>
+<w xml:id="w0003300" n="1.1.26">has</w>
+<c xml:id="c0003310" n="1.1.26"> </c>
+<w xml:id="w0003320" n="1.1.26">this</w>
+<c xml:id="c0003330" n="1.1.26"> </c>
+<w xml:id="w0003340" n="1.1.26">thing</w>
+<c xml:id="c0003350" n="1.1.26"> </c>
+<w xml:id="w0003360" n="1.1.26">appeared</w>
+<c xml:id="c0003370" n="1.1.26"> </c>
+<w xml:id="w0003380" n="1.1.26">again</w>
+<c xml:id="c0003390" n="1.1.26"> </c>
+<w xml:id="w0003400" n="1.1.26">tonight</w>
+<pc xml:id="p0003410" n="1.1.26">?</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00260"/>
+<sp xml:id="sp-0027" who="#BARNARDO">
+<speaker xml:id="spk-0027">
+<w xml:id="w0003420">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0027">
+<join type="line" xml:id="ftln-0027" n="1.1.27" ana="#short" target="#w0003430 #c0003440 #w0003450 #c0003460 #w0003470 #c0003480 #w0003490 #p0003500"/>
+<w xml:id="w0003430" n="1.1.27">I</w>
+<c xml:id="c0003440" n="1.1.27"> </c>
+<w xml:id="w0003450" n="1.1.27">have</w>
+<c xml:id="c0003460" n="1.1.27"> </c>
+<w xml:id="w0003470" n="1.1.27">seen</w>
+<c xml:id="c0003480" n="1.1.27"> </c>
+<w xml:id="w0003490" n="1.1.27">nothing</w>
+<pc xml:id="p0003500" n="1.1.27">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00270"/>
+<sp xml:id="sp-0028" who="#MARCELLUS">
+<speaker xml:id="spk-0028">
+<w xml:id="w0003510">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0028">
+<lb xml:id="lb-00271"/>
+<join type="line" xml:id="ftln-0028" n="1.1.28" ana="#verse" target="#w0003520 #c0003530 #w0003540 #c0003550 #w0003560 #c0003570 #w0003580 #c0003590 #w0003600 #c0003610 #w0003620"/>
+<w xml:id="w0003520" n="1.1.28">Horatio</w>
+<c xml:id="c0003530" n="1.1.28"> </c>
+<w xml:id="w0003540" n="1.1.28">says</w>
+<c xml:id="c0003550" n="1.1.28"> </c>
+<w xml:id="w0003560" n="1.1.28">’tis</w>
+<c xml:id="c0003570" n="1.1.28"> </c>
+<w xml:id="w0003580" n="1.1.28">but</w>
+<c xml:id="c0003590" n="1.1.28"> </c>
+<w xml:id="w0003600" n="1.1.28">our</w>
+<c xml:id="c0003610" n="1.1.28"> </c>
+<w xml:id="w0003620" n="1.1.28">fantasy</w>
+<lb xml:id="lb-00280"/>
+<join type="line" xml:id="ftln-0029" n="1.1.29" ana="#verse" target="#w0003630 #c0003640 #w0003650 #c0003660 #w0003670 #c0003680 #w0003690 #c0003700 #w0003710 #c0003720 #w0003730 #c0003740 #w0003750 #c0003760 #w0003770 #c0003780 #w0003790"/>
+<w xml:id="w0003630" n="1.1.29">And</w>
+<c xml:id="c0003640" n="1.1.29"> </c>
+<w xml:id="w0003650" n="1.1.29">will</w>
+<c xml:id="c0003660" n="1.1.29"> </c>
+<w xml:id="w0003670" n="1.1.29">not</w>
+<c xml:id="c0003680" n="1.1.29"> </c>
+<w xml:id="w0003690" n="1.1.29">let</w>
+<c xml:id="c0003700" n="1.1.29"> </c>
+<w xml:id="w0003710" n="1.1.29">belief</w>
+<c xml:id="c0003720" n="1.1.29"> </c>
+<w xml:id="w0003730" n="1.1.29">take</w>
+<c xml:id="c0003740" n="1.1.29"> </c>
+<w xml:id="w0003750" n="1.1.29">hold</w>
+<c xml:id="c0003760" n="1.1.29"> </c>
+<w xml:id="w0003770" n="1.1.29">of</w>
+<c xml:id="c0003780" n="1.1.29"> </c>
+<w xml:id="w0003790" n="1.1.29">him</w>
+<lb xml:id="lb-00290"/>
+<join type="line" xml:id="ftln-0030" n="1.1.30" ana="#verse" target="#w0003800 #c0003810 #w0003820 #c0003830 #w0003840 #c0003850 #w0003860 #c0003870 #w0003880 #c0003890 #w0003900 #c0003910 #w0003920 #c0003930 #w0003940 #p0003950"/>
+<w xml:id="w0003800" n="1.1.30">Touching</w>
+<c xml:id="c0003810" n="1.1.30"> </c>
+<w xml:id="w0003820" n="1.1.30">this</w>
+<c xml:id="c0003830" n="1.1.30"> </c>
+<w xml:id="w0003840" n="1.1.30">dreaded</w>
+<c xml:id="c0003850" n="1.1.30"> </c>
+<w xml:id="w0003860" n="1.1.30">sight</w>
+<c xml:id="c0003870" n="1.1.30"> </c>
+<w xml:id="w0003880" n="1.1.30">twice</w>
+<c xml:id="c0003890" n="1.1.30"> </c>
+<w xml:id="w0003900" n="1.1.30">seen</w>
+<c xml:id="c0003910" n="1.1.30"> </c>
+<w xml:id="w0003920" n="1.1.30">of</w>
+<c xml:id="c0003930" n="1.1.30"> </c>
+<w xml:id="w0003940" n="1.1.30">us</w>
+<pc xml:id="p0003950" n="1.1.30">.</pc>
+<lb xml:id="lb-00300"/>
+<join type="line" xml:id="ftln-0031" n="1.1.31" ana="#verse" target="#w0003960 #c0003970 #w0003980 #c0003990 #w0004000 #c0004010 #w0004020 #c0004030 #w0004040 #c0004050 #w0004060"/>
+<w xml:id="w0003960" n="1.1.31">Therefore</w>
+<c xml:id="c0003970" n="1.1.31"> </c>
+<w xml:id="w0003980" n="1.1.31">I</w>
+<c xml:id="c0003990" n="1.1.31"> </c>
+<w xml:id="w0004000" n="1.1.31">have</w>
+<c xml:id="c0004010" n="1.1.31"> </c>
+<w xml:id="w0004020" n="1.1.31">entreated</w>
+<c xml:id="c0004030" n="1.1.31"> </c>
+<w xml:id="w0004040" n="1.1.31">him</w>
+<c xml:id="c0004050" n="1.1.31"> </c>
+<w xml:id="w0004060" n="1.1.31">along</w>
+<lb xml:id="lb-00310"/>
+<join type="line" xml:id="ftln-0032" n="1.1.32" ana="#verse" target="#w0004070 #c0004080 #w0004090 #c0004100 #w0004110 #c0004120 #w0004130 #c0004140 #w0004150 #c0004160 #w0004170 #c0004180 #w0004190 #c0004200 #w0004210 #c0004220 #w0004230 #p0004240"/>
+<w xml:id="w0004070" n="1.1.32">With</w>
+<c xml:id="c0004080" n="1.1.32"> </c>
+<w xml:id="w0004090" n="1.1.32">us</w>
+<c xml:id="c0004100" n="1.1.32"> </c>
+<w xml:id="w0004110" n="1.1.32">to</w>
+<c xml:id="c0004120" n="1.1.32"> </c>
+<w xml:id="w0004130" n="1.1.32">watch</w>
+<c xml:id="c0004140" n="1.1.32"> </c>
+<w xml:id="w0004150" n="1.1.32">the</w>
+<c xml:id="c0004160" n="1.1.32"> </c>
+<w xml:id="w0004170" n="1.1.32">minutes</w>
+<c xml:id="c0004180" n="1.1.32"> </c>
+<w xml:id="w0004190" n="1.1.32">of</w>
+<c xml:id="c0004200" n="1.1.32"> </c>
+<w xml:id="w0004210" n="1.1.32">this</w>
+<c xml:id="c0004220" n="1.1.32"> </c>
+<w xml:id="w0004230" n="1.1.32">night</w>
+<pc xml:id="p0004240" n="1.1.32">,</pc>
+<lb xml:id="lb-00320"/>
+<join type="line" xml:id="ftln-0033" n="1.1.33" ana="#verse" target="#w0004250 #p0004260 #c0004270 #w0004280 #c0004290 #w0004300 #c0004310 #w0004320 #c0004330 #w0004340 #c0004350 #w0004360 #p0004370"/>
+<w xml:id="w0004250" n="1.1.33">That</w>
+<pc xml:id="p0004260" n="1.1.33">,</pc>
+<c xml:id="c0004270" n="1.1.33"> </c>
+<w xml:id="w0004280" n="1.1.33">if</w>
+<c xml:id="c0004290" n="1.1.33"> </c>
+<w xml:id="w0004300" n="1.1.33">again</w>
+<c xml:id="c0004310" n="1.1.33"> </c>
+<w xml:id="w0004320" n="1.1.33">this</w>
+<c xml:id="c0004330" n="1.1.33"> </c>
+<w xml:id="w0004340" n="1.1.33">apparition</w>
+<c xml:id="c0004350" n="1.1.33"> </c>
+<w xml:id="w0004360" n="1.1.33">come</w>
+<pc xml:id="p0004370" n="1.1.33">,</pc>
+<lb xml:id="lb-00330"/>
+<join type="line" xml:id="ftln-0034" n="1.1.34" ana="#verse" target="#w0004380 #c0004390 #w0004400 #c0004410 #w0004420 #c0004430 #w0004440 #c0004450 #w0004460 #c0004470 #w0004480 #c0004490 #w0004500 #c0004510 #w0004520 #c0004530 #w0004540 #p0004550"/>
+<w xml:id="w0004380" n="1.1.34">He</w>
+<c xml:id="c0004390" n="1.1.34"> </c>
+<w xml:id="w0004400" n="1.1.34">may</w>
+<c xml:id="c0004410" n="1.1.34"> </c>
+<w xml:id="w0004420" n="1.1.34">approve</w>
+<c xml:id="c0004430" n="1.1.34"> </c>
+<w xml:id="w0004440" n="1.1.34">our</w>
+<c xml:id="c0004450" n="1.1.34"> </c>
+<w xml:id="w0004460" n="1.1.34">eyes</w>
+<c xml:id="c0004470" n="1.1.34"> </c>
+<w xml:id="w0004480" n="1.1.34">and</w>
+<c xml:id="c0004490" n="1.1.34"> </c>
+<w xml:id="w0004500" n="1.1.34">speak</w>
+<c xml:id="c0004510" n="1.1.34"> </c>
+<w xml:id="w0004520" n="1.1.34">to</w>
+<c xml:id="c0004530" n="1.1.34"> </c>
+<w xml:id="w0004540" n="1.1.34">it</w>
+<pc xml:id="p0004550" n="1.1.34">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00340"/>
+<sp xml:id="sp-0035" who="#HORATIO">
+<speaker xml:id="spk-0035">
+<w xml:id="w0004560">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0035">
+<lb xml:id="lb-00341"/>
+<join type="line" xml:id="ftln-0035" n="1.1.35" ana="#verse" next="#ftln-0036" target="#w0004570 #p0004580 #c0004590 #w0004600 #p0004610 #c0004620 #w0004630 #c0004640 #w0004650 #c0004660 #w0004670 #p0004680"/>
+<w xml:id="w0004570" n="1.1.35">Tush</w>
+<pc xml:id="p0004580" n="1.1.35">,</pc>
+<c xml:id="c0004590" n="1.1.35"> </c>
+<w xml:id="w0004600" n="1.1.35">tush</w>
+<pc xml:id="p0004610" n="1.1.35">,</pc>
+<c xml:id="c0004620" n="1.1.35"> </c>
+<w xml:id="w0004630" n="1.1.35">’twill</w>
+<c xml:id="c0004640" n="1.1.35"> </c>
+<w xml:id="w0004650" n="1.1.35">not</w>
+<c xml:id="c0004660" n="1.1.35"> </c>
+<w xml:id="w0004670" n="1.1.35">appear</w>
+<pc xml:id="p0004680" n="1.1.35">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00350"/>
+<sp xml:id="sp-0036" who="#BARNARDO">
+<speaker xml:id="spk-0036">
+<w xml:id="w0004690">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0036">
+<join type="line" xml:id="ftln-0036" n="1.1.36" ana="#verse" prev="#ftln-0035" target="#w0004700 #c0004710 #w0004720 #c0004730 #w0004740 #p0004750"/>
+<w xml:id="w0004700" n="1.1.36">Sit</w>
+<c xml:id="c0004710" n="1.1.36"> </c>
+<w xml:id="w0004720" n="1.1.36">down</w>
+<c xml:id="c0004730" n="1.1.36"> </c>
+<w xml:id="w0004740" n="1.1.36">awhile</w>
+<pc xml:id="p0004750" n="1.1.36">,</pc>
+<lb xml:id="lb-00360"/>
+<join type="line" xml:id="ftln-0037" n="1.1.37" ana="#verse" target="#w0004760 #c0004770 #w0004780 #c0004790 #w0004800 #c0004810 #w0004820 #c0004830 #w0004840 #c0004850 #w0004860 #c0004870 #w0004880 #c0004890 #w0004900 #p0004910"/>
+<w xml:id="w0004760" n="1.1.37">And</w>
+<c xml:id="c0004770" n="1.1.37"> </c>
+<w xml:id="w0004780" n="1.1.37">let</w>
+<c xml:id="c0004790" n="1.1.37"> </c>
+<w xml:id="w0004800" n="1.1.37">us</w>
+<c xml:id="c0004810" n="1.1.37"> </c>
+<w xml:id="w0004820" n="1.1.37">once</w>
+<c xml:id="c0004830" n="1.1.37"> </c>
+<w xml:id="w0004840" n="1.1.37">again</w>
+<c xml:id="c0004850" n="1.1.37"> </c>
+<w xml:id="w0004860" n="1.1.37">assail</w>
+<c xml:id="c0004870" n="1.1.37"> </c>
+<w xml:id="w0004880" n="1.1.37">your</w>
+<c xml:id="c0004890" n="1.1.37"> </c>
+<w xml:id="w0004900" n="1.1.37">ears</w>
+<pc xml:id="p0004910" n="1.1.37">,</pc>
+<lb xml:id="lb-00370"/>
+<join type="line" xml:id="ftln-0038" n="1.1.38" ana="#verse" target="#w0004920 #c0004930 #w0004940 #c0004950 #w0004960 #c0004970 #w0004980 #c0004990 #w0005000 #c0005010 #w0005020 #c0005030 #w0005040 #p0005050"/>
+<w xml:id="w0004920" n="1.1.38">That</w>
+<c xml:id="c0004930" n="1.1.38"> </c>
+<w xml:id="w0004940" n="1.1.38">are</w>
+<c xml:id="c0004950" n="1.1.38"> </c>
+<w xml:id="w0004960" n="1.1.38">so</w>
+<c xml:id="c0004970" n="1.1.38"> </c>
+<w xml:id="w0004980" n="1.1.38">fortified</w>
+<c xml:id="c0004990" n="1.1.38"> </c>
+<w xml:id="w0005000" n="1.1.38">against</w>
+<c xml:id="c0005010" n="1.1.38"> </c>
+<w xml:id="w0005020" n="1.1.38">our</w>
+<c xml:id="c0005030" n="1.1.38"> </c>
+<w xml:id="w0005040" n="1.1.38">story</w>
+<pc xml:id="p0005050" n="1.1.38">,</pc>
+<lb xml:id="lb-00380"/>
+<join type="line" xml:id="ftln-0039" n="1.1.39" ana="#verse" next="#ftln-0040" target="#w0005060 #c0005070 #w0005080 #c0005090 #w0005100 #c0005110 #w0005120 #c0005130 #w0005140 #c0005150 #w0005160 #p0005170"/>
+<w xml:id="w0005060" n="1.1.39">What</w>
+<c xml:id="c0005070" n="1.1.39"> </c>
+<w xml:id="w0005080" n="1.1.39">we</w>
+<c xml:id="c0005090" n="1.1.39"> </c>
+<w xml:id="w0005100" n="1.1.39">have</w>
+<c xml:id="c0005110" n="1.1.39"> </c>
+<w xml:id="w0005120" n="1.1.39">two</w>
+<c xml:id="c0005130" n="1.1.39"> </c>
+<w xml:id="w0005140" n="1.1.39">nights</w>
+<c xml:id="c0005150" n="1.1.39"> </c>
+<w xml:id="w0005160" n="1.1.39">seen</w>
+<pc xml:id="p0005170" n="1.1.39">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00390"/>
+<sp xml:id="sp-0040" who="#HORATIO">
+<speaker xml:id="spk-0040">
+<w xml:id="w0005180">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0040">
+<join type="line" xml:id="ftln-0040" n="1.1.40" ana="#verse" prev="#ftln-0039" target="#w0005190 #p0005200 #c0005210 #w0005220 #c0005230 #w0005240 #c0005250 #w0005260 #p0005270"/>
+<w xml:id="w0005190" n="1.1.40">Well</w>
+<pc xml:id="p0005200" n="1.1.40">,</pc>
+<c xml:id="c0005210" n="1.1.40"> </c>
+<w xml:id="w0005220" n="1.1.40">sit</w>
+<c xml:id="c0005230" n="1.1.40"> </c>
+<w xml:id="w0005240" n="1.1.40">we</w>
+<c xml:id="c0005250" n="1.1.40"> </c>
+<w xml:id="w0005260" n="1.1.40">down</w>
+<pc xml:id="p0005270" n="1.1.40">,</pc>
+<lb xml:id="lb-00400"/>
+<join type="line" xml:id="ftln-0041" n="1.1.41" ana="#verse" target="#w0005280 #c0005290 #w0005300 #c0005310 #w0005320 #c0005330 #w0005340 #c0005350 #w0005360 #c0005370 #w0005380 #c0005390 #w0005400 #c0005410 #w0005420 #p0005430"/>
+<w xml:id="w0005280" n="1.1.41">And</w>
+<c xml:id="c0005290" n="1.1.41"> </c>
+<w xml:id="w0005300" n="1.1.41">let</w>
+<c xml:id="c0005310" n="1.1.41"> </c>
+<w xml:id="w0005320" n="1.1.41">us</w>
+<c xml:id="c0005330" n="1.1.41"> </c>
+<w xml:id="w0005340" n="1.1.41">hear</w>
+<c xml:id="c0005350" n="1.1.41"> </c>
+<w xml:id="w0005360" n="1.1.41">Barnardo</w>
+<c xml:id="c0005370" n="1.1.41"> </c>
+<w xml:id="w0005380" n="1.1.41">speak</w>
+<c xml:id="c0005390" n="1.1.41"> </c>
+<w xml:id="w0005400" n="1.1.41">of</w>
+<c xml:id="c0005410" n="1.1.41"> </c>
+<w xml:id="w0005420" n="1.1.41">this</w>
+<pc xml:id="p0005430" n="1.1.41">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00410"/>
+<sp xml:id="sp-0042" who="#BARNARDO">
+<speaker xml:id="spk-0042">
+<w xml:id="w0005440">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0042">
+<join type="line" xml:id="ftln-0042" n="1.1.42" ana="#short" target="#w0005450 #c0005460 #w0005470 #c0005480 #w0005490 #c0005500 #w0005510 #p0005520"/>
+<w xml:id="w0005450" n="1.1.42">Last</w>
+<c xml:id="c0005460" n="1.1.42"> </c>
+<w xml:id="w0005470" n="1.1.42">night</w>
+<c xml:id="c0005480" n="1.1.42"> </c>
+<w xml:id="w0005490" n="1.1.42">of</w>
+<c xml:id="c0005500" n="1.1.42"> </c>
+<w xml:id="w0005510" n="1.1.42">all</w>
+<pc xml:id="p0005520" n="1.1.42">,</pc>
+<lb xml:id="lb-00420"/>
+<join type="line" xml:id="ftln-0043" n="1.1.43" ana="#verse" target="#w0005530 #c0005540 #w0005550 #c0005560 #w0005570 #c0005580 #w0005590 #c0005600 #w0005610 #c0005620 #w0005630 #c0005640 #w0005650 #c0005660 #w0005670 #c0005680 #w0005690"/>
+<w xml:id="w0005530" n="1.1.43">When</w>
+<c xml:id="c0005540" n="1.1.43"> </c>
+<w xml:id="w0005550" n="1.1.43">yond</w>
+<c xml:id="c0005560" n="1.1.43"> </c>
+<w xml:id="w0005570" n="1.1.43">same</w>
+<c xml:id="c0005580" n="1.1.43"> </c>
+<w xml:id="w0005590" n="1.1.43">star</w>
+<c xml:id="c0005600" n="1.1.43"> </c>
+<w xml:id="w0005610" n="1.1.43">that’s</w>
+<c xml:id="c0005620" n="1.1.43"> </c>
+<w xml:id="w0005630" n="1.1.43">westward</w>
+<c xml:id="c0005640" n="1.1.43"> </c>
+<w xml:id="w0005650" n="1.1.43">from</w>
+<c xml:id="c0005660" n="1.1.43"> </c>
+<w xml:id="w0005670" n="1.1.43">the</w>
+<c xml:id="c0005680" n="1.1.43"> </c>
+<w xml:id="w0005690" n="1.1.43">pole</w>
+<lb xml:id="lb-00430"/>
+<join type="line" xml:id="ftln-0044" n="1.1.44" ana="#verse" target="#w0005700 #c0005710 #w0005720 #c0005730 #w0005740 #c0005750 #w0005760 #c0005770 #w0005780 #c0005790 #w0005800 #c0005810 #w0005820 #c0005830 #w0005840 #c0005850 #w0005860 #c0005870 #w0005880"/>
+<w xml:id="w0005700" n="1.1.44">Had</w>
+<c xml:id="c0005710" n="1.1.44"> </c>
+<w xml:id="w0005720" n="1.1.44">made</w>
+<c xml:id="c0005730" n="1.1.44"> </c>
+<w xml:id="w0005740" n="1.1.44">his</w>
+<c xml:id="c0005750" n="1.1.44"> </c>
+<w xml:id="w0005760" n="1.1.44">course</w>
+<c xml:id="c0005770" n="1.1.44"> </c>
+<w xml:id="w0005780" n="1.1.44">t’</w>
+<c xml:id="c0005790" n="1.1.44"> </c>
+<w xml:id="w0005800" n="1.1.44">illume</w>
+<c xml:id="c0005810" n="1.1.44"> </c>
+<w xml:id="w0005820" n="1.1.44">that</w>
+<c xml:id="c0005830" n="1.1.44"> </c>
+<w xml:id="w0005840" n="1.1.44">part</w>
+<c xml:id="c0005850" n="1.1.44"> </c>
+<w xml:id="w0005860" n="1.1.44">of</w>
+<c xml:id="c0005870" n="1.1.44"> </c>
+<w xml:id="w0005880" n="1.1.44">heaven</w>
+<lb xml:id="lb-00440"/>
+<join type="line" xml:id="ftln-0045" n="1.1.45" ana="#verse" target="#w0005890 #c0005900 #w0005910 #c0005920 #w0005930 #c0005940 #w0005950 #p0005960 #c0005970 #w0005980 #c0005990 #w0006000 #c0006010 #w0006020 #p0006030"/>
+<w xml:id="w0005890" n="1.1.45">Where</w>
+<c xml:id="c0005900" n="1.1.45"> </c>
+<w xml:id="w0005910" n="1.1.45">now</w>
+<c xml:id="c0005920" n="1.1.45"> </c>
+<w xml:id="w0005930" n="1.1.45">it</w>
+<c xml:id="c0005940" n="1.1.45"> </c>
+<w xml:id="w0005950" n="1.1.45">burns</w>
+<pc xml:id="p0005960" n="1.1.45">,</pc>
+<c xml:id="c0005970" n="1.1.45"> </c>
+<w xml:id="w0005980" n="1.1.45">Marcellus</w>
+<c xml:id="c0005990" n="1.1.45"> </c>
+<w xml:id="w0006000" n="1.1.45">and</w>
+<c xml:id="c0006010" n="1.1.45"> </c>
+<w xml:id="w0006020" n="1.1.45">myself</w>
+<pc xml:id="p0006030" n="1.1.45">,</pc>
+<lb xml:id="lb-00450"/>
+<join type="line" xml:id="ftln-0046" n="1.1.46" ana="#verse" target="#w0006040 #c0006050 #w0006060 #c0006070 #w0006080 #c0006090 #w0006100 #c0006110 #w0006120 #p0006130"/>
+<w xml:id="w0006040" n="1.1.46">The</w>
+<c xml:id="c0006050" n="1.1.46"> </c>
+<w xml:id="w0006060" n="1.1.46">bell</w>
+<c xml:id="c0006070" n="1.1.46"> </c>
+<w xml:id="w0006080" n="1.1.46">then</w>
+<c xml:id="c0006090" n="1.1.46"> </c>
+<w xml:id="w0006100" n="1.1.46">beating</w>
+<c xml:id="c0006110" n="1.1.46"> </c>
+<w xml:id="w0006120" n="1.1.46">one</w>
+<pc xml:id="p0006130" n="1.1.46">—</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00460"/>
+<milestone xml:id="ms-009" n="9" unit="page"/>
+<pb xml:id="pb-011" n="11" spanTo="#ms-011"/>
+<fw xml:id="ph-011" type="header" n="11">ACT 1. SC. 1</fw>
+<stage xml:id="stg-0046.1" n="SD 1.1.46.1" type="entrance" ana="#GHOST-HAM">
+<w xml:id="w0006140" n="SD 1.1.46.1">Enter</w>
+<c xml:id="c0006150" n="SD 1.1.46.1"> </c>
+<w xml:id="w0006160" n="SD 1.1.46.1">Ghost</w>
+<pc xml:id="p0006170" n="SD 1.1.46.1">.</pc>
+</stage>
+<lb xml:id="lb-00461"/>
+<lb xml:id="lb-00462"/>
+<sp xml:id="sp-0047" who="#MARCELLUS">
+<speaker xml:id="spk-0047">
+<w xml:id="w0006180">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0047">
+<lb xml:id="lb-00463"/>
+<join type="line" xml:id="ftln-0047" n="1.1.47" ana="#verse" target="#w0006190 #p0006200 #c0006210 #w0006220 #c0006230 #w0006240 #c0006250 #w0006260 #p0006270 #c0006280 #w0006290 #c0006300 #w0006310 #c0006320 #w0006330 #c0006340 #w0006350 #c0006360 #w0006370 #p0006380"/>
+<w xml:id="w0006190" n="1.1.47">Peace</w>
+<pc xml:id="p0006200" n="1.1.47">,</pc>
+<c xml:id="c0006210" n="1.1.47"> </c>
+<w xml:id="w0006220" n="1.1.47">break</w>
+<c xml:id="c0006230" n="1.1.47"> </c>
+<w xml:id="w0006240" n="1.1.47">thee</w>
+<c xml:id="c0006250" n="1.1.47"> </c>
+<w xml:id="w0006260" n="1.1.47">off</w>
+<pc xml:id="p0006270" n="1.1.47">!</pc>
+<c xml:id="c0006280" n="1.1.47"> </c>
+<w xml:id="w0006290" n="1.1.47">Look</w>
+<c xml:id="c0006300" n="1.1.47"> </c>
+<w xml:id="w0006310" n="1.1.47">where</w>
+<c xml:id="c0006320" n="1.1.47"> </c>
+<w xml:id="w0006330" n="1.1.47">it</w>
+<c xml:id="c0006340" n="1.1.47"> </c>
+<w xml:id="w0006350" n="1.1.47">comes</w>
+<c xml:id="c0006360" n="1.1.47"> </c>
+<w xml:id="w0006370" n="1.1.47">again</w>
+<pc xml:id="p0006380" n="1.1.47">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00470"/>
+<sp xml:id="sp-0048" who="#BARNARDO">
+<speaker xml:id="spk-0048">
+<w xml:id="w0006390">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0048">
+<lb xml:id="lb-00471"/>
+<join type="line" xml:id="ftln-0048" n="1.1.48" ana="#verse" target="#w0006400 #c0006410 #w0006420 #c0006430 #w0006440 #c0006450 #w0006460 #c0006470 #w0006480 #c0006490 #w0006500 #c0006510 #w0006520 #c0006530 #w0006540 #c0006550 #w0006560 #p0006570"/>
+<w xml:id="w0006400" n="1.1.48">In</w>
+<c xml:id="c0006410" n="1.1.48"> </c>
+<w xml:id="w0006420" n="1.1.48">the</w>
+<c xml:id="c0006430" n="1.1.48"> </c>
+<w xml:id="w0006440" n="1.1.48">same</w>
+<c xml:id="c0006450" n="1.1.48"> </c>
+<w xml:id="w0006460" n="1.1.48">figure</w>
+<c xml:id="c0006470" n="1.1.48"> </c>
+<w xml:id="w0006480" n="1.1.48">like</w>
+<c xml:id="c0006490" n="1.1.48"> </c>
+<w xml:id="w0006500" n="1.1.48">the</w>
+<c xml:id="c0006510" n="1.1.48"> </c>
+<w xml:id="w0006520" n="1.1.48">King</w>
+<c xml:id="c0006530" n="1.1.48"> </c>
+<w xml:id="w0006540" n="1.1.48">that’s</w>
+<c xml:id="c0006550" n="1.1.48"> </c>
+<w xml:id="w0006560" n="1.1.48">dead</w>
+<pc xml:id="p0006570" n="1.1.48">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00480"/>
+<sp xml:id="sp-0049" who="#MARCELLUS">
+<speaker xml:id="spk-0049">
+<w xml:id="w0006580">MARCELLUS</w>
+</speaker>
+<stage xml:id="stg-0049.0" n="SD 1.1.49.0" type="delivery">
+<pc xml:id="p0006590" n="SD 1.1.49.0">,</pc>
+<c xml:id="c0006600" n="SD 1.1.49.0"> </c>
+<w xml:id="w0006610" n="SD 1.1.49.0">to</w>
+<c xml:id="c0006620" n="SD 1.1.49.0"> </c>
+<w xml:id="w0006630" n="SD 1.1.49.0">Horatio</w>
+</stage>
+<ab xml:id="ab-0049">
+<lb xml:id="lb-00481"/>
+<join type="line" xml:id="ftln-0049" n="1.1.49" ana="#verse" target="#w0006640 #c0006650 #w0006660 #c0006670 #w0006680 #c0006690 #w0006700 #p0006710 #c0006720 #w0006730 #c0006740 #w0006750 #c0006760 #w0006770 #p0006780 #c0006790 #w0006800 #p0006810"/>
+<w xml:id="w0006640" n="1.1.49">Thou</w>
+<c xml:id="c0006650" n="1.1.49"> </c>
+<w xml:id="w0006660" n="1.1.49">art</w>
+<c xml:id="c0006670" n="1.1.49"> </c>
+<w xml:id="w0006680" n="1.1.49">a</w>
+<c xml:id="c0006690" n="1.1.49"> </c>
+<w xml:id="w0006700" n="1.1.49">scholar</w>
+<pc xml:id="p0006710" n="1.1.49">.</pc>
+<c xml:id="c0006720" n="1.1.49"> </c>
+<w xml:id="w0006730" n="1.1.49">Speak</w>
+<c xml:id="c0006740" n="1.1.49"> </c>
+<w xml:id="w0006750" n="1.1.49">to</w>
+<c xml:id="c0006760" n="1.1.49"> </c>
+<w xml:id="w0006770" n="1.1.49">it</w>
+<pc xml:id="p0006780" n="1.1.49">,</pc>
+<c xml:id="c0006790" n="1.1.49"> </c>
+<w xml:id="w0006800" n="1.1.49">Horatio</w>
+<pc xml:id="p0006810" n="1.1.49">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00490"/>
+<sp xml:id="sp-0050" who="#BARNARDO">
+<speaker xml:id="spk-0050">
+<w xml:id="w0006820">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0050">
+<lb xml:id="lb-00491"/>
+<join type="line" xml:id="ftln-0050" n="1.1.50" ana="#verse" target="#w0006830 #c0006840 #w0006850 #c0006860 #w0006870 #c0006880 #w0006890 #c0006900 #w0006910 #c0006920 #w0006930 #p0006940 #c0006950 #w0006960 #c0006970 #w0006980 #p0006990 #c0007000 #w0007010 #p0007020"/>
+<w xml:id="w0006830" n="1.1.50">Looks</w>
+<c xml:id="c0006840" n="1.1.50"> </c>
+<w xml:id="w0006850" n="1.1.50">he</w>
+<c xml:id="c0006860" n="1.1.50"> </c>
+<w xml:id="w0006870" n="1.1.50">not</w>
+<c xml:id="c0006880" n="1.1.50"> </c>
+<w xml:id="w0006890" n="1.1.50">like</w>
+<c xml:id="c0006900" n="1.1.50"> </c>
+<w xml:id="w0006910" n="1.1.50">the</w>
+<c xml:id="c0006920" n="1.1.50"> </c>
+<w xml:id="w0006930" n="1.1.50">King</w>
+<pc xml:id="p0006940" n="1.1.50">?</pc>
+<c xml:id="c0006950" n="1.1.50"> </c>
+<w xml:id="w0006960" n="1.1.50">Mark</w>
+<c xml:id="c0006970" n="1.1.50"> </c>
+<w xml:id="w0006980" n="1.1.50">it</w>
+<pc xml:id="p0006990" n="1.1.50">,</pc>
+<c xml:id="c0007000" n="1.1.50"> </c>
+<w xml:id="w0007010" n="1.1.50">Horatio</w>
+<pc xml:id="p0007020" n="1.1.50">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00500"/>
+<sp xml:id="sp-0051" who="#HORATIO">
+<speaker xml:id="spk-0051">
+<w xml:id="w0007030">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0051">
+<lb xml:id="lb-00501"/>
+<join type="line" xml:id="ftln-0051" n="1.1.51" ana="#verse" target="#w0007040 #c0007050 #w0007060 #p0007070 #c0007080 #w0007090 #c0007100 #w0007110 #c0007120 #w0007130 #c0007140 #w0007150 #c0007160 #w0007170 #c0007180 #w0007190 #c0007200 #w0007210 #p0007220"/>
+<w xml:id="w0007040" n="1.1.51">Most</w>
+<c xml:id="c0007050" n="1.1.51"> </c>
+<w xml:id="w0007060" n="1.1.51">like</w>
+<pc xml:id="p0007070" n="1.1.51">.</pc>
+<c xml:id="c0007080" n="1.1.51"> </c>
+<w xml:id="w0007090" n="1.1.51">It</w>
+<c xml:id="c0007100" n="1.1.51"> </c>
+<w xml:id="w0007110" n="1.1.51">harrows</w>
+<c xml:id="c0007120" n="1.1.51"> </c>
+<w xml:id="w0007130" n="1.1.51">me</w>
+<c xml:id="c0007140" n="1.1.51"> </c>
+<w xml:id="w0007150" n="1.1.51">with</w>
+<c xml:id="c0007160" n="1.1.51"> </c>
+<w xml:id="w0007170" n="1.1.51">fear</w>
+<c xml:id="c0007180" n="1.1.51"> </c>
+<w xml:id="w0007190" n="1.1.51">and</w>
+<c xml:id="c0007200" n="1.1.51"> </c>
+<w xml:id="w0007210" n="1.1.51">wonder</w>
+<pc xml:id="p0007220" n="1.1.51">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00510"/>
+<sp xml:id="sp-0052" who="#BARNARDO">
+<speaker xml:id="spk-0052">
+<w xml:id="w0007230">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0052">
+<lb xml:id="lb-00511"/>
+<join type="line" xml:id="ftln-0052" n="1.1.52" ana="#verse" next="#ftln-0053" target="#w0007240 #c0007250 #w0007260 #c0007270 #w0007280 #c0007290 #w0007300 #c0007310 #w0007320 #p0007330"/>
+<w xml:id="w0007240" n="1.1.52">It</w>
+<c xml:id="c0007250" n="1.1.52"> </c>
+<w xml:id="w0007260" n="1.1.52">would</w>
+<c xml:id="c0007270" n="1.1.52"> </c>
+<w xml:id="w0007280" n="1.1.52">be</w>
+<c xml:id="c0007290" n="1.1.52"> </c>
+<w xml:id="w0007300" n="1.1.52">spoke</w>
+<c xml:id="c0007310" n="1.1.52"> </c>
+<w xml:id="w0007320" n="1.1.52">to</w>
+<pc xml:id="p0007330" n="1.1.52">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00520"/>
+<sp xml:id="sp-0053" who="#MARCELLUS">
+<speaker xml:id="spk-0053">
+<w xml:id="w0007340">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0053">
+<join type="line" xml:id="ftln-0053" n="1.1.53" ana="#verse" prev="#ftln-0052" target="#w0007350 #c0007360 #w0007370 #c0007380 #w0007390 #p0007400 #c0007410 #w0007420 #p0007430"/>
+<w xml:id="w0007350" n="1.1.53">Speak</w>
+<c xml:id="c0007360" n="1.1.53"> </c>
+<w xml:id="w0007370" n="1.1.53">to</w>
+<c xml:id="c0007380" n="1.1.53"> </c>
+<w xml:id="w0007390" n="1.1.53">it</w>
+<pc xml:id="p0007400" n="1.1.53">,</pc>
+<c xml:id="c0007410" n="1.1.53"> </c>
+<w xml:id="w0007420" n="1.1.53">Horatio</w>
+<pc xml:id="p0007430" n="1.1.53">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00530"/>
+<sp xml:id="sp-0054" who="#HORATIO">
+<speaker xml:id="spk-0054">
+<w xml:id="w0007440">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0054">
+<lb xml:id="lb-00531"/>
+<join type="line" xml:id="ftln-0054" n="1.1.54" ana="#verse" target="#w0007450 #c0007460 #w0007470 #c0007480 #w0007490 #c0007500 #w0007510 #c0007520 #w0007530 #c0007540 #w0007550 #c0007560 #w0007570 #c0007580 #w0007590 #c0007600 #w0007610 #p0007620"/>
+<w xml:id="w0007450" n="1.1.54">What</w>
+<c xml:id="c0007460" n="1.1.54"> </c>
+<w xml:id="w0007470" n="1.1.54">art</w>
+<c xml:id="c0007480" n="1.1.54"> </c>
+<w xml:id="w0007490" n="1.1.54">thou</w>
+<c xml:id="c0007500" n="1.1.54"> </c>
+<w xml:id="w0007510" n="1.1.54">that</w>
+<c xml:id="c0007520" n="1.1.54"> </c>
+<w xml:id="w0007530" n="1.1.54">usurp’st</w>
+<c xml:id="c0007540" n="1.1.54"> </c>
+<w xml:id="w0007550" n="1.1.54">this</w>
+<c xml:id="c0007560" n="1.1.54"> </c>
+<w xml:id="w0007570" n="1.1.54">time</w>
+<c xml:id="c0007580" n="1.1.54"> </c>
+<w xml:id="w0007590" n="1.1.54">of</w>
+<c xml:id="c0007600" n="1.1.54"> </c>
+<w xml:id="w0007610" n="1.1.54">night</w>
+<pc xml:id="p0007620" n="1.1.54">,</pc>
+<lb xml:id="lb-00540"/>
+<join type="line" xml:id="ftln-0055" n="1.1.55" ana="#verse" target="#w0007630 #c0007640 #w0007650 #c0007660 #w0007670 #c0007680 #w0007690 #c0007700 #w0007710 #c0007720 #w0007730 #c0007740 #w0007750"/>
+<w xml:id="w0007630" n="1.1.55">Together</w>
+<c xml:id="c0007640" n="1.1.55"> </c>
+<w xml:id="w0007650" n="1.1.55">with</w>
+<c xml:id="c0007660" n="1.1.55"> </c>
+<w xml:id="w0007670" n="1.1.55">that</w>
+<c xml:id="c0007680" n="1.1.55"> </c>
+<w xml:id="w0007690" n="1.1.55">fair</w>
+<c xml:id="c0007700" n="1.1.55"> </c>
+<w xml:id="w0007710" n="1.1.55">and</w>
+<c xml:id="c0007720" n="1.1.55"> </c>
+<w xml:id="w0007730" n="1.1.55">warlike</w>
+<c xml:id="c0007740" n="1.1.55"> </c>
+<w xml:id="w0007750" n="1.1.55">form</w>
+<lb xml:id="lb-00550"/>
+<join type="line" xml:id="ftln-0056" n="1.1.56" ana="#verse" target="#w0007760 #c0007770 #w0007780 #c0007790 #w0007800 #c0007810 #w0007820 #c0007830 #w0007840 #c0007850 #w0007860 #c0007870 #w0007880"/>
+<w xml:id="w0007760" n="1.1.56">In</w>
+<c xml:id="c0007770" n="1.1.56"> </c>
+<w xml:id="w0007780" n="1.1.56">which</w>
+<c xml:id="c0007790" n="1.1.56"> </c>
+<w xml:id="w0007800" n="1.1.56">the</w>
+<c xml:id="c0007810" n="1.1.56"> </c>
+<w xml:id="w0007820" n="1.1.56">majesty</w>
+<c xml:id="c0007830" n="1.1.56"> </c>
+<w xml:id="w0007840" n="1.1.56">of</w>
+<c xml:id="c0007850" n="1.1.56"> </c>
+<w xml:id="w0007860" n="1.1.56">buried</w>
+<c xml:id="c0007870" n="1.1.56"> </c>
+<w xml:id="w0007880" n="1.1.56">Denmark</w>
+<lb xml:id="lb-00560"/>
+<join type="line" xml:id="ftln-0057" n="1.1.57" ana="#verse" next="#ftln-0058" target="#w0007890 #c0007900 #w0007910 #c0007920 #w0007930 #p0007940 #c0007950 #w0007960 #c0007970 #w0007980 #p0007990 #c0008000 #w0008010 #c0008020 #w0008030 #c0008040 #w0008050 #p0008060"/>
+<w xml:id="w0007890" n="1.1.57">Did</w>
+<c xml:id="c0007900" n="1.1.57"> </c>
+<w xml:id="w0007910" n="1.1.57">sometimes</w>
+<c xml:id="c0007920" n="1.1.57"> </c>
+<w xml:id="w0007930" n="1.1.57">march</w>
+<pc xml:id="p0007940" n="1.1.57">?</pc>
+<c xml:id="c0007950" n="1.1.57"> </c>
+<w xml:id="w0007960" n="1.1.57">By</w>
+<c xml:id="c0007970" n="1.1.57"> </c>
+<w xml:id="w0007980" n="1.1.57">heaven</w>
+<pc xml:id="p0007990" n="1.1.57">,</pc>
+<c xml:id="c0008000" n="1.1.57"> </c>
+<w xml:id="w0008010" n="1.1.57">I</w>
+<c xml:id="c0008020" n="1.1.57"> </c>
+<w xml:id="w0008030" n="1.1.57">charge</w>
+<c xml:id="c0008040" n="1.1.57"> </c>
+<w xml:id="w0008050" n="1.1.57">thee</w>
+<pc xml:id="p0008060" n="1.1.57">,</pc>
+<lb xml:id="lb-00570"/>
+<join type="line" xml:id="ftln-0058" n="1.1.58" ana="#verse" prev="#ftln-0057" target="#w0008070 #p0008080"/>
+<w xml:id="w0008070" n="1.1.58">speak</w>
+<pc xml:id="p0008080" n="1.1.58">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00580"/>
+<sp xml:id="sp-0059" who="#MARCELLUS">
+<speaker xml:id="spk-0059">
+<w xml:id="w0008090">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0059">
+<lb xml:id="lb-00581"/>
+<join type="line" xml:id="ftln-0059" n="1.1.59" ana="#verse" next="#ftln-0060" target="#w0008100 #c0008110 #w0008120 #c0008130 #w0008140 #p0008150"/>
+<w xml:id="w0008100" n="1.1.59">It</w>
+<c xml:id="c0008110" n="1.1.59"> </c>
+<w xml:id="w0008120" n="1.1.59">is</w>
+<c xml:id="c0008130" n="1.1.59"> </c>
+<w xml:id="w0008140" n="1.1.59">offended</w>
+<pc xml:id="p0008150" n="1.1.59">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00590"/>
+<sp xml:id="sp-0060" who="#BARNARDO">
+<speaker xml:id="spk-0060">
+<w xml:id="w0008160">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0060">
+<join type="line" xml:id="ftln-0060" n="1.1.60" ana="#verse" prev="#ftln-0059" target="#w0008170 #p0008180 #c0008190 #w0008200 #c0008210 #w0008220 #c0008230 #w0008240 #p0008250"/>
+<w xml:id="w0008170" n="1.1.60">See</w>
+<pc xml:id="p0008180" n="1.1.60">,</pc>
+<c xml:id="c0008190" n="1.1.60"> </c>
+<w xml:id="w0008200" n="1.1.60">it</w>
+<c xml:id="c0008210" n="1.1.60"> </c>
+<w xml:id="w0008220" n="1.1.60">stalks</w>
+<c xml:id="c0008230" n="1.1.60"> </c>
+<w xml:id="w0008240" n="1.1.60">away</w>
+<pc xml:id="p0008250" n="1.1.60">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00600"/>
+<sp xml:id="sp-0061" who="#HORATIO">
+<speaker xml:id="spk-0061">
+<w xml:id="w0008260">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0061">
+<lb xml:id="lb-00601"/>
+<join type="line" xml:id="ftln-0061" n="1.1.61" ana="#short" target="#w0008270 #p0008280 #c0008290 #w0008300 #p0008310 #c0008320 #w0008330 #p0008340 #c0008350 #w0008360 #c0008370 #w0008380 #c0008390 #w0008400 #p0008410 #c0008420 #w0008430 #p0008440"/>
+<w xml:id="w0008270" n="1.1.61">Stay</w>
+<pc xml:id="p0008280" n="1.1.61">!</pc>
+<c xml:id="c0008290" n="1.1.61"> </c>
+<w xml:id="w0008300" n="1.1.61">speak</w>
+<pc xml:id="p0008310" n="1.1.61">!</pc>
+<c xml:id="c0008320" n="1.1.61"> </c>
+<w xml:id="w0008330" n="1.1.61">speak</w>
+<pc xml:id="p0008340" n="1.1.61">!</pc>
+<c xml:id="c0008350" n="1.1.61"> </c>
+<w xml:id="w0008360" n="1.1.61">I</w>
+<c xml:id="c0008370" n="1.1.61"> </c>
+<w xml:id="w0008380" n="1.1.61">charge</w>
+<c xml:id="c0008390" n="1.1.61"> </c>
+<w xml:id="w0008400" n="1.1.61">thee</w>
+<pc xml:id="p0008410" n="1.1.61">,</pc>
+<c xml:id="c0008420" n="1.1.61"> </c>
+<w xml:id="w0008430" n="1.1.61">speak</w>
+<pc xml:id="p0008440" n="1.1.61">!</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00610"/>
+<stage xml:id="stg-0061.1" n="SD 1.1.61.1" type="exit" ana="#GHOST-HAM">
+<w xml:id="w0008450" n="SD 1.1.61.1">Ghost</w>
+<c xml:id="c0008460" n="SD 1.1.61.1"> </c>
+<w xml:id="w0008470" n="SD 1.1.61.1">exits</w>
+<pc xml:id="p0008480" n="SD 1.1.61.1">.</pc>
+</stage>
+<lb xml:id="lb-00611"/>
+<sp xml:id="sp-0062" who="#MARCELLUS">
+<speaker xml:id="spk-0062">
+<w xml:id="w0008490">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0062">
+<join type="line" xml:id="ftln-0062" n="1.1.62" ana="#short" target="#w0008500 #c0008510 #w0008520 #c0008530 #w0008540 #c0008550 #w0008560 #c0008570 #w0008580 #c0008590 #w0008600 #p0008610"/>
+<w xml:id="w0008500" n="1.1.62">’Tis</w>
+<c xml:id="c0008510" n="1.1.62"> </c>
+<w xml:id="w0008520" n="1.1.62">gone</w>
+<c xml:id="c0008530" n="1.1.62"> </c>
+<w xml:id="w0008540" n="1.1.62">and</w>
+<c xml:id="c0008550" n="1.1.62"> </c>
+<w xml:id="w0008560" n="1.1.62">will</w>
+<c xml:id="c0008570" n="1.1.62"> </c>
+<w xml:id="w0008580" n="1.1.62">not</w>
+<c xml:id="c0008590" n="1.1.62"> </c>
+<w xml:id="w0008600" n="1.1.62">answer</w>
+<pc xml:id="p0008610" n="1.1.62">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00620"/>
+<sp xml:id="sp-0063" who="#BARNARDO">
+<speaker xml:id="spk-0063">
+<w xml:id="w0008620">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0063">
+<lb xml:id="lb-00621"/>
+<join type="line" xml:id="ftln-0063" n="1.1.63" ana="#verse" target="#w0008630 #c0008640 #w0008650 #p0008660 #c0008670 #w0008680 #p0008690 #c0008700 #w0008710 #c0008720 #w0008730 #c0008740 #w0008750 #c0008760 #w0008770 #c0008780 #w0008790 #p0008800"/>
+<w xml:id="w0008630" n="1.1.63">How</w>
+<c xml:id="c0008640" n="1.1.63"> </c>
+<w xml:id="w0008650" n="1.1.63">now</w>
+<pc xml:id="p0008660" n="1.1.63">,</pc>
+<c xml:id="c0008670" n="1.1.63"> </c>
+<w xml:id="w0008680" n="1.1.63">Horatio</w>
+<pc xml:id="p0008690" n="1.1.63">,</pc>
+<c xml:id="c0008700" n="1.1.63"> </c>
+<w xml:id="w0008710" n="1.1.63">you</w>
+<c xml:id="c0008720" n="1.1.63"> </c>
+<w xml:id="w0008730" n="1.1.63">tremble</w>
+<c xml:id="c0008740" n="1.1.63"> </c>
+<w xml:id="w0008750" n="1.1.63">and</w>
+<c xml:id="c0008760" n="1.1.63"> </c>
+<w xml:id="w0008770" n="1.1.63">look</w>
+<c xml:id="c0008780" n="1.1.63"> </c>
+<w xml:id="w0008790" n="1.1.63">pale</w>
+<pc xml:id="p0008800" n="1.1.63">.</pc>
+<lb xml:id="lb-00630"/>
+<join type="line" xml:id="ftln-0064" n="1.1.64" ana="#verse" target="#w0008810 #c0008820 #w0008830 #c0008840 #w0008850 #c0008860 #w0008870 #c0008880 #w0008890 #c0008900 #w0008910 #c0008920 #w0008930 #p0008940"/>
+<w xml:id="w0008810" n="1.1.64">Is</w>
+<c xml:id="c0008820" n="1.1.64"> </c>
+<w xml:id="w0008830" n="1.1.64">not</w>
+<c xml:id="c0008840" n="1.1.64"> </c>
+<w xml:id="w0008850" n="1.1.64">this</w>
+<c xml:id="c0008860" n="1.1.64"> </c>
+<w xml:id="w0008870" n="1.1.64">something</w>
+<c xml:id="c0008880" n="1.1.64"> </c>
+<w xml:id="w0008890" n="1.1.64">more</w>
+<c xml:id="c0008900" n="1.1.64"> </c>
+<w xml:id="w0008910" n="1.1.64">than</w>
+<c xml:id="c0008920" n="1.1.64"> </c>
+<w xml:id="w0008930" n="1.1.64">fantasy</w>
+<pc xml:id="p0008940" n="1.1.64">?</pc>
+<lb xml:id="lb-00640"/>
+<join type="line" xml:id="ftln-0065" n="1.1.65" ana="#short" target="#w0008950 #c0008960 #w0008970 #c0008980 #w0008990 #c0009000 #w0009010 #c0009020 #w0009030 #p0009040"/>
+<w xml:id="w0008950" n="1.1.65">What</w>
+<c xml:id="c0008960" n="1.1.65"> </c>
+<w xml:id="w0008970" n="1.1.65">think</w>
+<c xml:id="c0008980" n="1.1.65"> </c>
+<w xml:id="w0008990" n="1.1.65">you</w>
+<c xml:id="c0009000" n="1.1.65"> </c>
+<w xml:id="w0009010" n="1.1.65">on</w>
+<c xml:id="c0009020" n="1.1.65"> </c>
+<w xml:id="w0009030" n="1.1.65">’t</w>
+<pc xml:id="p0009040" n="1.1.65">?</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00650"/>
+<sp xml:id="sp-0066" who="#HORATIO">
+<speaker xml:id="spk-0066">
+<w xml:id="w0009050">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0066">
+<lb xml:id="lb-00651"/>
+<join type="line" xml:id="ftln-0066" n="1.1.66" ana="#verse" target="#w0009060 #c0009070 #w0009080 #c0009090 #w0009100 #p0009110 #c0009120 #w0009130 #c0009140 #w0009150 #c0009160 #w0009170 #c0009180 #w0009190 #c0009200 #w0009210"/>
+<w xml:id="w0009060" n="1.1.66">Before</w>
+<c xml:id="c0009070" n="1.1.66"> </c>
+<w xml:id="w0009080" n="1.1.66">my</w>
+<c xml:id="c0009090" n="1.1.66"> </c>
+<w xml:id="w0009100" n="1.1.66">God</w>
+<pc xml:id="p0009110" n="1.1.66">,</pc>
+<c xml:id="c0009120" n="1.1.66"> </c>
+<w xml:id="w0009130" n="1.1.66">I</w>
+<c xml:id="c0009140" n="1.1.66"> </c>
+<w xml:id="w0009150" n="1.1.66">might</w>
+<c xml:id="c0009160" n="1.1.66"> </c>
+<w xml:id="w0009170" n="1.1.66">not</w>
+<c xml:id="c0009180" n="1.1.66"> </c>
+<w xml:id="w0009190" n="1.1.66">this</w>
+<c xml:id="c0009200" n="1.1.66"> </c>
+<w xml:id="w0009210" n="1.1.66">believe</w>
+<lb xml:id="lb-00660"/>
+<join type="line" xml:id="ftln-0067" n="1.1.67" ana="#verse" target="#w0009220 #c0009230 #w0009240 #c0009250 #w0009260 #c0009270 #w0009280 #c0009290 #w0009300 #c0009310 #w0009320"/>
+<w xml:id="w0009220" n="1.1.67">Without</w>
+<c xml:id="c0009230" n="1.1.67"> </c>
+<w xml:id="w0009240" n="1.1.67">the</w>
+<c xml:id="c0009250" n="1.1.67"> </c>
+<w xml:id="w0009260" n="1.1.67">sensible</w>
+<c xml:id="c0009270" n="1.1.67"> </c>
+<w xml:id="w0009280" n="1.1.67">and</w>
+<c xml:id="c0009290" n="1.1.67"> </c>
+<w xml:id="w0009300" n="1.1.67">true</w>
+<c xml:id="c0009310" n="1.1.67"> </c>
+<w xml:id="w0009320" n="1.1.67">avouch</w>
+<lb xml:id="lb-00670"/>
+<join type="line" xml:id="ftln-0068" n="1.1.68" ana="#verse" next="#ftln-0069" target="#w0009330 #c0009340 #w0009350 #c0009360 #w0009370 #c0009380 #w0009390 #p0009400"/>
+<w xml:id="w0009330" n="1.1.68">Of</w>
+<c xml:id="c0009340" n="1.1.68"> </c>
+<w xml:id="w0009350" n="1.1.68">mine</w>
+<c xml:id="c0009360" n="1.1.68"> </c>
+<w xml:id="w0009370" n="1.1.68">own</w>
+<c xml:id="c0009380" n="1.1.68"> </c>
+<w xml:id="w0009390" n="1.1.68">eyes</w>
+<pc xml:id="p0009400" n="1.1.68">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00680"/>
+<milestone xml:id="ms-011" n="11" unit="page"/>
+<pb xml:id="pb-013" n="13" spanTo="#ms-013"/>
+<fw xml:id="ph-013" type="header" n="13">ACT 1. SC. 1</fw>
+<sp xml:id="sp-0069" who="#MARCELLUS">
+<speaker xml:id="spk-0069">
+<w xml:id="w0009410">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0069">
+<join type="line" xml:id="ftln-0069" n="1.1.69" ana="#verse" prev="#ftln-0068" target="#w0009420 #c0009430 #w0009440 #c0009450 #w0009460 #c0009470 #w0009480 #c0009490 #w0009500 #c0009510 #w0009520 #p0009530"/>
+<w xml:id="w0009420" n="1.1.69">Is</w>
+<c xml:id="c0009430" n="1.1.69"> </c>
+<w xml:id="w0009440" n="1.1.69">it</w>
+<c xml:id="c0009450" n="1.1.69"> </c>
+<w xml:id="w0009460" n="1.1.69">not</w>
+<c xml:id="c0009470" n="1.1.69"> </c>
+<w xml:id="w0009480" n="1.1.69">like</w>
+<c xml:id="c0009490" n="1.1.69"> </c>
+<w xml:id="w0009500" n="1.1.69">the</w>
+<c xml:id="c0009510" n="1.1.69"> </c>
+<w xml:id="w0009520" n="1.1.69">King</w>
+<pc xml:id="p0009530" n="1.1.69">?</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00690"/>
+<sp xml:id="sp-0070" who="#HORATIO">
+<speaker xml:id="spk-0070">
+<w xml:id="w0009540">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0070">
+<join type="line" xml:id="ftln-0070" n="1.1.70" ana="#short" target="#w0009550 #c0009560 #w0009570 #c0009580 #w0009590 #c0009600 #w0009610 #c0009620 #w0009630 #p0009640"/>
+<w xml:id="w0009550" n="1.1.70">As</w>
+<c xml:id="c0009560" n="1.1.70"> </c>
+<w xml:id="w0009570" n="1.1.70">thou</w>
+<c xml:id="c0009580" n="1.1.70"> </c>
+<w xml:id="w0009590" n="1.1.70">art</w>
+<c xml:id="c0009600" n="1.1.70"> </c>
+<w xml:id="w0009610" n="1.1.70">to</w>
+<c xml:id="c0009620" n="1.1.70"> </c>
+<w xml:id="w0009630" n="1.1.70">thyself</w>
+<pc xml:id="p0009640" n="1.1.70">.</pc>
+<lb xml:id="lb-00700"/>
+<join type="line" xml:id="ftln-0071" n="1.1.71" ana="#verse" target="#w0009650 #c0009660 #w0009670 #c0009680 #w0009690 #c0009700 #w0009710 #c0009720 #w0009730 #c0009740 #w0009750 #c0009760 #w0009770 #c0009780 #w0009790"/>
+<w xml:id="w0009650" n="1.1.71">Such</w>
+<c xml:id="c0009660" n="1.1.71"> </c>
+<w xml:id="w0009670" n="1.1.71">was</w>
+<c xml:id="c0009680" n="1.1.71"> </c>
+<w xml:id="w0009690" n="1.1.71">the</w>
+<c xml:id="c0009700" n="1.1.71"> </c>
+<w xml:id="w0009710" n="1.1.71">very</w>
+<c xml:id="c0009720" n="1.1.71"> </c>
+<w xml:id="w0009730" n="1.1.71">armor</w>
+<c xml:id="c0009740" n="1.1.71"> </c>
+<w xml:id="w0009750" n="1.1.71">he</w>
+<c xml:id="c0009760" n="1.1.71"> </c>
+<w xml:id="w0009770" n="1.1.71">had</w>
+<c xml:id="c0009780" n="1.1.71"> </c>
+<w xml:id="w0009790" n="1.1.71">on</w>
+<lb xml:id="lb-00710"/>
+<join type="line" xml:id="ftln-0072" n="1.1.72" ana="#verse" target="#w0009800 #c0009810 #w0009820 #c0009830 #w0009840 #c0009850 #w0009860 #c0009870 #w0009880 #c0009890 #w0009900 #p0009910"/>
+<w xml:id="w0009800" n="1.1.72">When</w>
+<c xml:id="c0009810" n="1.1.72"> </c>
+<w xml:id="w0009820" n="1.1.72">he</w>
+<c xml:id="c0009830" n="1.1.72"> </c>
+<w xml:id="w0009840" n="1.1.72">the</w>
+<c xml:id="c0009850" n="1.1.72"> </c>
+<w xml:id="w0009860" n="1.1.72">ambitious</w>
+<c xml:id="c0009870" n="1.1.72"> </c>
+<w xml:id="w0009880" n="1.1.72">Norway</w>
+<c xml:id="c0009890" n="1.1.72"> </c>
+<w xml:id="w0009900" n="1.1.72">combated</w>
+<pc xml:id="p0009910" n="1.1.72">.</pc>
+<lb xml:id="lb-00720"/>
+<join type="line" xml:id="ftln-0073" n="1.1.73" ana="#verse" target="#w0009920 #c0009930 #w0009940 #c0009950 #w0009960 #c0009970 #w0009980 #c0009990 #w0010000 #p0010010 #c0010020 #w0010030 #c0010040 #w0010050 #c0010060 #w0010070 #c0010080 #w0010090 #p0010100"/>
+<w xml:id="w0009920" n="1.1.73">So</w>
+<c xml:id="c0009930" n="1.1.73"> </c>
+<w xml:id="w0009940" n="1.1.73">frowned</w>
+<c xml:id="c0009950" n="1.1.73"> </c>
+<w xml:id="w0009960" n="1.1.73">he</w>
+<c xml:id="c0009970" n="1.1.73"> </c>
+<w xml:id="w0009980" n="1.1.73">once</w>
+<c xml:id="c0009990" n="1.1.73"> </c>
+<w xml:id="w0010000" n="1.1.73">when</w>
+<pc xml:id="p0010010" n="1.1.73">,</pc>
+<c xml:id="c0010020" n="1.1.73"> </c>
+<w xml:id="w0010030" n="1.1.73">in</w>
+<c xml:id="c0010040" n="1.1.73"> </c>
+<w xml:id="w0010050" n="1.1.73">an</w>
+<c xml:id="c0010060" n="1.1.73"> </c>
+<w xml:id="w0010070" n="1.1.73">angry</w>
+<c xml:id="c0010080" n="1.1.73"> </c>
+<w xml:id="w0010090" n="1.1.73">parle</w>
+<pc xml:id="p0010100" n="1.1.73">,</pc>
+<lb xml:id="lb-00730"/>
+<join type="line" xml:id="ftln-0074" n="1.1.74" ana="#verse" target="#w0010110 #c0010120 #w0010130 #c0010140 #w0010150 #c0010160 #w0010170 #c0010180 #w0010190 #c0010200 #w0010210 #c0010220 #w0010230 #c0010240 #w0010250 #p0010260"/>
+<w xml:id="w0010110" n="1.1.74">He</w>
+<c xml:id="c0010120" n="1.1.74"> </c>
+<w xml:id="w0010130" n="1.1.74">smote</w>
+<c xml:id="c0010140" n="1.1.74"> </c>
+<w xml:id="w0010150" n="1.1.74">the</w>
+<c xml:id="c0010160" n="1.1.74"> </c>
+<w xml:id="w0010170" n="1.1.74">sledded</w>
+<c xml:id="c0010180" n="1.1.74"> </c>
+<w xml:id="w0010190" n="1.1.74">Polacks</w>
+<c xml:id="c0010200" n="1.1.74"> </c>
+<w xml:id="w0010210" n="1.1.74">on</w>
+<c xml:id="c0010220" n="1.1.74"> </c>
+<w xml:id="w0010230" n="1.1.74">the</w>
+<c xml:id="c0010240" n="1.1.74"> </c>
+<w xml:id="w0010250" n="1.1.74">ice</w>
+<pc xml:id="p0010260" n="1.1.74">.</pc>
+<lb xml:id="lb-00740"/>
+<join type="line" xml:id="ftln-0075" n="1.1.75" ana="#short" target="#w0010270 #c0010280 #w0010290 #p0010300"/>
+<w xml:id="w0010270" n="1.1.75">’Tis</w>
+<c xml:id="c0010280" n="1.1.75"> </c>
+<w xml:id="w0010290" n="1.1.75">strange</w>
+<pc xml:id="p0010300" n="1.1.75">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00750"/>
+<sp xml:id="sp-0076" who="#MARCELLUS">
+<speaker xml:id="spk-0076">
+<w xml:id="w0010310">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0076">
+<lb xml:id="lb-00751"/>
+<join type="line" xml:id="ftln-0076" n="1.1.76" ana="#verse" target="#w0010320 #c0010330 #w0010340 #c0010350 #w0010360 #p0010370 #c0010380 #w0010390 #c0010400 #w0010410 #c0010420 #w0010430 #c0010440 #w0010450 #c0010460 #w0010470 #c0010480 #w0010490 #p0010500"/>
+<w xml:id="w0010320" n="1.1.76">Thus</w>
+<c xml:id="c0010330" n="1.1.76"> </c>
+<w xml:id="w0010340" n="1.1.76">twice</w>
+<c xml:id="c0010350" n="1.1.76"> </c>
+<w xml:id="w0010360" n="1.1.76">before</w>
+<pc xml:id="p0010370" n="1.1.76">,</pc>
+<c xml:id="c0010380" n="1.1.76"> </c>
+<w xml:id="w0010390" n="1.1.76">and</w>
+<c xml:id="c0010400" n="1.1.76"> </c>
+<w xml:id="w0010410" n="1.1.76">jump</w>
+<c xml:id="c0010420" n="1.1.76"> </c>
+<w xml:id="w0010430" n="1.1.76">at</w>
+<c xml:id="c0010440" n="1.1.76"> </c>
+<w xml:id="w0010450" n="1.1.76">this</w>
+<c xml:id="c0010460" n="1.1.76"> </c>
+<w xml:id="w0010470" n="1.1.76">dead</w>
+<c xml:id="c0010480" n="1.1.76"> </c>
+<w xml:id="w0010490" n="1.1.76">hour</w>
+<pc xml:id="p0010500" n="1.1.76">,</pc>
+<lb xml:id="lb-00760"/>
+<join type="line" xml:id="ftln-0077" n="1.1.77" ana="#verse" target="#w0010510 #c0010520 #w0010530 #c0010540 #w0010550 #c0010560 #w0010570 #c0010580 #w0010590 #c0010600 #w0010610 #c0010620 #w0010630 #c0010640 #w0010650 #c0010660 #w0010670 #p0010680"/>
+<w xml:id="w0010510" n="1.1.77">With</w>
+<c xml:id="c0010520" n="1.1.77"> </c>
+<w xml:id="w0010530" n="1.1.77">martial</w>
+<c xml:id="c0010540" n="1.1.77"> </c>
+<w xml:id="w0010550" n="1.1.77">stalk</w>
+<c xml:id="c0010560" n="1.1.77"> </c>
+<w xml:id="w0010570" n="1.1.77">hath</w>
+<c xml:id="c0010580" n="1.1.77"> </c>
+<w xml:id="w0010590" n="1.1.77">he</w>
+<c xml:id="c0010600" n="1.1.77"> </c>
+<w xml:id="w0010610" n="1.1.77">gone</w>
+<c xml:id="c0010620" n="1.1.77"> </c>
+<w xml:id="w0010630" n="1.1.77">by</w>
+<c xml:id="c0010640" n="1.1.77"> </c>
+<w xml:id="w0010650" n="1.1.77">our</w>
+<c xml:id="c0010660" n="1.1.77"> </c>
+<w xml:id="w0010670" n="1.1.77">watch</w>
+<pc xml:id="p0010680" n="1.1.77">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00770"/>
+<sp xml:id="sp-0078" who="#HORATIO">
+<speaker xml:id="spk-0078">
+<w xml:id="w0010690">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0078">
+<lb xml:id="lb-00771"/>
+<join type="line" xml:id="ftln-0078" n="1.1.78" ana="#verse" target="#w0010700 #c0010710 #w0010720 #c0010730 #w0010740 #c0010750 #w0010760 #c0010770 #w0010780 #c0010790 #w0010800 #c0010810 #w0010820 #c0010830 #w0010840 #c0010850 #w0010860 #p0010870"/>
+<w xml:id="w0010700" n="1.1.78">In</w>
+<c xml:id="c0010710" n="1.1.78"> </c>
+<w xml:id="w0010720" n="1.1.78">what</w>
+<c xml:id="c0010730" n="1.1.78"> </c>
+<w xml:id="w0010740" n="1.1.78">particular</w>
+<c xml:id="c0010750" n="1.1.78"> </c>
+<w xml:id="w0010760" n="1.1.78">thought</w>
+<c xml:id="c0010770" n="1.1.78"> </c>
+<w xml:id="w0010780" n="1.1.78">to</w>
+<c xml:id="c0010790" n="1.1.78"> </c>
+<w xml:id="w0010800" n="1.1.78">work</w>
+<c xml:id="c0010810" n="1.1.78"> </c>
+<w xml:id="w0010820" n="1.1.78">I</w>
+<c xml:id="c0010830" n="1.1.78"> </c>
+<w xml:id="w0010840" n="1.1.78">know</w>
+<c xml:id="c0010850" n="1.1.78"> </c>
+<w xml:id="w0010860" n="1.1.78">not</w>
+<pc xml:id="p0010870" n="1.1.78">,</pc>
+<lb xml:id="lb-00780"/>
+<join type="line" xml:id="ftln-0079" n="1.1.79" ana="#verse" target="#w0010880 #c0010890 #w0010900 #c0010910 #w0010920 #c0010930 #w0010940 #c0010950 #w0010960 #c0010970 #w0010980 #c0010990 #w0011000 #c0011010 #w0011020 #c0011030 #w0011040"/>
+<w xml:id="w0010880" n="1.1.79">But</w>
+<c xml:id="c0010890" n="1.1.79"> </c>
+<w xml:id="w0010900" n="1.1.79">in</w>
+<c xml:id="c0010910" n="1.1.79"> </c>
+<w xml:id="w0010920" n="1.1.79">the</w>
+<c xml:id="c0010930" n="1.1.79"> </c>
+<w xml:id="w0010940" n="1.1.79">gross</w>
+<c xml:id="c0010950" n="1.1.79"> </c>
+<w xml:id="w0010960" n="1.1.79">and</w>
+<c xml:id="c0010970" n="1.1.79"> </c>
+<w xml:id="w0010980" n="1.1.79">scope</w>
+<c xml:id="c0010990" n="1.1.79"> </c>
+<w xml:id="w0011000" n="1.1.79">of</w>
+<c xml:id="c0011010" n="1.1.79"> </c>
+<w xml:id="w0011020" n="1.1.79">mine</w>
+<c xml:id="c0011030" n="1.1.79"> </c>
+<w xml:id="w0011040" n="1.1.79">opinion</w>
+<lb xml:id="lb-00790"/>
+<join type="line" xml:id="ftln-0080" n="1.1.80" ana="#verse" target="#w0011050 #c0011060 #w0011070 #c0011080 #w0011090 #c0011100 #w0011110 #c0011120 #w0011130 #c0011140 #w0011150 #c0011160 #w0011170 #c0011180 #w0011190 #p0011200"/>
+<w xml:id="w0011050" n="1.1.80">This</w>
+<c xml:id="c0011060" n="1.1.80"> </c>
+<w xml:id="w0011070" n="1.1.80">bodes</w>
+<c xml:id="c0011080" n="1.1.80"> </c>
+<w xml:id="w0011090" n="1.1.80">some</w>
+<c xml:id="c0011100" n="1.1.80"> </c>
+<w xml:id="w0011110" n="1.1.80">strange</w>
+<c xml:id="c0011120" n="1.1.80"> </c>
+<w xml:id="w0011130" n="1.1.80">eruption</w>
+<c xml:id="c0011140" n="1.1.80"> </c>
+<w xml:id="w0011150" n="1.1.80">to</w>
+<c xml:id="c0011160" n="1.1.80"> </c>
+<w xml:id="w0011170" n="1.1.80">our</w>
+<c xml:id="c0011180" n="1.1.80"> </c>
+<w xml:id="w0011190" n="1.1.80">state</w>
+<pc xml:id="p0011200" n="1.1.80">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00800"/>
+<sp xml:id="sp-0081" who="#MARCELLUS">
+<speaker xml:id="spk-0081">
+<w xml:id="w0011210">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0081">
+<lb xml:id="lb-00801"/>
+<join type="line" xml:id="ftln-0081" n="1.1.81" ana="#verse" target="#w0011220 #c0011230 #w0011240 #p0011250 #c0011260 #w0011270 #c0011280 #w0011290 #p0011300 #c0011310 #w0011320 #c0011330 #w0011340 #c0011350 #w0011360 #p0011370 #c0011380 #w0011390 #c0011400 #w0011410 #c0011420 #w0011430 #p0011440"/>
+<w xml:id="w0011220" n="1.1.81">Good</w>
+<c xml:id="c0011230" n="1.1.81"> </c>
+<w xml:id="w0011240" n="1.1.81">now</w>
+<pc xml:id="p0011250" n="1.1.81">,</pc>
+<c xml:id="c0011260" n="1.1.81"> </c>
+<w xml:id="w0011270" n="1.1.81">sit</w>
+<c xml:id="c0011280" n="1.1.81"> </c>
+<w xml:id="w0011290" n="1.1.81">down</w>
+<pc xml:id="p0011300" n="1.1.81">,</pc>
+<c xml:id="c0011310" n="1.1.81"> </c>
+<w xml:id="w0011320" n="1.1.81">and</w>
+<c xml:id="c0011330" n="1.1.81"> </c>
+<w xml:id="w0011340" n="1.1.81">tell</w>
+<c xml:id="c0011350" n="1.1.81"> </c>
+<w xml:id="w0011360" n="1.1.81">me</w>
+<pc xml:id="p0011370" n="1.1.81">,</pc>
+<c xml:id="c0011380" n="1.1.81"> </c>
+<w xml:id="w0011390" n="1.1.81">he</w>
+<c xml:id="c0011400" n="1.1.81"> </c>
+<w xml:id="w0011410" n="1.1.81">that</w>
+<c xml:id="c0011420" n="1.1.81"> </c>
+<w xml:id="w0011430" n="1.1.81">knows</w>
+<pc xml:id="p0011440" n="1.1.81">,</pc>
+<lb xml:id="lb-00810"/>
+<join type="line" xml:id="ftln-0082" n="1.1.82" ana="#verse" target="#w0011450 #c0011460 #w0011470 #c0011480 #w0011490 #c0011500 #w0011510 #c0011520 #w0011530 #c0011540 #w0011550 #c0011560 #w0011570 #c0011580 #w0011590"/>
+<w xml:id="w0011450" n="1.1.82">Why</w>
+<c xml:id="c0011460" n="1.1.82"> </c>
+<w xml:id="w0011470" n="1.1.82">this</w>
+<c xml:id="c0011480" n="1.1.82"> </c>
+<w xml:id="w0011490" n="1.1.82">same</w>
+<c xml:id="c0011500" n="1.1.82"> </c>
+<w xml:id="w0011510" n="1.1.82">strict</w>
+<c xml:id="c0011520" n="1.1.82"> </c>
+<w xml:id="w0011530" n="1.1.82">and</w>
+<c xml:id="c0011540" n="1.1.82"> </c>
+<w xml:id="w0011550" n="1.1.82">most</w>
+<c xml:id="c0011560" n="1.1.82"> </c>
+<w xml:id="w0011570" n="1.1.82">observant</w>
+<c xml:id="c0011580" n="1.1.82"> </c>
+<w xml:id="w0011590" n="1.1.82">watch</w>
+<lb xml:id="lb-00820"/>
+<join type="line" xml:id="ftln-0083" n="1.1.83" ana="#verse" target="#w0011600 #c0011610 #w0011620 #c0011630 #w0011640 #c0011650 #w0011660 #c0011670 #w0011680 #c0011690 #w0011700 #c0011710 #w0011720 #c0011730 #w0011740 #p0011750"/>
+<w xml:id="w0011600" n="1.1.83">So</w>
+<c xml:id="c0011610" n="1.1.83"> </c>
+<w xml:id="w0011620" n="1.1.83">nightly</w>
+<c xml:id="c0011630" n="1.1.83"> </c>
+<w xml:id="w0011640" n="1.1.83">toils</w>
+<c xml:id="c0011650" n="1.1.83"> </c>
+<w xml:id="w0011660" n="1.1.83">the</w>
+<c xml:id="c0011670" n="1.1.83"> </c>
+<w xml:id="w0011680" n="1.1.83">subject</w>
+<c xml:id="c0011690" n="1.1.83"> </c>
+<w xml:id="w0011700" n="1.1.83">of</w>
+<c xml:id="c0011710" n="1.1.83"> </c>
+<w xml:id="w0011720" n="1.1.83">the</w>
+<c xml:id="c0011730" n="1.1.83"> </c>
+<w xml:id="w0011740" n="1.1.83">land</w>
+<pc xml:id="p0011750" n="1.1.83">,</pc>
+<lb xml:id="lb-00830"/>
+<join type="line" xml:id="ftln-0084" n="1.1.84" ana="#verse" target="#w0011760 #c0011770 #w0011780 #c0011790 #w0011800 #c0011810 #w0011820 #c0011830 #w0011840 #c0011850 #w0011860 #c0011870 #w0011880 #c0011890 #w0011900"/>
+<w xml:id="w0011760" n="1.1.84">And</w>
+<c xml:id="c0011770" n="1.1.84"> </c>
+<w xml:id="w0011780" n="1.1.84">why</w>
+<c xml:id="c0011790" n="1.1.84"> </c>
+<w xml:id="w0011800" n="1.1.84">such</w>
+<c xml:id="c0011810" n="1.1.84"> </c>
+<w xml:id="w0011820" n="1.1.84">daily</w>
+<c xml:id="c0011830" n="1.1.84"> </c>
+<w xml:id="w0011840" n="1.1.84">cast</w>
+<c xml:id="c0011850" n="1.1.84"> </c>
+<w xml:id="w0011860" n="1.1.84">of</w>
+<c xml:id="c0011870" n="1.1.84"> </c>
+<w xml:id="w0011880" n="1.1.84">brazen</w>
+<c xml:id="c0011890" n="1.1.84"> </c>
+<w xml:id="w0011900" n="1.1.84">cannon</w>
+<lb xml:id="lb-00840"/>
+<join type="line" xml:id="ftln-0085" n="1.1.85" ana="#verse" target="#w0011910 #c0011920 #w0011930 #c0011940 #w0011950 #c0011960 #w0011970 #c0011980 #w0011990 #c0012000 #w0012010 #c0012020 #w0012030 #p0012040"/>
+<w xml:id="w0011910" n="1.1.85">And</w>
+<c xml:id="c0011920" n="1.1.85"> </c>
+<w xml:id="w0011930" n="1.1.85">foreign</w>
+<c xml:id="c0011940" n="1.1.85"> </c>
+<w xml:id="w0011950" n="1.1.85">mart</w>
+<c xml:id="c0011960" n="1.1.85"> </c>
+<w xml:id="w0011970" n="1.1.85">for</w>
+<c xml:id="c0011980" n="1.1.85"> </c>
+<w xml:id="w0011990" n="1.1.85">implements</w>
+<c xml:id="c0012000" n="1.1.85"> </c>
+<w xml:id="w0012010" n="1.1.85">of</w>
+<c xml:id="c0012020" n="1.1.85"> </c>
+<w xml:id="w0012030" n="1.1.85">war</w>
+<pc xml:id="p0012040" n="1.1.85">,</pc>
+<lb xml:id="lb-00850"/>
+<join type="line" xml:id="ftln-0086" n="1.1.86" ana="#verse" target="#w0012050 #c0012060 #w0012070 #c0012080 #w0012090 #c0012100 #w0012110 #c0012120 #w0012130 #p0012140 #c0012150 #w0012160 #c0012170 #w0012180 #c0012190 #w0012200"/>
+<w xml:id="w0012050" n="1.1.86">Why</w>
+<c xml:id="c0012060" n="1.1.86"> </c>
+<w xml:id="w0012070" n="1.1.86">such</w>
+<c xml:id="c0012080" n="1.1.86"> </c>
+<w xml:id="w0012090" n="1.1.86">impress</w>
+<c xml:id="c0012100" n="1.1.86"> </c>
+<w xml:id="w0012110" n="1.1.86">of</w>
+<c xml:id="c0012120" n="1.1.86"> </c>
+<w xml:id="w0012130" n="1.1.86">shipwrights</w>
+<pc xml:id="p0012140" n="1.1.86">,</pc>
+<c xml:id="c0012150" n="1.1.86"> </c>
+<w xml:id="w0012160" n="1.1.86">whose</w>
+<c xml:id="c0012170" n="1.1.86"> </c>
+<w xml:id="w0012180" n="1.1.86">sore</w>
+<c xml:id="c0012190" n="1.1.86"> </c>
+<w xml:id="w0012200" n="1.1.86">task</w>
+<lb xml:id="lb-00860"/>
+<join type="line" xml:id="ftln-0087" n="1.1.87" ana="#verse" target="#w0012210 #c0012220 #w0012230 #c0012240 #w0012250 #c0012260 #w0012270 #c0012280 #w0012290 #c0012300 #w0012310 #c0012320 #w0012330 #c0012340 #w0012350 #p0012360"/>
+<w xml:id="w0012210" n="1.1.87">Does</w>
+<c xml:id="c0012220" n="1.1.87"> </c>
+<w xml:id="w0012230" n="1.1.87">not</w>
+<c xml:id="c0012240" n="1.1.87"> </c>
+<w xml:id="w0012250" n="1.1.87">divide</w>
+<c xml:id="c0012260" n="1.1.87"> </c>
+<w xml:id="w0012270" n="1.1.87">the</w>
+<c xml:id="c0012280" n="1.1.87"> </c>
+<w xml:id="w0012290" n="1.1.87">Sunday</w>
+<c xml:id="c0012300" n="1.1.87"> </c>
+<w xml:id="w0012310" n="1.1.87">from</w>
+<c xml:id="c0012320" n="1.1.87"> </c>
+<w xml:id="w0012330" n="1.1.87">the</w>
+<c xml:id="c0012340" n="1.1.87"> </c>
+<w xml:id="w0012350" n="1.1.87">week</w>
+<pc xml:id="p0012360" n="1.1.87">.</pc>
+<lb xml:id="lb-00870"/>
+<join type="line" xml:id="ftln-0088" n="1.1.88" ana="#verse" target="#w0012370 #c0012380 #w0012390 #c0012400 #w0012410 #c0012420 #w0012430 #c0012440 #w0012450 #c0012460 #w0012470 #c0012480 #w0012490 #c0012500 #w0012510"/>
+<w xml:id="w0012370" n="1.1.88">What</w>
+<c xml:id="c0012380" n="1.1.88"> </c>
+<w xml:id="w0012390" n="1.1.88">might</w>
+<c xml:id="c0012400" n="1.1.88"> </c>
+<w xml:id="w0012410" n="1.1.88">be</w>
+<c xml:id="c0012420" n="1.1.88"> </c>
+<w xml:id="w0012430" n="1.1.88">toward</w>
+<c xml:id="c0012440" n="1.1.88"> </c>
+<w xml:id="w0012450" n="1.1.88">that</w>
+<c xml:id="c0012460" n="1.1.88"> </c>
+<w xml:id="w0012470" n="1.1.88">this</w>
+<c xml:id="c0012480" n="1.1.88"> </c>
+<w xml:id="w0012490" n="1.1.88">sweaty</w>
+<c xml:id="c0012500" n="1.1.88"> </c>
+<w xml:id="w0012510" n="1.1.88">haste</w>
+<lb xml:id="lb-00880"/>
+<join type="line" xml:id="ftln-0089" n="1.1.89" ana="#verse" target="#w0012520 #c0012530 #w0012540 #c0012550 #w0012560 #c0012570 #w0012580 #c0012590 #w0012600 #c0012610 #w0012620 #c0012630 #w0012640 #c0012650 #w0012660 #c0012670 #w0012680 #p0012690"/>
+<w xml:id="w0012520" n="1.1.89">Doth</w>
+<c xml:id="c0012530" n="1.1.89"> </c>
+<w xml:id="w0012540" n="1.1.89">make</w>
+<c xml:id="c0012550" n="1.1.89"> </c>
+<w xml:id="w0012560" n="1.1.89">the</w>
+<c xml:id="c0012570" n="1.1.89"> </c>
+<w xml:id="w0012580" n="1.1.89">night</w>
+<c xml:id="c0012590" n="1.1.89"> </c>
+<w xml:id="w0012600" n="1.1.89">joint</w>
+<c xml:id="c0012610" n="1.1.89"> </c>
+<w xml:id="w0012620" n="1.1.89">laborer</w>
+<c xml:id="c0012630" n="1.1.89"> </c>
+<w xml:id="w0012640" n="1.1.89">with</w>
+<c xml:id="c0012650" n="1.1.89"> </c>
+<w xml:id="w0012660" n="1.1.89">the</w>
+<c xml:id="c0012670" n="1.1.89"> </c>
+<w xml:id="w0012680" n="1.1.89">day</w>
+<pc xml:id="p0012690" n="1.1.89">?</pc>
+<lb xml:id="lb-00890"/>
+<join type="line" xml:id="ftln-0090" n="1.1.90" ana="#verse" next="#ftln-0091" target="#w0012700 #c0012710 #w0012720 #c0012730 #w0012740 #c0012750 #w0012760 #c0012770 #w0012780 #c0012790 #w0012800 #c0012810 #w0012820 #p0012830"/>
+<w xml:id="w0012700" n="1.1.90">Who</w>
+<c xml:id="c0012710" n="1.1.90"> </c>
+<w xml:id="w0012720" n="1.1.90">is</w>
+<c xml:id="c0012730" n="1.1.90"> </c>
+<w xml:id="w0012740" n="1.1.90">’t</w>
+<c xml:id="c0012750" n="1.1.90"> </c>
+<w xml:id="w0012760" n="1.1.90">that</w>
+<c xml:id="c0012770" n="1.1.90"> </c>
+<w xml:id="w0012780" n="1.1.90">can</w>
+<c xml:id="c0012790" n="1.1.90"> </c>
+<w xml:id="w0012800" n="1.1.90">inform</w>
+<c xml:id="c0012810" n="1.1.90"> </c>
+<w xml:id="w0012820" n="1.1.90">me</w>
+<pc xml:id="p0012830" n="1.1.90">?</pc>
+</ab>
+</sp>
+<lb xml:id="lb-00900"/>
+<sp xml:id="sp-0091" who="#HORATIO">
+<speaker xml:id="spk-0091">
+<w xml:id="w0012840">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0091">
+<join type="line" xml:id="ftln-0091" n="1.1.91" ana="#verse" prev="#ftln-0090" target="#w0012850 #c0012860 #w0012870 #c0012880 #w0012890 #p0012900"/>
+<w xml:id="w0012850" n="1.1.91">That</w>
+<c xml:id="c0012860" n="1.1.91"> </c>
+<w xml:id="w0012870" n="1.1.91">can</w>
+<c xml:id="c0012880" n="1.1.91"> </c>
+<w xml:id="w0012890" n="1.1.91">I</w>
+<pc xml:id="p0012900" n="1.1.91">.</pc>
+<lb xml:id="lb-00910"/>
+<join type="line" xml:id="ftln-0092" n="1.1.92" ana="#verse" target="#w0012910 #c0012920 #w0012930 #c0012940 #w0012950 #c0012960 #w0012970 #c0012980 #w0012990 #c0013000 #w0013010 #p0013020 #c0013030 #w0013040 #c0013050 #w0013060 #c0013070 #w0013080 #p0013090"/>
+<w xml:id="w0012910" n="1.1.92">At</w>
+<c xml:id="c0012920" n="1.1.92"> </c>
+<w xml:id="w0012930" n="1.1.92">least</w>
+<c xml:id="c0012940" n="1.1.92"> </c>
+<w xml:id="w0012950" n="1.1.92">the</w>
+<c xml:id="c0012960" n="1.1.92"> </c>
+<w xml:id="w0012970" n="1.1.92">whisper</w>
+<c xml:id="c0012980" n="1.1.92"> </c>
+<w xml:id="w0012990" n="1.1.92">goes</w>
+<c xml:id="c0013000" n="1.1.92"> </c>
+<w xml:id="w0013010" n="1.1.92">so</w>
+<pc xml:id="p0013020" n="1.1.92">:</pc>
+<c xml:id="c0013030" n="1.1.92"> </c>
+<w xml:id="w0013040" n="1.1.92">our</w>
+<c xml:id="c0013050" n="1.1.92"> </c>
+<w xml:id="w0013060" n="1.1.92">last</w>
+<c xml:id="c0013070" n="1.1.92"> </c>
+<w xml:id="w0013080" n="1.1.92">king</w>
+<pc xml:id="p0013090" n="1.1.92">,</pc>
+<lb xml:id="lb-00920"/>
+<join type="line" xml:id="ftln-0093" n="1.1.93" ana="#verse" target="#w0013100 #c0013110 #w0013120 #c0013130 #w0013140 #c0013150 #w0013160 #c0013170 #w0013180 #c0013190 #w0013200 #c0013210 #w0013220 #c0013230 #w0013240 #p0013250"/>
+<w xml:id="w0013100" n="1.1.93">Whose</w>
+<c xml:id="c0013110" n="1.1.93"> </c>
+<w xml:id="w0013120" n="1.1.93">image</w>
+<c xml:id="c0013130" n="1.1.93"> </c>
+<w xml:id="w0013140" n="1.1.93">even</w>
+<c xml:id="c0013150" n="1.1.93"> </c>
+<w xml:id="w0013160" n="1.1.93">but</w>
+<c xml:id="c0013170" n="1.1.93"> </c>
+<w xml:id="w0013180" n="1.1.93">now</w>
+<c xml:id="c0013190" n="1.1.93"> </c>
+<w xml:id="w0013200" n="1.1.93">appeared</w>
+<c xml:id="c0013210" n="1.1.93"> </c>
+<w xml:id="w0013220" n="1.1.93">to</w>
+<c xml:id="c0013230" n="1.1.93"> </c>
+<w xml:id="w0013240" n="1.1.93">us</w>
+<pc xml:id="p0013250" n="1.1.93">,</pc>
+<lb xml:id="lb-00930"/>
+<join type="line" xml:id="ftln-0094" n="1.1.94" ana="#verse" target="#w0013260 #p0013270 #c0013280 #w0013290 #c0013300 #w0013310 #c0013320 #w0013330 #p0013340 #c0013350 #w0013360 #c0013370 #w0013380 #c0013390 #w0013400 #c0013410 #w0013420 #p0013430"/>
+<w xml:id="w0013260" n="1.1.94">Was</w>
+<pc xml:id="p0013270" n="1.1.94">,</pc>
+<c xml:id="c0013280" n="1.1.94"> </c>
+<w xml:id="w0013290" n="1.1.94">as</w>
+<c xml:id="c0013300" n="1.1.94"> </c>
+<w xml:id="w0013310" n="1.1.94">you</w>
+<c xml:id="c0013320" n="1.1.94"> </c>
+<w xml:id="w0013330" n="1.1.94">know</w>
+<pc xml:id="p0013340" n="1.1.94">,</pc>
+<c xml:id="c0013350" n="1.1.94"> </c>
+<w xml:id="w0013360" n="1.1.94">by</w>
+<c xml:id="c0013370" n="1.1.94"> </c>
+<w xml:id="w0013380" n="1.1.94">Fortinbras</w>
+<c xml:id="c0013390" n="1.1.94"> </c>
+<w xml:id="w0013400" n="1.1.94">of</w>
+<c xml:id="c0013410" n="1.1.94"> </c>
+<w xml:id="w0013420" n="1.1.94">Norway</w>
+<pc xml:id="p0013430" n="1.1.94">,</pc>
+<lb xml:id="lb-00940"/>
+<join type="line" xml:id="ftln-0095" n="1.1.95" ana="#verse" target="#w0013440 #c0013450 #w0013460 #c0013470 #w0013480 #c0013490 #w0013500 #c0013510 #w0013520 #c0013530 #w0013540 #c0013550 #w0013560 #c0013570 #w0013580 #p0013590"/>
+<w xml:id="w0013440" n="1.1.95">Thereto</w>
+<c xml:id="c0013450" n="1.1.95"> </c>
+<w xml:id="w0013460" n="1.1.95">pricked</w>
+<c xml:id="c0013470" n="1.1.95"> </c>
+<w xml:id="w0013480" n="1.1.95">on</w>
+<c xml:id="c0013490" n="1.1.95"> </c>
+<w xml:id="w0013500" n="1.1.95">by</w>
+<c xml:id="c0013510" n="1.1.95"> </c>
+<w xml:id="w0013520" n="1.1.95">a</w>
+<c xml:id="c0013530" n="1.1.95"> </c>
+<w xml:id="w0013540" n="1.1.95">most</w>
+<c xml:id="c0013550" n="1.1.95"> </c>
+<w xml:id="w0013560" n="1.1.95">emulate</w>
+<c xml:id="c0013570" n="1.1.95"> </c>
+<w xml:id="w0013580" n="1.1.95">pride</w>
+<pc xml:id="p0013590" n="1.1.95">,</pc>
+<lb xml:id="lb-00950"/>
+<join type="line" xml:id="ftln-0096" n="1.1.96" ana="#verse" target="#w0013600 #c0013610 #w0013620 #c0013630 #w0013640 #c0013650 #w0013660 #p0013670 #c0013680 #w0013690 #c0013700 #w0013710 #c0013720 #w0013730 #c0013740 #w0013750 #c0013760 #w0013770"/>
+<w xml:id="w0013600" n="1.1.96">Dared</w>
+<c xml:id="c0013610" n="1.1.96"> </c>
+<w xml:id="w0013620" n="1.1.96">to</w>
+<c xml:id="c0013630" n="1.1.96"> </c>
+<w xml:id="w0013640" n="1.1.96">the</w>
+<c xml:id="c0013650" n="1.1.96"> </c>
+<w xml:id="w0013660" n="1.1.96">combat</w>
+<pc xml:id="p0013670" n="1.1.96">;</pc>
+<c xml:id="c0013680" n="1.1.96"> </c>
+<w xml:id="w0013690" n="1.1.96">in</w>
+<c xml:id="c0013700" n="1.1.96"> </c>
+<w xml:id="w0013710" n="1.1.96">which</w>
+<c xml:id="c0013720" n="1.1.96"> </c>
+<w xml:id="w0013730" n="1.1.96">our</w>
+<c xml:id="c0013740" n="1.1.96"> </c>
+<w xml:id="w0013750" n="1.1.96">valiant</w>
+<c xml:id="c0013760" n="1.1.96"> </c>
+<w xml:id="w0013770" n="1.1.96">Hamlet</w>
+<lb xml:id="lb-00960"/>
+<join type="line" xml:id="ftln-0097" n="1.1.97" ana="#verse" target="#p0013780 #w0013790 #c0013800 #w0013810 #c0013820 #w0013830 #c0013840 #w0013850 #c0013860 #w0013870 #c0013880 #w0013890 #c0013900 #w0013910 #c0013920 #w0013930 #c0013940 #w0013950 #c0013960 #w0013970 #p0013980"/>
+<pc xml:id="p0013780" n="1.1.97">(</pc>
+<w xml:id="w0013790" n="1.1.97">For</w>
+<c xml:id="c0013800" n="1.1.97"> </c>
+<w xml:id="w0013810" n="1.1.97">so</w>
+<c xml:id="c0013820" n="1.1.97"> </c>
+<w xml:id="w0013830" n="1.1.97">this</w>
+<c xml:id="c0013840" n="1.1.97"> </c>
+<w xml:id="w0013850" n="1.1.97">side</w>
+<c xml:id="c0013860" n="1.1.97"> </c>
+<w xml:id="w0013870" n="1.1.97">of</w>
+<c xml:id="c0013880" n="1.1.97"> </c>
+<w xml:id="w0013890" n="1.1.97">our</w>
+<c xml:id="c0013900" n="1.1.97"> </c>
+<w xml:id="w0013910" n="1.1.97">known</w>
+<c xml:id="c0013920" n="1.1.97"> </c>
+<w xml:id="w0013930" n="1.1.97">world</w>
+<c xml:id="c0013940" n="1.1.97"> </c>
+<w xml:id="w0013950" n="1.1.97">esteemed</w>
+<c xml:id="c0013960" n="1.1.97"> </c>
+<w xml:id="w0013970" n="1.1.97">him</w>
+<pc xml:id="p0013980" n="1.1.97">)</pc>
+<lb xml:id="lb-00970"/>
+<join type="line" xml:id="ftln-0098" n="1.1.98" ana="#verse" target="#w0013990 #c0014000 #w0014010 #c0014020 #w0014030 #c0014040 #w0014050 #p0014060 #c0014070 #w0014080 #c0014090 #w0014100 #c0014110 #w0014120 #c0014130 #w0014140 #c0014150 #w0014160 #p0014170"/>
+<w xml:id="w0013990" n="1.1.98">Did</w>
+<c xml:id="c0014000" n="1.1.98"> </c>
+<w xml:id="w0014010" n="1.1.98">slay</w>
+<c xml:id="c0014020" n="1.1.98"> </c>
+<w xml:id="w0014030" n="1.1.98">this</w>
+<c xml:id="c0014040" n="1.1.98"> </c>
+<w xml:id="w0014050" n="1.1.98">Fortinbras</w>
+<pc xml:id="p0014060" n="1.1.98">,</pc>
+<c xml:id="c0014070" n="1.1.98"> </c>
+<w xml:id="w0014080" n="1.1.98">who</w>
+<c xml:id="c0014090" n="1.1.98"> </c>
+<w xml:id="w0014100" n="1.1.98">by</w>
+<c xml:id="c0014110" n="1.1.98"> </c>
+<w xml:id="w0014120" n="1.1.98">a</w>
+<c xml:id="c0014130" n="1.1.98"> </c>
+<w xml:id="w0014140" n="1.1.98">sealed</w>
+<c xml:id="c0014150" n="1.1.98"> </c>
+<w xml:id="w0014160" n="1.1.98">compact</w>
+<pc xml:id="p0014170" n="1.1.98">,</pc>
+<lb xml:id="lb-00980"/>
+<join type="line" xml:id="ftln-0099" n="1.1.99" ana="#verse" target="#w0014180 #c0014190 #w0014200 #c0014210 #w0014220 #c0014230 #w0014240 #c0014250 #w0014260 #c0014270 #w0014280 #p0014290"/>
+<w xml:id="w0014180" n="1.1.99">Well</w>
+<c xml:id="c0014190" n="1.1.99"> </c>
+<w xml:id="w0014200" n="1.1.99">ratified</w>
+<c xml:id="c0014210" n="1.1.99"> </c>
+<w xml:id="w0014220" n="1.1.99">by</w>
+<c xml:id="c0014230" n="1.1.99"> </c>
+<w xml:id="w0014240" n="1.1.99">law</w>
+<c xml:id="c0014250" n="1.1.99"> </c>
+<w xml:id="w0014260" n="1.1.99">and</w>
+<c xml:id="c0014270" n="1.1.99"> </c>
+<w xml:id="w0014280" n="1.1.99">heraldry</w>
+<pc xml:id="p0014290" n="1.1.99">,</pc>
+<lb xml:id="lb-00990"/>
+<join type="line" xml:id="ftln-0100" n="1.1.100" ana="#verse" target="#w0014300 #c0014310 #w0014320 #p0014330 #c0014340 #w0014350 #c0014360 #w0014370 #c0014380 #w0014390 #p0014400 #c0014410 #w0014420 #c0014430 #w0014440 #c0014450 #w0014460 #c0014470 #w0014480"/>
+<w xml:id="w0014300" n="1.1.100">Did</w>
+<c xml:id="c0014310" n="1.1.100"> </c>
+<w xml:id="w0014320" n="1.1.100">forfeit</w>
+<pc xml:id="p0014330" n="1.1.100">,</pc>
+<c xml:id="c0014340" n="1.1.100"> </c>
+<w xml:id="w0014350" n="1.1.100">with</w>
+<c xml:id="c0014360" n="1.1.100"> </c>
+<w xml:id="w0014370" n="1.1.100">his</w>
+<c xml:id="c0014380" n="1.1.100"> </c>
+<w xml:id="w0014390" n="1.1.100">life</w>
+<pc xml:id="p0014400" n="1.1.100">,</pc>
+<c xml:id="c0014410" n="1.1.100"> </c>
+<w xml:id="w0014420" n="1.1.100">all</w>
+<c xml:id="c0014430" n="1.1.100"> </c>
+<w xml:id="w0014440" n="1.1.100">those</w>
+<c xml:id="c0014450" n="1.1.100"> </c>
+<w xml:id="w0014460" n="1.1.100">his</w>
+<c xml:id="c0014470" n="1.1.100"> </c>
+<w xml:id="w0014480" n="1.1.100">lands</w>
+<lb xml:id="lb-01000"/>
+<join type="line" xml:id="ftln-0101" n="1.1.101" ana="#verse" target="#w0014490 #c0014500 #w0014510 #c0014520 #w0014530 #c0014540 #w0014550 #c0014560 #w0014570 #p0014580 #c0014590 #w0014600 #c0014610 #w0014620 #c0014630 #w0014640 #p0014650"/>
+<w xml:id="w0014490" n="1.1.101">Which</w>
+<c xml:id="c0014500" n="1.1.101"> </c>
+<w xml:id="w0014510" n="1.1.101">he</w>
+<c xml:id="c0014520" n="1.1.101"> </c>
+<w xml:id="w0014530" n="1.1.101">stood</w>
+<c xml:id="c0014540" n="1.1.101"> </c>
+<w xml:id="w0014550" n="1.1.101">seized</w>
+<c xml:id="c0014560" n="1.1.101"> </c>
+<w xml:id="w0014570" n="1.1.101">of</w>
+<pc xml:id="p0014580" n="1.1.101">,</pc>
+<c xml:id="c0014590" n="1.1.101"> </c>
+<w xml:id="w0014600" n="1.1.101">to</w>
+<c xml:id="c0014610" n="1.1.101"> </c>
+<w xml:id="w0014620" n="1.1.101">the</w>
+<c xml:id="c0014630" n="1.1.101"> </c>
+<w xml:id="w0014640" n="1.1.101">conqueror</w>
+<pc xml:id="p0014650" n="1.1.101">.</pc>
+<lb xml:id="lb-01010"/>
+<milestone xml:id="ms-013" n="13" unit="page"/>
+<pb xml:id="pb-015" n="15" spanTo="#ms-015"/>
+<fw xml:id="ph-015" type="header" n="15">ACT 1. SC. 1</fw>
+<join type="line" xml:id="ftln-0102" n="1.1.102" ana="#verse" target="#w0014660 #c0014670 #w0014680 #c0014690 #w0014700 #c0014710 #w0014720 #c0014730 #w0014740 #c0014750 #w0014760"/>
+<w xml:id="w0014660" n="1.1.102">Against</w>
+<c xml:id="c0014670" n="1.1.102"> </c>
+<w xml:id="w0014680" n="1.1.102">the</w>
+<c xml:id="c0014690" n="1.1.102"> </c>
+<w xml:id="w0014700" n="1.1.102">which</w>
+<c xml:id="c0014710" n="1.1.102"> </c>
+<w xml:id="w0014720" n="1.1.102">a</w>
+<c xml:id="c0014730" n="1.1.102"> </c>
+<w xml:id="w0014740" n="1.1.102">moiety</w>
+<c xml:id="c0014750" n="1.1.102"> </c>
+<w xml:id="w0014760" n="1.1.102">competent</w>
+<lb xml:id="lb-01020"/>
+<join type="line" xml:id="ftln-0103" n="1.1.103" ana="#verse" target="#w0014770 #c0014780 #w0014790 #c0014800 #w0014810 #c0014820 #w0014830 #c0014840 #w0014850 #p0014860 #c0014870 #w0014880 #c0014890 #w0014900 #c0014910 #w0014920"/>
+<w xml:id="w0014770" n="1.1.103">Was</w>
+<c xml:id="c0014780" n="1.1.103"> </c>
+<w xml:id="w0014790" n="1.1.103">gagèd</w>
+<c xml:id="c0014800" n="1.1.103"> </c>
+<w xml:id="w0014810" n="1.1.103">by</w>
+<c xml:id="c0014820" n="1.1.103"> </c>
+<w xml:id="w0014830" n="1.1.103">our</w>
+<c xml:id="c0014840" n="1.1.103"> </c>
+<w xml:id="w0014850" n="1.1.103">king</w>
+<pc xml:id="p0014860" n="1.1.103">,</pc>
+<c xml:id="c0014870" n="1.1.103"> </c>
+<w xml:id="w0014880" n="1.1.103">which</w>
+<c xml:id="c0014890" n="1.1.103"> </c>
+<w xml:id="w0014900" n="1.1.103">had</w>
+<c xml:id="c0014910" n="1.1.103"> </c>
+<w xml:id="w0014920" n="1.1.103">returned</w>
+<lb xml:id="lb-01030"/>
+<join type="line" xml:id="ftln-0104" n="1.1.104" ana="#verse" target="#w0014930 #c0014940 #w0014950 #c0014960 #w0014970 #c0014980 #w0014990 #c0015000 #w0015010"/>
+<w xml:id="w0014930" n="1.1.104">To</w>
+<c xml:id="c0014940" n="1.1.104"> </c>
+<w xml:id="w0014950" n="1.1.104">the</w>
+<c xml:id="c0014960" n="1.1.104"> </c>
+<w xml:id="w0014970" n="1.1.104">inheritance</w>
+<c xml:id="c0014980" n="1.1.104"> </c>
+<w xml:id="w0014990" n="1.1.104">of</w>
+<c xml:id="c0015000" n="1.1.104"> </c>
+<w xml:id="w0015010" n="1.1.104">Fortinbras</w>
+<lb xml:id="lb-01040"/>
+<join type="line" xml:id="ftln-0105" n="1.1.105" ana="#verse" target="#w0015020 #c0015030 #w0015040 #c0015050 #w0015060 #c0015070 #w0015080 #p0015090 #c0015100 #w0015110 #p0015120 #c0015130 #w0015140 #c0015150 #w0015160 #c0015170 #w0015180 #c0015190 #w0015200"/>
+<w xml:id="w0015020" n="1.1.105">Had</w>
+<c xml:id="c0015030" n="1.1.105"> </c>
+<w xml:id="w0015040" n="1.1.105">he</w>
+<c xml:id="c0015050" n="1.1.105"> </c>
+<w xml:id="w0015060" n="1.1.105">been</w>
+<c xml:id="c0015070" n="1.1.105"> </c>
+<w xml:id="w0015080" n="1.1.105">vanquisher</w>
+<pc xml:id="p0015090" n="1.1.105">,</pc>
+<c xml:id="c0015100" n="1.1.105"> </c>
+<w xml:id="w0015110" n="1.1.105">as</w>
+<pc xml:id="p0015120" n="1.1.105">,</pc>
+<c xml:id="c0015130" n="1.1.105"> </c>
+<w xml:id="w0015140" n="1.1.105">by</w>
+<c xml:id="c0015150" n="1.1.105"> </c>
+<w xml:id="w0015160" n="1.1.105">the</w>
+<c xml:id="c0015170" n="1.1.105"> </c>
+<w xml:id="w0015180" n="1.1.105">same</w>
+<c xml:id="c0015190" n="1.1.105"> </c>
+<w xml:id="w0015200" n="1.1.105">comart</w>
+<lb xml:id="lb-01050"/>
+<join type="line" xml:id="ftln-0106" n="1.1.106" ana="#verse" target="#w0015210 #c0015220 #w0015230 #c0015240 #w0015250 #c0015260 #w0015270 #c0015280 #w0015290 #c0015300 #w0015310 #p0015320"/>
+<w xml:id="w0015210" n="1.1.106">And</w>
+<c xml:id="c0015220" n="1.1.106"> </c>
+<w xml:id="w0015230" n="1.1.106">carriage</w>
+<c xml:id="c0015240" n="1.1.106"> </c>
+<w xml:id="w0015250" n="1.1.106">of</w>
+<c xml:id="c0015260" n="1.1.106"> </c>
+<w xml:id="w0015270" n="1.1.106">the</w>
+<c xml:id="c0015280" n="1.1.106"> </c>
+<w xml:id="w0015290" n="1.1.106">article</w>
+<c xml:id="c0015300" n="1.1.106"> </c>
+<w xml:id="w0015310" n="1.1.106">designed</w>
+<pc xml:id="p0015320" n="1.1.106">,</pc>
+<lb xml:id="lb-01060"/>
+<join type="line" xml:id="ftln-0107" n="1.1.107" ana="#verse" target="#w0015330 #c0015340 #w0015350 #c0015360 #w0015370 #c0015380 #w0015390 #p0015400 #c0015410 #w0015420 #p0015430 #c0015440 #w0015450 #p0015460 #c0015470 #w0015480 #c0015490 #w0015500 #p0015510"/>
+<w xml:id="w0015330" n="1.1.107">His</w>
+<c xml:id="c0015340" n="1.1.107"> </c>
+<w xml:id="w0015350" n="1.1.107">fell</w>
+<c xml:id="c0015360" n="1.1.107"> </c>
+<w xml:id="w0015370" n="1.1.107">to</w>
+<c xml:id="c0015380" n="1.1.107"> </c>
+<w xml:id="w0015390" n="1.1.107">Hamlet</w>
+<pc xml:id="p0015400" n="1.1.107">.</pc>
+<c xml:id="c0015410" n="1.1.107"> </c>
+<w xml:id="w0015420" n="1.1.107">Now</w>
+<pc xml:id="p0015430" n="1.1.107">,</pc>
+<c xml:id="c0015440" n="1.1.107"> </c>
+<w xml:id="w0015450" n="1.1.107">sir</w>
+<pc xml:id="p0015460" n="1.1.107">,</pc>
+<c xml:id="c0015470" n="1.1.107"> </c>
+<w xml:id="w0015480" n="1.1.107">young</w>
+<c xml:id="c0015490" n="1.1.107"> </c>
+<w xml:id="w0015500" n="1.1.107">Fortinbras</w>
+<pc xml:id="p0015510" n="1.1.107">,</pc>
+<lb xml:id="lb-01070"/>
+<join type="line" xml:id="ftln-0108" n="1.1.108" ana="#verse" target="#w0015520 #c0015530 #w0015540 #c0015550 #w0015560 #c0015570 #w0015580 #c0015590 #w0015600 #c0015610 #w0015620 #p0015630"/>
+<w xml:id="w0015520" n="1.1.108">Of</w>
+<c xml:id="c0015530" n="1.1.108"> </c>
+<w xml:id="w0015540" n="1.1.108">unimprovèd</w>
+<c xml:id="c0015550" n="1.1.108"> </c>
+<w xml:id="w0015560" n="1.1.108">mettle</w>
+<c xml:id="c0015570" n="1.1.108"> </c>
+<w xml:id="w0015580" n="1.1.108">hot</w>
+<c xml:id="c0015590" n="1.1.108"> </c>
+<w xml:id="w0015600" n="1.1.108">and</w>
+<c xml:id="c0015610" n="1.1.108"> </c>
+<w xml:id="w0015620" n="1.1.108">full</w>
+<pc xml:id="p0015630" n="1.1.108">,</pc>
+<lb xml:id="lb-01080"/>
+<join type="line" xml:id="ftln-0109" n="1.1.109" ana="#verse" target="#w0015640 #c0015650 #w0015660 #c0015670 #w0015680 #c0015690 #w0015700 #c0015710 #w0015720 #c0015730 #w0015740 #c0015750 #w0015760 #c0015770 #w0015780 #c0015790 #w0015800"/>
+<w xml:id="w0015640" n="1.1.109">Hath</w>
+<c xml:id="c0015650" n="1.1.109"> </c>
+<w xml:id="w0015660" n="1.1.109">in</w>
+<c xml:id="c0015670" n="1.1.109"> </c>
+<w xml:id="w0015680" n="1.1.109">the</w>
+<c xml:id="c0015690" n="1.1.109"> </c>
+<w xml:id="w0015700" n="1.1.109">skirts</w>
+<c xml:id="c0015710" n="1.1.109"> </c>
+<w xml:id="w0015720" n="1.1.109">of</w>
+<c xml:id="c0015730" n="1.1.109"> </c>
+<w xml:id="w0015740" n="1.1.109">Norway</w>
+<c xml:id="c0015750" n="1.1.109"> </c>
+<w xml:id="w0015760" n="1.1.109">here</w>
+<c xml:id="c0015770" n="1.1.109"> </c>
+<w xml:id="w0015780" n="1.1.109">and</w>
+<c xml:id="c0015790" n="1.1.109"> </c>
+<w xml:id="w0015800" n="1.1.109">there</w>
+<lb xml:id="lb-01090"/>
+<join type="line" xml:id="ftln-0110" n="1.1.110" ana="#verse" target="#w0015810 #c0015820 #w0015830 #c0015840 #w0015850 #c0015860 #w0015870 #c0015880 #w0015890 #c0015900 #w0015910 #c0015920 #w0015930"/>
+<w xml:id="w0015810" n="1.1.110">Sharked</w>
+<c xml:id="c0015820" n="1.1.110"> </c>
+<w xml:id="w0015830" n="1.1.110">up</w>
+<c xml:id="c0015840" n="1.1.110"> </c>
+<w xml:id="w0015850" n="1.1.110">a</w>
+<c xml:id="c0015860" n="1.1.110"> </c>
+<w xml:id="w0015870" n="1.1.110">list</w>
+<c xml:id="c0015880" n="1.1.110"> </c>
+<w xml:id="w0015890" n="1.1.110">of</w>
+<c xml:id="c0015900" n="1.1.110"> </c>
+<w xml:id="w0015910" n="1.1.110">lawless</w>
+<c xml:id="c0015920" n="1.1.110"> </c>
+<w xml:id="w0015930" n="1.1.110">resolutes</w>
+<lb xml:id="lb-01100"/>
+<join type="line" xml:id="ftln-0111" n="1.1.111" ana="#verse" target="#w0015940 #c0015950 #w0015960 #c0015970 #w0015980 #c0015990 #w0016000 #c0016010 #w0016020 #c0016030 #w0016040 #c0016050 #w0016060"/>
+<w xml:id="w0015940" n="1.1.111">For</w>
+<c xml:id="c0015950" n="1.1.111"> </c>
+<w xml:id="w0015960" n="1.1.111">food</w>
+<c xml:id="c0015970" n="1.1.111"> </c>
+<w xml:id="w0015980" n="1.1.111">and</w>
+<c xml:id="c0015990" n="1.1.111"> </c>
+<w xml:id="w0016000" n="1.1.111">diet</w>
+<c xml:id="c0016010" n="1.1.111"> </c>
+<w xml:id="w0016020" n="1.1.111">to</w>
+<c xml:id="c0016030" n="1.1.111"> </c>
+<w xml:id="w0016040" n="1.1.111">some</w>
+<c xml:id="c0016050" n="1.1.111"> </c>
+<w xml:id="w0016060" n="1.1.111">enterprise</w>
+<lb xml:id="lb-01110"/>
+<join type="line" xml:id="ftln-0112" n="1.1.112" ana="#verse" target="#w0016070 #c0016080 #w0016090 #c0016100 #w0016110 #c0016120 #w0016130 #c0016140 #w0016150 #c0016160 #w0016170 #p0016180 #c0016190 #w0016200 #c0016210 #w0016220 #c0016230 #w0016240 #c0016250 #w0016260"/>
+<w xml:id="w0016070" n="1.1.112">That</w>
+<c xml:id="c0016080" n="1.1.112"> </c>
+<w xml:id="w0016090" n="1.1.112">hath</w>
+<c xml:id="c0016100" n="1.1.112"> </c>
+<w xml:id="w0016110" n="1.1.112">a</w>
+<c xml:id="c0016120" n="1.1.112"> </c>
+<w xml:id="w0016130" n="1.1.112">stomach</w>
+<c xml:id="c0016140" n="1.1.112"> </c>
+<w xml:id="w0016150" n="1.1.112">in</w>
+<c xml:id="c0016160" n="1.1.112"> </c>
+<w xml:id="w0016170" n="1.1.112">’t</w>
+<pc xml:id="p0016180" n="1.1.112">;</pc>
+<c xml:id="c0016190" n="1.1.112"> </c>
+<w xml:id="w0016200" n="1.1.112">which</w>
+<c xml:id="c0016210" n="1.1.112"> </c>
+<w xml:id="w0016220" n="1.1.112">is</w>
+<c xml:id="c0016230" n="1.1.112"> </c>
+<w xml:id="w0016240" n="1.1.112">no</w>
+<c xml:id="c0016250" n="1.1.112"> </c>
+<w xml:id="w0016260" n="1.1.112">other</w>
+<lb xml:id="lb-01120"/>
+<join type="line" xml:id="ftln-0113" n="1.1.113" ana="#verse" target="#p0016270 #w0016280 #c0016290 #w0016300 #c0016310 #w0016320 #c0016330 #w0016340 #c0016350 #w0016360 #c0016370 #w0016380 #c0016390 #w0016400 #c0016410 #w0016420 #p0016430"/>
+<pc xml:id="p0016270" n="1.1.113">(</pc>
+<w xml:id="w0016280" n="1.1.113">As</w>
+<c xml:id="c0016290" n="1.1.113"> </c>
+<w xml:id="w0016300" n="1.1.113">it</w>
+<c xml:id="c0016310" n="1.1.113"> </c>
+<w xml:id="w0016320" n="1.1.113">doth</w>
+<c xml:id="c0016330" n="1.1.113"> </c>
+<w xml:id="w0016340" n="1.1.113">well</w>
+<c xml:id="c0016350" n="1.1.113"> </c>
+<w xml:id="w0016360" n="1.1.113">appear</w>
+<c xml:id="c0016370" n="1.1.113"> </c>
+<w xml:id="w0016380" n="1.1.113">unto</w>
+<c xml:id="c0016390" n="1.1.113"> </c>
+<w xml:id="w0016400" n="1.1.113">our</w>
+<c xml:id="c0016410" n="1.1.113"> </c>
+<w xml:id="w0016420" n="1.1.113">state</w>
+<pc xml:id="p0016430" n="1.1.113">)</pc>
+<lb xml:id="lb-01130"/>
+<join type="line" xml:id="ftln-0114" n="1.1.114" ana="#verse" target="#w0016440 #c0016450 #w0016460 #c0016470 #w0016480 #c0016490 #w0016500 #c0016510 #w0016520 #p0016530 #c0016540 #w0016550 #c0016560 #w0016570 #c0016580 #w0016590"/>
+<w xml:id="w0016440" n="1.1.114">But</w>
+<c xml:id="c0016450" n="1.1.114"> </c>
+<w xml:id="w0016460" n="1.1.114">to</w>
+<c xml:id="c0016470" n="1.1.114"> </c>
+<w xml:id="w0016480" n="1.1.114">recover</w>
+<c xml:id="c0016490" n="1.1.114"> </c>
+<w xml:id="w0016500" n="1.1.114">of</w>
+<c xml:id="c0016510" n="1.1.114"> </c>
+<w xml:id="w0016520" n="1.1.114">us</w>
+<pc xml:id="p0016530" n="1.1.114">,</pc>
+<c xml:id="c0016540" n="1.1.114"> </c>
+<w xml:id="w0016550" n="1.1.114">by</w>
+<c xml:id="c0016560" n="1.1.114"> </c>
+<w xml:id="w0016570" n="1.1.114">strong</w>
+<c xml:id="c0016580" n="1.1.114"> </c>
+<w xml:id="w0016590" n="1.1.114">hand</w>
+<lb xml:id="lb-01140"/>
+<join type="line" xml:id="ftln-0115" n="1.1.115" ana="#verse" target="#w0016600 #c0016610 #w0016620 #c0016630 #w0016640 #p0016650 #c0016660 #w0016670 #c0016680 #w0016690 #c0016700 #w0016710"/>
+<w xml:id="w0016600" n="1.1.115">And</w>
+<c xml:id="c0016610" n="1.1.115"> </c>
+<w xml:id="w0016620" n="1.1.115">terms</w>
+<c xml:id="c0016630" n="1.1.115"> </c>
+<w xml:id="w0016640" n="1.1.115">compulsatory</w>
+<pc xml:id="p0016650" n="1.1.115">,</pc>
+<c xml:id="c0016660" n="1.1.115"> </c>
+<w xml:id="w0016670" n="1.1.115">those</w>
+<c xml:id="c0016680" n="1.1.115"> </c>
+<w xml:id="w0016690" n="1.1.115">foresaid</w>
+<c xml:id="c0016700" n="1.1.115"> </c>
+<w xml:id="w0016710" n="1.1.115">lands</w>
+<lb xml:id="lb-01150"/>
+<join type="line" xml:id="ftln-0116" n="1.1.116" ana="#verse" target="#w0016720 #c0016730 #w0016740 #c0016750 #w0016760 #c0016770 #w0016780 #c0016790 #w0016800 #p0016810 #c0016820 #w0016830 #c0016840 #w0016850 #p0016860 #c0016870 #w0016880 #c0016890 #w0016900 #c0016910 #w0016920 #p0016930"/>
+<w xml:id="w0016720" n="1.1.116">So</w>
+<c xml:id="c0016730" n="1.1.116"> </c>
+<w xml:id="w0016740" n="1.1.116">by</w>
+<c xml:id="c0016750" n="1.1.116"> </c>
+<w xml:id="w0016760" n="1.1.116">his</w>
+<c xml:id="c0016770" n="1.1.116"> </c>
+<w xml:id="w0016780" n="1.1.116">father</w>
+<c xml:id="c0016790" n="1.1.116"> </c>
+<w xml:id="w0016800" n="1.1.116">lost</w>
+<pc xml:id="p0016810" n="1.1.116">.</pc>
+<c xml:id="c0016820" n="1.1.116"> </c>
+<w xml:id="w0016830" n="1.1.116">And</w>
+<c xml:id="c0016840" n="1.1.116"> </c>
+<w xml:id="w0016850" n="1.1.116">this</w>
+<pc xml:id="p0016860" n="1.1.116">,</pc>
+<c xml:id="c0016870" n="1.1.116"> </c>
+<w xml:id="w0016880" n="1.1.116">I</w>
+<c xml:id="c0016890" n="1.1.116"> </c>
+<w xml:id="w0016900" n="1.1.116">take</w>
+<c xml:id="c0016910" n="1.1.116"> </c>
+<w xml:id="w0016920" n="1.1.116">it</w>
+<pc xml:id="p0016930" n="1.1.116">,</pc>
+<lb xml:id="lb-01160"/>
+<join type="line" xml:id="ftln-0117" n="1.1.117" ana="#verse" target="#w0016940 #c0016950 #w0016960 #c0016970 #w0016980 #c0016990 #w0017000 #c0017010 #w0017020 #c0017030 #w0017040 #c0017050 #w0017060 #p0017070"/>
+<w xml:id="w0016940" n="1.1.117">Is</w>
+<c xml:id="c0016950" n="1.1.117"> </c>
+<w xml:id="w0016960" n="1.1.117">the</w>
+<c xml:id="c0016970" n="1.1.117"> </c>
+<w xml:id="w0016980" n="1.1.117">main</w>
+<c xml:id="c0016990" n="1.1.117"> </c>
+<w xml:id="w0017000" n="1.1.117">motive</w>
+<c xml:id="c0017010" n="1.1.117"> </c>
+<w xml:id="w0017020" n="1.1.117">of</w>
+<c xml:id="c0017030" n="1.1.117"> </c>
+<w xml:id="w0017040" n="1.1.117">our</w>
+<c xml:id="c0017050" n="1.1.117"> </c>
+<w xml:id="w0017060" n="1.1.117">preparations</w>
+<pc xml:id="p0017070" n="1.1.117">,</pc>
+<lb xml:id="lb-01170"/>
+<join type="line" xml:id="ftln-0118" n="1.1.118" ana="#verse" target="#w0017080 #c0017090 #w0017100 #c0017110 #w0017120 #c0017130 #w0017140 #c0017150 #w0017160 #c0017170 #w0017180 #p0017190 #c0017200 #w0017210 #c0017220 #w0017230 #c0017240 #w0017250 #c0017260 #w0017270"/>
+<w xml:id="w0017080" n="1.1.118">The</w>
+<c xml:id="c0017090" n="1.1.118"> </c>
+<w xml:id="w0017100" n="1.1.118">source</w>
+<c xml:id="c0017110" n="1.1.118"> </c>
+<w xml:id="w0017120" n="1.1.118">of</w>
+<c xml:id="c0017130" n="1.1.118"> </c>
+<w xml:id="w0017140" n="1.1.118">this</w>
+<c xml:id="c0017150" n="1.1.118"> </c>
+<w xml:id="w0017160" n="1.1.118">our</w>
+<c xml:id="c0017170" n="1.1.118"> </c>
+<w xml:id="w0017180" n="1.1.118">watch</w>
+<pc xml:id="p0017190" n="1.1.118">,</pc>
+<c xml:id="c0017200" n="1.1.118"> </c>
+<w xml:id="w0017210" n="1.1.118">and</w>
+<c xml:id="c0017220" n="1.1.118"> </c>
+<w xml:id="w0017230" n="1.1.118">the</w>
+<c xml:id="c0017240" n="1.1.118"> </c>
+<w xml:id="w0017250" n="1.1.118">chief</w>
+<c xml:id="c0017260" n="1.1.118"> </c>
+<w xml:id="w0017270" n="1.1.118">head</w>
+<lb xml:id="lb-01180"/>
+<join type="line" xml:id="ftln-0119" n="1.1.119" ana="#verse" target="#w0017280 #c0017290 #w0017300 #c0017310 #w0017320 #c0017330 #w0017340 #c0017350 #w0017360 #c0017370 #w0017380 #c0017390 #w0017400 #c0017410 #w0017420 #p0017430"/>
+<w xml:id="w0017280" n="1.1.119">Of</w>
+<c xml:id="c0017290" n="1.1.119"> </c>
+<w xml:id="w0017300" n="1.1.119">this</w>
+<c xml:id="c0017310" n="1.1.119"> </c>
+<w xml:id="w0017320" n="1.1.119">posthaste</w>
+<c xml:id="c0017330" n="1.1.119"> </c>
+<w xml:id="w0017340" n="1.1.119">and</w>
+<c xml:id="c0017350" n="1.1.119"> </c>
+<w xml:id="w0017360" n="1.1.119">rummage</w>
+<c xml:id="c0017370" n="1.1.119"> </c>
+<w xml:id="w0017380" n="1.1.119">in</w>
+<c xml:id="c0017390" n="1.1.119"> </c>
+<w xml:id="w0017400" n="1.1.119">the</w>
+<c xml:id="c0017410" n="1.1.119"> </c>
+<w xml:id="w0017420" n="1.1.119">land</w>
+<pc xml:id="p0017430" n="1.1.119">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01190"/>
+<sp xml:id="sp-0120" who="#BARNADO">
+<speaker xml:id="spk-0120">
+<w xml:id="w0017440">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0120">
+<lb xml:id="lb-01191"/>
+<join type="line" xml:id="ftln-0120" n="1.1.120" ana="#verse" target="#w0017450 #c0017460 #w0017470 #c0017480 #w0017490 #c0017500 #w0017510 #c0017520 #w0017530 #c0017540 #w0017550 #c0017560 #w0017570 #c0017580 #w0017590 #c0017600 #w0017610 #p0017620"/>
+<w xml:id="w0017450" n="1.1.120">I</w>
+<c xml:id="c0017460" n="1.1.120"> </c>
+<w xml:id="w0017470" n="1.1.120">think</w>
+<c xml:id="c0017480" n="1.1.120"> </c>
+<w xml:id="w0017490" n="1.1.120">it</w>
+<c xml:id="c0017500" n="1.1.120"> </c>
+<w xml:id="w0017510" n="1.1.120">be</w>
+<c xml:id="c0017520" n="1.1.120"> </c>
+<w xml:id="w0017530" n="1.1.120">no</w>
+<c xml:id="c0017540" n="1.1.120"> </c>
+<w xml:id="w0017550" n="1.1.120">other</w>
+<c xml:id="c0017560" n="1.1.120"> </c>
+<w xml:id="w0017570" n="1.1.120">but</w>
+<c xml:id="c0017580" n="1.1.120"> </c>
+<w xml:id="w0017590" n="1.1.120">e’en</w>
+<c xml:id="c0017600" n="1.1.120"> </c>
+<w xml:id="w0017610" n="1.1.120">so</w>
+<pc xml:id="p0017620" n="1.1.120">.</pc>
+<lb xml:id="lb-01200"/>
+<join type="line" xml:id="ftln-0121" n="1.1.121" ana="#verse" target="#w0017630 #c0017640 #w0017650 #c0017660 #w0017670 #c0017680 #w0017690 #c0017700 #w0017710 #c0017720 #w0017730 #c0017740 #w0017750 #c0017760 #w0017770"/>
+<w xml:id="w0017630" n="1.1.121">Well</w>
+<c xml:id="c0017640" n="1.1.121"> </c>
+<w xml:id="w0017650" n="1.1.121">may</w>
+<c xml:id="c0017660" n="1.1.121"> </c>
+<w xml:id="w0017670" n="1.1.121">it</w>
+<c xml:id="c0017680" n="1.1.121"> </c>
+<w xml:id="w0017690" n="1.1.121">sort</w>
+<c xml:id="c0017700" n="1.1.121"> </c>
+<w xml:id="w0017710" n="1.1.121">that</w>
+<c xml:id="c0017720" n="1.1.121"> </c>
+<w xml:id="w0017730" n="1.1.121">this</w>
+<c xml:id="c0017740" n="1.1.121"> </c>
+<w xml:id="w0017750" n="1.1.121">portentous</w>
+<c xml:id="c0017760" n="1.1.121"> </c>
+<w xml:id="w0017770" n="1.1.121">figure</w>
+<lb xml:id="lb-01210"/>
+<join type="line" xml:id="ftln-0122" n="1.1.122" ana="#verse" target="#w0017780 #c0017790 #w0017800 #c0017810 #w0017820 #c0017830 #w0017840 #c0017850 #w0017860 #c0017870 #w0017880 #c0017890 #w0017900 #c0017910 #w0017920 #c0017930 #w0017940"/>
+<w xml:id="w0017780" n="1.1.122">Comes</w>
+<c xml:id="c0017790" n="1.1.122"> </c>
+<w xml:id="w0017800" n="1.1.122">armèd</w>
+<c xml:id="c0017810" n="1.1.122"> </c>
+<w xml:id="w0017820" n="1.1.122">through</w>
+<c xml:id="c0017830" n="1.1.122"> </c>
+<w xml:id="w0017840" n="1.1.122">our</w>
+<c xml:id="c0017850" n="1.1.122"> </c>
+<w xml:id="w0017860" n="1.1.122">watch</w>
+<c xml:id="c0017870" n="1.1.122"> </c>
+<w xml:id="w0017880" n="1.1.122">so</w>
+<c xml:id="c0017890" n="1.1.122"> </c>
+<w xml:id="w0017900" n="1.1.122">like</w>
+<c xml:id="c0017910" n="1.1.122"> </c>
+<w xml:id="w0017920" n="1.1.122">the</w>
+<c xml:id="c0017930" n="1.1.122"> </c>
+<w xml:id="w0017940" n="1.1.122">king</w>
+<lb xml:id="lb-01220"/>
+<join type="line" xml:id="ftln-0123" n="1.1.123" ana="#verse" target="#w0017950 #c0017960 #w0017970 #c0017980 #w0017990 #c0018000 #w0018010 #c0018020 #w0018030 #c0018040 #w0018050 #c0018060 #w0018070 #c0018080 #w0018090 #c0018100 #w0018110 #p0018120"/>
+<w xml:id="w0017950" n="1.1.123">That</w>
+<c xml:id="c0017960" n="1.1.123"> </c>
+<w xml:id="w0017970" n="1.1.123">was</w>
+<c xml:id="c0017980" n="1.1.123"> </c>
+<w xml:id="w0017990" n="1.1.123">and</w>
+<c xml:id="c0018000" n="1.1.123"> </c>
+<w xml:id="w0018010" n="1.1.123">is</w>
+<c xml:id="c0018020" n="1.1.123"> </c>
+<w xml:id="w0018030" n="1.1.123">the</w>
+<c xml:id="c0018040" n="1.1.123"> </c>
+<w xml:id="w0018050" n="1.1.123">question</w>
+<c xml:id="c0018060" n="1.1.123"> </c>
+<w xml:id="w0018070" n="1.1.123">of</w>
+<c xml:id="c0018080" n="1.1.123"> </c>
+<w xml:id="w0018090" n="1.1.123">these</w>
+<c xml:id="c0018100" n="1.1.123"> </c>
+<w xml:id="w0018110" n="1.1.123">wars</w>
+<pc xml:id="p0018120" n="1.1.123">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01230"/>
+<sp xml:id="sp-0124" who="#HORATIO">
+<speaker xml:id="spk-0124">
+<w xml:id="w0018130">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0124">
+<lb xml:id="lb-01231"/>
+<join type="line" xml:id="ftln-0124" n="1.1.124" ana="#verse" target="#w0018140 #c0018150 #w0018160 #c0018170 #w0018180 #c0018190 #w0018200 #c0018210 #w0018220 #c0018230 #w0018240 #c0018250 #w0018260 #c0018270 #w0018280 #c0018290 #w0018300 #p0018310"/>
+<w xml:id="w0018140" n="1.1.124">A</w>
+<c xml:id="c0018150" n="1.1.124"> </c>
+<w xml:id="w0018160" n="1.1.124">mote</w>
+<c xml:id="c0018170" n="1.1.124"> </c>
+<w xml:id="w0018180" n="1.1.124">it</w>
+<c xml:id="c0018190" n="1.1.124"> </c>
+<w xml:id="w0018200" n="1.1.124">is</w>
+<c xml:id="c0018210" n="1.1.124"> </c>
+<w xml:id="w0018220" n="1.1.124">to</w>
+<c xml:id="c0018230" n="1.1.124"> </c>
+<w xml:id="w0018240" n="1.1.124">trouble</w>
+<c xml:id="c0018250" n="1.1.124"> </c>
+<w xml:id="w0018260" n="1.1.124">the</w>
+<c xml:id="c0018270" n="1.1.124"> </c>
+<w xml:id="w0018280" n="1.1.124">mind’s</w>
+<c xml:id="c0018290" n="1.1.124"> </c>
+<w xml:id="w0018300" n="1.1.124">eye</w>
+<pc xml:id="p0018310" n="1.1.124">.</pc>
+<lb xml:id="lb-01240"/>
+<join type="line" xml:id="ftln-0125" n="1.1.125" ana="#verse" target="#w0018320 #c0018330 #w0018340 #c0018350 #w0018360 #c0018370 #w0018380 #c0018390 #w0018400 #c0018410 #w0018420 #c0018430 #w0018440 #c0018450 #w0018460 #c0018470 #w0018480 #p0018490"/>
+<w xml:id="w0018320" n="1.1.125">In</w>
+<c xml:id="c0018330" n="1.1.125"> </c>
+<w xml:id="w0018340" n="1.1.125">the</w>
+<c xml:id="c0018350" n="1.1.125"> </c>
+<w xml:id="w0018360" n="1.1.125">most</w>
+<c xml:id="c0018370" n="1.1.125"> </c>
+<w xml:id="w0018380" n="1.1.125">high</w>
+<c xml:id="c0018390" n="1.1.125"> </c>
+<w xml:id="w0018400" n="1.1.125">and</w>
+<c xml:id="c0018410" n="1.1.125"> </c>
+<w xml:id="w0018420" n="1.1.125">palmy</w>
+<c xml:id="c0018430" n="1.1.125"> </c>
+<w xml:id="w0018440" n="1.1.125">state</w>
+<c xml:id="c0018450" n="1.1.125"> </c>
+<w xml:id="w0018460" n="1.1.125">of</w>
+<c xml:id="c0018470" n="1.1.125"> </c>
+<w xml:id="w0018480" n="1.1.125">Rome</w>
+<pc xml:id="p0018490" n="1.1.125">,</pc>
+<lb xml:id="lb-01250"/>
+<join type="line" xml:id="ftln-0126" n="1.1.126" ana="#verse" target="#w0018500 #c0018510 #w0018520 #c0018530 #w0018540 #c0018550 #w0018560 #c0018570 #w0018580 #c0018590 #w0018600 #c0018610 #w0018620 #p0018630"/>
+<w xml:id="w0018500" n="1.1.126">A</w>
+<c xml:id="c0018510" n="1.1.126"> </c>
+<w xml:id="w0018520" n="1.1.126">little</w>
+<c xml:id="c0018530" n="1.1.126"> </c>
+<w xml:id="w0018540" n="1.1.126">ere</w>
+<c xml:id="c0018550" n="1.1.126"> </c>
+<w xml:id="w0018560" n="1.1.126">the</w>
+<c xml:id="c0018570" n="1.1.126"> </c>
+<w xml:id="w0018580" n="1.1.126">mightiest</w>
+<c xml:id="c0018590" n="1.1.126"> </c>
+<w xml:id="w0018600" n="1.1.126">Julius</w>
+<c xml:id="c0018610" n="1.1.126"> </c>
+<w xml:id="w0018620" n="1.1.126">fell</w>
+<pc xml:id="p0018630" n="1.1.126">,</pc>
+<lb xml:id="lb-01260"/>
+<join type="line" xml:id="ftln-0127" n="1.1.127" ana="#verse" target="#w0018640 #c0018650 #w0018660 #c0018670 #w0018680 #c0018690 #w0018700 #p0018710 #c0018720 #w0018730 #c0018740 #w0018750 #c0018760 #w0018770 #c0018780 #w0018790"/>
+<w xml:id="w0018640" n="1.1.127">The</w>
+<c xml:id="c0018650" n="1.1.127"> </c>
+<w xml:id="w0018660" n="1.1.127">graves</w>
+<c xml:id="c0018670" n="1.1.127"> </c>
+<w xml:id="w0018680" n="1.1.127">stood</w>
+<c xml:id="c0018690" n="1.1.127"> </c>
+<w xml:id="w0018700" n="1.1.127">tenantless</w>
+<pc xml:id="p0018710" n="1.1.127">,</pc>
+<c xml:id="c0018720" n="1.1.127"> </c>
+<w xml:id="w0018730" n="1.1.127">and</w>
+<c xml:id="c0018740" n="1.1.127"> </c>
+<w xml:id="w0018750" n="1.1.127">the</w>
+<c xml:id="c0018760" n="1.1.127"> </c>
+<w xml:id="w0018770" n="1.1.127">sheeted</w>
+<c xml:id="c0018780" n="1.1.127"> </c>
+<w xml:id="w0018790" n="1.1.127">dead</w>
+<lb xml:id="lb-01270"/>
+<join type="line" xml:id="ftln-0128" n="1.1.128" ana="#verse" target="#w0018800 #c0018810 #w0018820 #c0018830 #w0018840 #c0018850 #w0018860 #c0018870 #w0018880 #c0018890 #w0018900 #c0018910 #w0018920 #c0018930 #w0018940 #p0018950"/>
+<w xml:id="w0018800" n="1.1.128">Did</w>
+<c xml:id="c0018810" n="1.1.128"> </c>
+<w xml:id="w0018820" n="1.1.128">squeak</w>
+<c xml:id="c0018830" n="1.1.128"> </c>
+<w xml:id="w0018840" n="1.1.128">and</w>
+<c xml:id="c0018850" n="1.1.128"> </c>
+<w xml:id="w0018860" n="1.1.128">gibber</w>
+<c xml:id="c0018870" n="1.1.128"> </c>
+<w xml:id="w0018880" n="1.1.128">in</w>
+<c xml:id="c0018890" n="1.1.128"> </c>
+<w xml:id="w0018900" n="1.1.128">the</w>
+<c xml:id="c0018910" n="1.1.128"> </c>
+<w xml:id="w0018920" n="1.1.128">Roman</w>
+<c xml:id="c0018930" n="1.1.128"> </c>
+<w xml:id="w0018940" n="1.1.128">streets</w>
+<pc xml:id="p0018950" n="1.1.128">;</pc>
+<lb xml:id="lb-01280"/>
+<join type="line" xml:id="ftln-0129" n="1.1.129" ana="#verse" target="#w0018960 #c0018970 #w0018980 #c0018990 #w0019000 #c0019010 #w0019020 #c0019030 #w0019040 #c0019050 #w0019060 #c0019070 #w0019080 #c0019090 #w0019100 #c0019110 #w0019120 #c0019130 #w0019140 #p0019150"/>
+<w xml:id="w0018960" n="1.1.129">As</w>
+<c xml:id="c0018970" n="1.1.129"> </c>
+<w xml:id="w0018980" n="1.1.129">stars</w>
+<c xml:id="c0018990" n="1.1.129"> </c>
+<w xml:id="w0019000" n="1.1.129">with</w>
+<c xml:id="c0019010" n="1.1.129"> </c>
+<w xml:id="w0019020" n="1.1.129">trains</w>
+<c xml:id="c0019030" n="1.1.129"> </c>
+<w xml:id="w0019040" n="1.1.129">of</w>
+<c xml:id="c0019050" n="1.1.129"> </c>
+<w xml:id="w0019060" n="1.1.129">fire</w>
+<c xml:id="c0019070" n="1.1.129"> </c>
+<w xml:id="w0019080" n="1.1.129">and</w>
+<c xml:id="c0019090" n="1.1.129"> </c>
+<w xml:id="w0019100" n="1.1.129">dews</w>
+<c xml:id="c0019110" n="1.1.129"> </c>
+<w xml:id="w0019120" n="1.1.129">of</w>
+<c xml:id="c0019130" n="1.1.129"> </c>
+<w xml:id="w0019140" n="1.1.129">blood</w>
+<pc xml:id="p0019150" n="1.1.129">,</pc>
+<lb xml:id="lb-01290"/>
+<join type="line" xml:id="ftln-0130" n="1.1.130" ana="#verse" target="#w0019160 #c0019170 #w0019180 #c0019190 #w0019200 #c0019210 #w0019220 #p0019230 #c0019240 #w0019250 #c0019260 #w0019270 #c0019280 #w0019290 #c0019300 #w0019310 #p0019320"/>
+<w xml:id="w0019160" n="1.1.130">Disasters</w>
+<c xml:id="c0019170" n="1.1.130"> </c>
+<w xml:id="w0019180" n="1.1.130">in</w>
+<c xml:id="c0019190" n="1.1.130"> </c>
+<w xml:id="w0019200" n="1.1.130">the</w>
+<c xml:id="c0019210" n="1.1.130"> </c>
+<w xml:id="w0019220" n="1.1.130">sun</w>
+<pc xml:id="p0019230" n="1.1.130">;</pc>
+<c xml:id="c0019240" n="1.1.130"> </c>
+<w xml:id="w0019250" n="1.1.130">and</w>
+<c xml:id="c0019260" n="1.1.130"> </c>
+<w xml:id="w0019270" n="1.1.130">the</w>
+<c xml:id="c0019280" n="1.1.130"> </c>
+<w xml:id="w0019290" n="1.1.130">moist</w>
+<c xml:id="c0019300" n="1.1.130"> </c>
+<w xml:id="w0019310" n="1.1.130">star</w>
+<pc xml:id="p0019320" n="1.1.130">,</pc>
+<lb xml:id="lb-01300"/>
+<join type="line" xml:id="ftln-0131" n="1.1.131" ana="#verse" target="#w0019330 #c0019340 #w0019350 #c0019360 #w0019370 #c0019380 #w0019390 #c0019400 #w0019410 #c0019420 #w0019430 #p0019440"/>
+<w xml:id="w0019330" n="1.1.131">Upon</w>
+<c xml:id="c0019340" n="1.1.131"> </c>
+<w xml:id="w0019350" n="1.1.131">whose</w>
+<c xml:id="c0019360" n="1.1.131"> </c>
+<w xml:id="w0019370" n="1.1.131">influence</w>
+<c xml:id="c0019380" n="1.1.131"> </c>
+<w xml:id="w0019390" n="1.1.131">Neptune’s</w>
+<c xml:id="c0019400" n="1.1.131"> </c>
+<w xml:id="w0019410" n="1.1.131">empire</w>
+<c xml:id="c0019420" n="1.1.131"> </c>
+<w xml:id="w0019430" n="1.1.131">stands</w>
+<pc xml:id="p0019440" n="1.1.131">,</pc>
+<lb xml:id="lb-01310"/>
+<join type="line" xml:id="ftln-0132" n="1.1.132" ana="#verse" target="#w0019450 #c0019460 #w0019470 #c0019480 #w0019490 #c0019500 #w0019510 #c0019520 #w0019530 #c0019540 #w0019550 #c0019560 #w0019570 #p0019580"/>
+<w xml:id="w0019450" n="1.1.132">Was</w>
+<c xml:id="c0019460" n="1.1.132"> </c>
+<w xml:id="w0019470" n="1.1.132">sick</w>
+<c xml:id="c0019480" n="1.1.132"> </c>
+<w xml:id="w0019490" n="1.1.132">almost</w>
+<c xml:id="c0019500" n="1.1.132"> </c>
+<w xml:id="w0019510" n="1.1.132">to</w>
+<c xml:id="c0019520" n="1.1.132"> </c>
+<w xml:id="w0019530" n="1.1.132">doomsday</w>
+<c xml:id="c0019540" n="1.1.132"> </c>
+<w xml:id="w0019550" n="1.1.132">with</w>
+<c xml:id="c0019560" n="1.1.132"> </c>
+<w xml:id="w0019570" n="1.1.132">eclipse</w>
+<pc xml:id="p0019580" n="1.1.132">.</pc>
+<lb xml:id="lb-01320"/>
+<join type="line" xml:id="ftln-0133" n="1.1.133" ana="#verse" target="#w0019590 #c0019600 #w0019610 #c0019620 #w0019630 #c0019640 #w0019650 #c0019660 #w0019670 #c0019680 #w0019690 #c0019700 #w0019710 #c0019720 #w0019730 #p0019740"/>
+<w xml:id="w0019590" n="1.1.133">And</w>
+<c xml:id="c0019600" n="1.1.133"> </c>
+<w xml:id="w0019610" n="1.1.133">even</w>
+<c xml:id="c0019620" n="1.1.133"> </c>
+<w xml:id="w0019630" n="1.1.133">the</w>
+<c xml:id="c0019640" n="1.1.133"> </c>
+<w xml:id="w0019650" n="1.1.133">like</w>
+<c xml:id="c0019660" n="1.1.133"> </c>
+<w xml:id="w0019670" n="1.1.133">precurse</w>
+<c xml:id="c0019680" n="1.1.133"> </c>
+<w xml:id="w0019690" n="1.1.133">of</w>
+<c xml:id="c0019700" n="1.1.133"> </c>
+<w xml:id="w0019710" n="1.1.133">feared</w>
+<c xml:id="c0019720" n="1.1.133"> </c>
+<w xml:id="w0019730" n="1.1.133">events</w>
+<pc xml:id="p0019740" n="1.1.133">,</pc>
+<lb xml:id="lb-01330"/>
+<join type="line" xml:id="ftln-0134" n="1.1.134" ana="#verse" target="#w0019750 #c0019760 #w0019770 #c0019780 #w0019790 #c0019800 #w0019810 #c0019820 #w0019830 #c0019840 #w0019850"/>
+<w xml:id="w0019750" n="1.1.134">As</w>
+<c xml:id="c0019760" n="1.1.134"> </c>
+<w xml:id="w0019770" n="1.1.134">harbingers</w>
+<c xml:id="c0019780" n="1.1.134"> </c>
+<w xml:id="w0019790" n="1.1.134">preceding</w>
+<c xml:id="c0019800" n="1.1.134"> </c>
+<w xml:id="w0019810" n="1.1.134">still</w>
+<c xml:id="c0019820" n="1.1.134"> </c>
+<w xml:id="w0019830" n="1.1.134">the</w>
+<c xml:id="c0019840" n="1.1.134"> </c>
+<w xml:id="w0019850" n="1.1.134">fates</w>
+<lb xml:id="lb-01340"/>
+<join type="line" xml:id="ftln-0135" n="1.1.135" ana="#verse" target="#w0019860 #c0019870 #w0019880 #c0019890 #w0019900 #c0019910 #w0019920 #c0019930 #w0019940 #c0019950 #w0019960 #c0019970 #w0019980 #p0019990"/>
+<w xml:id="w0019860" n="1.1.135">And</w>
+<c xml:id="c0019870" n="1.1.135"> </c>
+<w xml:id="w0019880" n="1.1.135">prologue</w>
+<c xml:id="c0019890" n="1.1.135"> </c>
+<w xml:id="w0019900" n="1.1.135">to</w>
+<c xml:id="c0019910" n="1.1.135"> </c>
+<w xml:id="w0019920" n="1.1.135">the</w>
+<c xml:id="c0019930" n="1.1.135"> </c>
+<w xml:id="w0019940" n="1.1.135">omen</w>
+<c xml:id="c0019950" n="1.1.135"> </c>
+<w xml:id="w0019960" n="1.1.135">coming</w>
+<c xml:id="c0019970" n="1.1.135"> </c>
+<w xml:id="w0019980" n="1.1.135">on</w>
+<pc xml:id="p0019990" n="1.1.135">,</pc>
+<lb xml:id="lb-01350"/>
+<milestone xml:id="ms-015" n="15" unit="page"/>
+<pb xml:id="pb-017" n="17" spanTo="#ms-017"/>
+<fw xml:id="ph-017" type="header" n="17">ACT 1. SC. 1</fw>
+<join type="line" xml:id="ftln-0136" n="1.1.136" ana="#verse" target="#w0020000 #c0020010 #w0020020 #c0020030 #w0020040 #c0020050 #w0020060 #c0020070 #w0020080 #c0020090 #w0020100"/>
+<w xml:id="w0020000" n="1.1.136">Have</w>
+<c xml:id="c0020010" n="1.1.136"> </c>
+<w xml:id="w0020020" n="1.1.136">heaven</w>
+<c xml:id="c0020030" n="1.1.136"> </c>
+<w xml:id="w0020040" n="1.1.136">and</w>
+<c xml:id="c0020050" n="1.1.136"> </c>
+<w xml:id="w0020060" n="1.1.136">earth</w>
+<c xml:id="c0020070" n="1.1.136"> </c>
+<w xml:id="w0020080" n="1.1.136">together</w>
+<c xml:id="c0020090" n="1.1.136"> </c>
+<w xml:id="w0020100" n="1.1.136">demonstrated</w>
+<lb xml:id="lb-01360"/>
+<join type="line" xml:id="ftln-0137" n="1.1.137" ana="#verse" target="#w0020110 #c0020120 #w0020130 #c0020140 #w0020150 #c0020160 #w0020170 #c0020180 #w0020190 #p0020200"/>
+<w xml:id="w0020110" n="1.1.137">Unto</w>
+<c xml:id="c0020120" n="1.1.137"> </c>
+<w xml:id="w0020130" n="1.1.137">our</w>
+<c xml:id="c0020140" n="1.1.137"> </c>
+<w xml:id="w0020150" n="1.1.137">climatures</w>
+<c xml:id="c0020160" n="1.1.137"> </c>
+<w xml:id="w0020170" n="1.1.137">and</w>
+<c xml:id="c0020180" n="1.1.137"> </c>
+<w xml:id="w0020190" n="1.1.137">countrymen</w>
+<pc xml:id="p0020200" n="1.1.137">.</pc>
+<lb xml:id="lb-01370"/>
+<lb xml:id="lb-01371"/>
+<stage xml:id="stg-0137.1" n="SD 1.1.137.1" type="entrance" ana="#GHOST-HAM">
+<w xml:id="w0020210" n="SD 1.1.137.1">Enter</w>
+<c xml:id="c0020220" n="SD 1.1.137.1"> </c>
+<w xml:id="w0020230" n="SD 1.1.137.1">Ghost</w>
+<pc xml:id="p0020240" n="SD 1.1.137.1">.</pc>
+</stage>
+<lb xml:id="lb-01372"/>
+<lb xml:id="lb-01373"/>
+<join type="line" xml:id="ftln-0138" n="1.1.138" ana="#verse" target="#w0020250 #c0020260 #w0020270 #p0020280 #c0020290 #w0020300 #p0020310 #c0020320 #w0020330 #p0020340 #c0020350 #w0020360 #c0020370 #w0020380 #c0020390 #w0020400 #c0020410 #w0020420 #p0020430"/>
+<w xml:id="w0020250" n="1.1.138">But</w>
+<c xml:id="c0020260" n="1.1.138"> </c>
+<w xml:id="w0020270" n="1.1.138">soft</w>
+<pc xml:id="p0020280" n="1.1.138">,</pc>
+<c xml:id="c0020290" n="1.1.138"> </c>
+<w xml:id="w0020300" n="1.1.138">behold</w>
+<pc xml:id="p0020310" n="1.1.138">!</pc>
+<c xml:id="c0020320" n="1.1.138"> </c>
+<w xml:id="w0020330" n="1.1.138">Lo</w>
+<pc xml:id="p0020340" n="1.1.138">,</pc>
+<c xml:id="c0020350" n="1.1.138"> </c>
+<w xml:id="w0020360" n="1.1.138">where</w>
+<c xml:id="c0020370" n="1.1.138"> </c>
+<w xml:id="w0020380" n="1.1.138">it</w>
+<c xml:id="c0020390" n="1.1.138"> </c>
+<w xml:id="w0020400" n="1.1.138">comes</w>
+<c xml:id="c0020410" n="1.1.138"> </c>
+<w xml:id="w0020420" n="1.1.138">again</w>
+<pc xml:id="p0020430" n="1.1.138">!</pc>
+<lb xml:id="lb-01380"/>
+<join type="line" xml:id="ftln-0139" n="1.1.139" ana="#verse" target="#w0020440 #c0020450 #w0020460 #c0020470 #w0020480 #c0020490 #w0020500 #c0020510 #w0020520 #c0020530 #w0020540 #c0020550 #w0020560 #p0020570 #p0020580 #w0020590 #p0020600 #c0020610 #w0020620 #p0020630"/>
+<w xml:id="w0020440" n="1.1.139">I’ll</w>
+<c xml:id="c0020450" n="1.1.139"> </c>
+<w xml:id="w0020460" n="1.1.139">cross</w>
+<c xml:id="c0020470" n="1.1.139"> </c>
+<w xml:id="w0020480" n="1.1.139">it</w>
+<c xml:id="c0020490" n="1.1.139"> </c>
+<w xml:id="w0020500" n="1.1.139">though</w>
+<c xml:id="c0020510" n="1.1.139"> </c>
+<w xml:id="w0020520" n="1.1.139">it</w>
+<c xml:id="c0020530" n="1.1.139"> </c>
+<w xml:id="w0020540" n="1.1.139">blast</w>
+<c xml:id="c0020550" n="1.1.139"> </c>
+<w xml:id="w0020560" n="1.1.139">me</w>
+<pc xml:id="p0020570" n="1.1.139">.</pc>
+<pc xml:id="p0020580" n="1.1.139">—</pc>
+<w xml:id="w0020590" n="1.1.139">Stay</w>
+<pc xml:id="p0020600" n="1.1.139">,</pc>
+<c xml:id="c0020610" n="1.1.139"> </c>
+<w xml:id="w0020620" n="1.1.139">illusion</w>
+<pc xml:id="p0020630" n="1.1.139">!</pc>
+<lb xml:id="lb-01390"/>
+<stage xml:id="stg-0139.1" n="SD 1.1.139.1" type="business" ana="#GHOST-HAM">
+<w xml:id="w0020640" n="SD 1.1.139.1">It</w>
+<c xml:id="c0020650" n="SD 1.1.139.1"> </c>
+<w xml:id="w0020660" n="SD 1.1.139.1">spreads</w>
+<c xml:id="c0020670" n="SD 1.1.139.1"> </c>
+<w xml:id="w0020680" n="SD 1.1.139.1">his</w>
+<c xml:id="c0020690" n="SD 1.1.139.1"> </c>
+<w xml:id="w0020700" n="SD 1.1.139.1">arms</w>
+<pc xml:id="p0020710" n="SD 1.1.139.1">.</pc>
+</stage>
+<lb xml:id="lb-01391"/>
+<join type="line" xml:id="ftln-0140" n="1.1.140" ana="#verse" target="#w0020720 #c0020730 #w0020740 #c0020750 #w0020760 #c0020770 #w0020780 #c0020790 #w0020800 #c0020810 #w0020820 #c0020830 #w0020840 #c0020850 #w0020860 #c0020870 #w0020880 #p0020890"/>
+<w xml:id="w0020720" n="1.1.140">If</w>
+<c xml:id="c0020730" n="1.1.140"> </c>
+<w xml:id="w0020740" n="1.1.140">thou</w>
+<c xml:id="c0020750" n="1.1.140"> </c>
+<w xml:id="w0020760" n="1.1.140">hast</w>
+<c xml:id="c0020770" n="1.1.140"> </c>
+<w xml:id="w0020780" n="1.1.140">any</w>
+<c xml:id="c0020790" n="1.1.140"> </c>
+<w xml:id="w0020800" n="1.1.140">sound</w>
+<c xml:id="c0020810" n="1.1.140"> </c>
+<w xml:id="w0020820" n="1.1.140">or</w>
+<c xml:id="c0020830" n="1.1.140"> </c>
+<w xml:id="w0020840" n="1.1.140">use</w>
+<c xml:id="c0020850" n="1.1.140"> </c>
+<w xml:id="w0020860" n="1.1.140">of</w>
+<c xml:id="c0020870" n="1.1.140"> </c>
+<w xml:id="w0020880" n="1.1.140">voice</w>
+<pc xml:id="p0020890" n="1.1.140">,</pc>
+<lb xml:id="lb-01400"/>
+<join type="line" xml:id="ftln-0141" n="1.1.141" ana="#short" target="#w0020900 #c0020910 #w0020920 #c0020930 #w0020940 #p0020950"/>
+<w xml:id="w0020900" n="1.1.141">Speak</w>
+<c xml:id="c0020910" n="1.1.141"> </c>
+<w xml:id="w0020920" n="1.1.141">to</w>
+<c xml:id="c0020930" n="1.1.141"> </c>
+<w xml:id="w0020940" n="1.1.141">me</w>
+<pc xml:id="p0020950" n="1.1.141">.</pc>
+<lb xml:id="lb-01410"/>
+<join type="line" xml:id="ftln-0142" n="1.1.142" ana="#verse" target="#w0020960 #c0020970 #w0020980 #c0020990 #w0021000 #c0021010 #w0021020 #c0021030 #w0021040 #c0021050 #w0021060 #c0021070 #w0021080 #c0021090 #w0021100 #c0021110 #w0021120"/>
+<w xml:id="w0020960" n="1.1.142">If</w>
+<c xml:id="c0020970" n="1.1.142"> </c>
+<w xml:id="w0020980" n="1.1.142">there</w>
+<c xml:id="c0020990" n="1.1.142"> </c>
+<w xml:id="w0021000" n="1.1.142">be</w>
+<c xml:id="c0021010" n="1.1.142"> </c>
+<w xml:id="w0021020" n="1.1.142">any</w>
+<c xml:id="c0021030" n="1.1.142"> </c>
+<w xml:id="w0021040" n="1.1.142">good</w>
+<c xml:id="c0021050" n="1.1.142"> </c>
+<w xml:id="w0021060" n="1.1.142">thing</w>
+<c xml:id="c0021070" n="1.1.142"> </c>
+<w xml:id="w0021080" n="1.1.142">to</w>
+<c xml:id="c0021090" n="1.1.142"> </c>
+<w xml:id="w0021100" n="1.1.142">be</w>
+<c xml:id="c0021110" n="1.1.142"> </c>
+<w xml:id="w0021120" n="1.1.142">done</w>
+<lb xml:id="lb-01420"/>
+<join type="line" xml:id="ftln-0143" n="1.1.143" ana="#verse" target="#w0021130 #c0021140 #w0021150 #c0021160 #w0021170 #c0021180 #w0021190 #c0021200 #w0021210 #c0021220 #w0021230 #c0021240 #w0021250 #c0021260 #w0021270 #c0021280 #w0021290 #c0021300 #w0021310 #p0021320"/>
+<w xml:id="w0021130" n="1.1.143">That</w>
+<c xml:id="c0021140" n="1.1.143"> </c>
+<w xml:id="w0021150" n="1.1.143">may</w>
+<c xml:id="c0021160" n="1.1.143"> </c>
+<w xml:id="w0021170" n="1.1.143">to</w>
+<c xml:id="c0021180" n="1.1.143"> </c>
+<w xml:id="w0021190" n="1.1.143">thee</w>
+<c xml:id="c0021200" n="1.1.143"> </c>
+<w xml:id="w0021210" n="1.1.143">do</w>
+<c xml:id="c0021220" n="1.1.143"> </c>
+<w xml:id="w0021230" n="1.1.143">ease</w>
+<c xml:id="c0021240" n="1.1.143"> </c>
+<w xml:id="w0021250" n="1.1.143">and</w>
+<c xml:id="c0021260" n="1.1.143"> </c>
+<w xml:id="w0021270" n="1.1.143">grace</w>
+<c xml:id="c0021280" n="1.1.143"> </c>
+<w xml:id="w0021290" n="1.1.143">to</w>
+<c xml:id="c0021300" n="1.1.143"> </c>
+<w xml:id="w0021310" n="1.1.143">me</w>
+<pc xml:id="p0021320" n="1.1.143">,</pc>
+<lb xml:id="lb-01430"/>
+<join type="line" xml:id="ftln-0144" n="1.1.144" ana="#short" target="#w0021330 #c0021340 #w0021350 #c0021360 #w0021370 #p0021380"/>
+<w xml:id="w0021330" n="1.1.144">Speak</w>
+<c xml:id="c0021340" n="1.1.144"> </c>
+<w xml:id="w0021350" n="1.1.144">to</w>
+<c xml:id="c0021360" n="1.1.144"> </c>
+<w xml:id="w0021370" n="1.1.144">me</w>
+<pc xml:id="p0021380" n="1.1.144">.</pc>
+<lb xml:id="lb-01440"/>
+<join type="line" xml:id="ftln-0145" n="1.1.145" ana="#verse" target="#w0021390 #c0021400 #w0021410 #c0021420 #w0021430 #c0021440 #w0021450 #c0021460 #w0021470 #c0021480 #w0021490 #c0021500 #w0021510 #c0021520 #w0021530 #p0021540"/>
+<w xml:id="w0021390" n="1.1.145">If</w>
+<c xml:id="c0021400" n="1.1.145"> </c>
+<w xml:id="w0021410" n="1.1.145">thou</w>
+<c xml:id="c0021420" n="1.1.145"> </c>
+<w xml:id="w0021430" n="1.1.145">art</w>
+<c xml:id="c0021440" n="1.1.145"> </c>
+<w xml:id="w0021450" n="1.1.145">privy</w>
+<c xml:id="c0021460" n="1.1.145"> </c>
+<w xml:id="w0021470" n="1.1.145">to</w>
+<c xml:id="c0021480" n="1.1.145"> </c>
+<w xml:id="w0021490" n="1.1.145">thy</w>
+<c xml:id="c0021500" n="1.1.145"> </c>
+<w xml:id="w0021510" n="1.1.145">country’s</w>
+<c xml:id="c0021520" n="1.1.145"> </c>
+<w xml:id="w0021530" n="1.1.145">fate</w>
+<pc xml:id="p0021540" n="1.1.145">,</pc>
+<lb xml:id="lb-01450"/>
+<join type="line" xml:id="ftln-0146" n="1.1.146" ana="#verse" target="#w0021550 #c0021560 #w0021570 #c0021580 #w0021590 #c0021600 #w0021610 #c0021620 #w0021630 #p0021640"/>
+<w xml:id="w0021550" n="1.1.146">Which</w>
+<c xml:id="c0021560" n="1.1.146"> </c>
+<w xml:id="w0021570" n="1.1.146">happily</w>
+<c xml:id="c0021580" n="1.1.146"> </c>
+<w xml:id="w0021590" n="1.1.146">foreknowing</w>
+<c xml:id="c0021600" n="1.1.146"> </c>
+<w xml:id="w0021610" n="1.1.146">may</w>
+<c xml:id="c0021620" n="1.1.146"> </c>
+<w xml:id="w0021630" n="1.1.146">avoid</w>
+<pc xml:id="p0021640" n="1.1.146">,</pc>
+<lb xml:id="lb-01460"/>
+<join type="line" xml:id="ftln-0147" n="1.1.147" ana="#short" target="#w0021650 #p0021660 #c0021670 #w0021680 #p0021690"/>
+<w xml:id="w0021650" n="1.1.147">O</w>
+<pc xml:id="p0021660" n="1.1.147">,</pc>
+<c xml:id="c0021670" n="1.1.147"> </c>
+<w xml:id="w0021680" n="1.1.147">speak</w>
+<pc xml:id="p0021690" n="1.1.147">!</pc>
+<lb xml:id="lb-01470"/>
+<join type="line" xml:id="ftln-0148" n="1.1.148" ana="#verse" target="#w0021700 #c0021710 #w0021720 #c0021730 #w0021740 #c0021750 #w0021760 #c0021770 #w0021780 #c0021790 #w0021800 #c0021810 #w0021820 #c0021830 #w0021840"/>
+<w xml:id="w0021700" n="1.1.148">Or</w>
+<c xml:id="c0021710" n="1.1.148"> </c>
+<w xml:id="w0021720" n="1.1.148">if</w>
+<c xml:id="c0021730" n="1.1.148"> </c>
+<w xml:id="w0021740" n="1.1.148">thou</w>
+<c xml:id="c0021750" n="1.1.148"> </c>
+<w xml:id="w0021760" n="1.1.148">hast</w>
+<c xml:id="c0021770" n="1.1.148"> </c>
+<w xml:id="w0021780" n="1.1.148">uphoarded</w>
+<c xml:id="c0021790" n="1.1.148"> </c>
+<w xml:id="w0021800" n="1.1.148">in</w>
+<c xml:id="c0021810" n="1.1.148"> </c>
+<w xml:id="w0021820" n="1.1.148">thy</w>
+<c xml:id="c0021830" n="1.1.148"> </c>
+<w xml:id="w0021840" n="1.1.148">life</w>
+<lb xml:id="lb-01480"/>
+<join type="line" xml:id="ftln-0149" n="1.1.149" ana="#verse" target="#w0021850 #c0021860 #w0021870 #c0021880 #w0021890 #c0021900 #w0021910 #c0021920 #w0021930 #c0021940 #w0021950 #c0021960 #w0021970 #p0021980"/>
+<w xml:id="w0021850" n="1.1.149">Extorted</w>
+<c xml:id="c0021860" n="1.1.149"> </c>
+<w xml:id="w0021870" n="1.1.149">treasure</w>
+<c xml:id="c0021880" n="1.1.149"> </c>
+<w xml:id="w0021890" n="1.1.149">in</w>
+<c xml:id="c0021900" n="1.1.149"> </c>
+<w xml:id="w0021910" n="1.1.149">the</w>
+<c xml:id="c0021920" n="1.1.149"> </c>
+<w xml:id="w0021930" n="1.1.149">womb</w>
+<c xml:id="c0021940" n="1.1.149"> </c>
+<w xml:id="w0021950" n="1.1.149">of</w>
+<c xml:id="c0021960" n="1.1.149"> </c>
+<w xml:id="w0021970" n="1.1.149">earth</w>
+<pc xml:id="p0021980" n="1.1.149">,</pc>
+<lb xml:id="lb-01490"/>
+<join type="line" xml:id="ftln-0150" n="1.1.150" ana="#verse" target="#w0021990 #c0022000 #w0022010 #p0022020 #c0022030 #w0022040 #c0022050 #w0022060 #p0022070 #c0022080 #w0022090 #c0022100 #w0022110 #c0022120 #w0022130 #c0022140 #w0022150 #c0022160 #w0022170 #c0022180 #w0022190 #p0022200"/>
+<w xml:id="w0021990" n="1.1.150">For</w>
+<c xml:id="c0022000" n="1.1.150"> </c>
+<w xml:id="w0022010" n="1.1.150">which</w>
+<pc xml:id="p0022020" n="1.1.150">,</pc>
+<c xml:id="c0022030" n="1.1.150"> </c>
+<w xml:id="w0022040" n="1.1.150">they</w>
+<c xml:id="c0022050" n="1.1.150"> </c>
+<w xml:id="w0022060" n="1.1.150">say</w>
+<pc xml:id="p0022070" n="1.1.150">,</pc>
+<c xml:id="c0022080" n="1.1.150"> </c>
+<w xml:id="w0022090" n="1.1.150">you</w>
+<c xml:id="c0022100" n="1.1.150"> </c>
+<w xml:id="w0022110" n="1.1.150">spirits</w>
+<c xml:id="c0022120" n="1.1.150"> </c>
+<w xml:id="w0022130" n="1.1.150">oft</w>
+<c xml:id="c0022140" n="1.1.150"> </c>
+<w xml:id="w0022150" n="1.1.150">walk</w>
+<c xml:id="c0022160" n="1.1.150"> </c>
+<w xml:id="w0022170" n="1.1.150">in</w>
+<c xml:id="c0022180" n="1.1.150"> </c>
+<w xml:id="w0022190" n="1.1.150">death</w>
+<pc xml:id="p0022200" n="1.1.150">,</pc>
+<lb xml:id="lb-01500"/>
+<join type="line" xml:id="ftln-0151" n="1.1.151" ana="#verse" next="#ftln-0152" target="#w0022210 #c0022220 #w0022230 #c0022240 #w0022250 #p0022260"/>
+<w xml:id="w0022210" n="1.1.151">Speak</w>
+<c xml:id="c0022220" n="1.1.151"> </c>
+<w xml:id="w0022230" n="1.1.151">of</w>
+<c xml:id="c0022240" n="1.1.151"> </c>
+<w xml:id="w0022250" n="1.1.151">it</w>
+<pc xml:id="p0022260" n="1.1.151">.</pc>
+<stage xml:id="stg-0151" n="SD 1.1.151" type="business">
+<w xml:id="w0022270" n="SD 1.1.151">The</w>
+<c xml:id="c0022280" n="SD 1.1.151"> </c>
+<w xml:id="w0022290" n="SD 1.1.151">cock</w>
+<c xml:id="c0022300" n="SD 1.1.151"> </c>
+<w xml:id="w0022310" n="SD 1.1.151">crows</w>
+<pc xml:id="p0022320" n="SD 1.1.151">.</pc>
+</stage>
+<lb xml:id="lb-01510"/>
+<join type="line" xml:id="ftln-0152" n="1.1.152" ana="#verse" prev="#ftln-0151" target="#w0022330 #c0022340 #w0022350 #c0022360 #w0022370 #p0022380 #p0022390 #w0022400 #c0022410 #w0022420 #p0022430 #c0022440 #w0022450 #p0022460"/>
+<w xml:id="w0022330" n="1.1.152">Stay</w>
+<c xml:id="c0022340" n="1.1.152"> </c>
+<w xml:id="w0022350" n="1.1.152">and</w>
+<c xml:id="c0022360" n="1.1.152"> </c>
+<w xml:id="w0022370" n="1.1.152">speak</w>
+<pc xml:id="p0022380" n="1.1.152">!</pc>
+<pc xml:id="p0022390" n="1.1.152">—</pc>
+<w xml:id="w0022400" n="1.1.152">Stop</w>
+<c xml:id="c0022410" n="1.1.152"> </c>
+<w xml:id="w0022420" n="1.1.152">it</w>
+<pc xml:id="p0022430" n="1.1.152">,</pc>
+<c xml:id="c0022440" n="1.1.152"> </c>
+<w xml:id="w0022450" n="1.1.152">Marcellus</w>
+<pc xml:id="p0022460" n="1.1.152">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01520"/>
+<sp xml:id="sp-0153" who="#MARCELLUS">
+<speaker xml:id="spk-0153">
+<w xml:id="w0022470">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0153">
+<lb xml:id="lb-01521"/>
+<join type="line" xml:id="ftln-0153" n="1.1.153" ana="#verse" target="#w0022480 #c0022490 #w0022500 #c0022510 #w0022520 #c0022530 #w0022540 #c0022550 #w0022560 #c0022570 #w0022580 #c0022590 #w0022600 #p0022610"/>
+<w xml:id="w0022480" n="1.1.153">Shall</w>
+<c xml:id="c0022490" n="1.1.153"> </c>
+<w xml:id="w0022500" n="1.1.153">I</w>
+<c xml:id="c0022510" n="1.1.153"> </c>
+<w xml:id="w0022520" n="1.1.153">strike</w>
+<c xml:id="c0022530" n="1.1.153"> </c>
+<w xml:id="w0022540" n="1.1.153">it</w>
+<c xml:id="c0022550" n="1.1.153"> </c>
+<w xml:id="w0022560" n="1.1.153">with</w>
+<c xml:id="c0022570" n="1.1.153"> </c>
+<w xml:id="w0022580" n="1.1.153">my</w>
+<c xml:id="c0022590" n="1.1.153"> </c>
+<w xml:id="w0022600" n="1.1.153">partisan</w>
+<pc xml:id="p0022610" n="1.1.153">?</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01530"/>
+<sp xml:id="sp-0154" who="#HORATIO">
+<speaker xml:id="spk-0154">
+<w xml:id="w0022620">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0154">
+<join type="line" xml:id="ftln-0154" n="1.1.154" ana="#short" target="#w0022630 #p0022640 #c0022650 #w0022660 #c0022670 #w0022680 #c0022690 #w0022700 #c0022710 #w0022720 #c0022730 #w0022740 #p0022750"/>
+<w xml:id="w0022630" n="1.1.154">Do</w>
+<pc xml:id="p0022640" n="1.1.154">,</pc>
+<c xml:id="c0022650" n="1.1.154"> </c>
+<w xml:id="w0022660" n="1.1.154">if</w>
+<c xml:id="c0022670" n="1.1.154"> </c>
+<w xml:id="w0022680" n="1.1.154">it</w>
+<c xml:id="c0022690" n="1.1.154"> </c>
+<w xml:id="w0022700" n="1.1.154">will</w>
+<c xml:id="c0022710" n="1.1.154"> </c>
+<w xml:id="w0022720" n="1.1.154">not</w>
+<c xml:id="c0022730" n="1.1.154"> </c>
+<w xml:id="w0022740" n="1.1.154">stand</w>
+<pc xml:id="p0022750" n="1.1.154">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01540"/>
+<sp xml:id="sp-0155" who="#BARNARDO">
+<speaker xml:id="spk-0155">
+<w xml:id="w0022760">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0155">
+<join type="line" xml:id="ftln-0155" n="1.1.155" ana="#short" target="#w0022770 #c0022780 #w0022790 #p0022800"/>
+<w xml:id="w0022770" n="1.1.155">’Tis</w>
+<c xml:id="c0022780" n="1.1.155"> </c>
+<w xml:id="w0022790" n="1.1.155">here</w>
+<pc xml:id="p0022800" n="1.1.155">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01550"/>
+<sp xml:id="sp-0156" who="#HORATIO">
+<speaker xml:id="spk-0156">
+<w xml:id="w0022810">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0156">
+<join type="line" xml:id="ftln-0156" n="1.1.156" ana="#short" target="#w0022820 #c0022830 #w0022840 #p0022850"/>
+<w xml:id="w0022820" n="1.1.156">’Tis</w>
+<c xml:id="c0022830" n="1.1.156"> </c>
+<w xml:id="w0022840" n="1.1.156">here</w>
+<pc xml:id="p0022850" n="1.1.156">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01560"/>
+<stage xml:id="stg-0156.1" n="SD 1.1.156.1" type="exit" ana="#GHOST-HAM">
+<w xml:id="w0022860" n="SD 1.1.156.1">Ghost</w>
+<c xml:id="c0022870" n="SD 1.1.156.1"> </c>
+<w xml:id="w0022880" n="SD 1.1.156.1">exits</w>
+<pc xml:id="p0022890" n="SD 1.1.156.1">.</pc>
+</stage>
+<lb xml:id="lb-01561"/>
+<sp xml:id="sp-0157" who="#MARCELLUS">
+<speaker xml:id="spk-0157">
+<w xml:id="w0022900">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0157">
+<join type="line" xml:id="ftln-0157" n="1.1.157" ana="#short" target="#w0022910 #c0022920 #w0022930 #p0022940"/>
+<w xml:id="w0022910" n="1.1.157">’Tis</w>
+<c xml:id="c0022920" n="1.1.157"> </c>
+<w xml:id="w0022930" n="1.1.157">gone</w>
+<pc xml:id="p0022940" n="1.1.157">.</pc>
+<lb xml:id="lb-01570"/>
+<join type="line" xml:id="ftln-0158" n="1.1.158" ana="#verse" target="#w0022950 #c0022960 #w0022970 #c0022980 #w0022990 #c0023000 #w0023010 #p0023020 #c0023030 #w0023040 #c0023050 #w0023060 #c0023070 #w0023080 #p0023090"/>
+<w xml:id="w0022950" n="1.1.158">We</w>
+<c xml:id="c0022960" n="1.1.158"> </c>
+<w xml:id="w0022970" n="1.1.158">do</w>
+<c xml:id="c0022980" n="1.1.158"> </c>
+<w xml:id="w0022990" n="1.1.158">it</w>
+<c xml:id="c0023000" n="1.1.158"> </c>
+<w xml:id="w0023010" n="1.1.158">wrong</w>
+<pc xml:id="p0023020" n="1.1.158">,</pc>
+<c xml:id="c0023030" n="1.1.158"> </c>
+<w xml:id="w0023040" n="1.1.158">being</w>
+<c xml:id="c0023050" n="1.1.158"> </c>
+<w xml:id="w0023060" n="1.1.158">so</w>
+<c xml:id="c0023070" n="1.1.158"> </c>
+<w xml:id="w0023080" n="1.1.158">majestical</w>
+<pc xml:id="p0023090" n="1.1.158">,</pc>
+<lb xml:id="lb-01580"/>
+<join type="line" xml:id="ftln-0159" n="1.1.159" ana="#verse" target="#w0023100 #c0023110 #w0023120 #c0023130 #w0023140 #c0023150 #w0023160 #c0023170 #w0023180 #c0023190 #w0023200 #c0023210 #w0023220 #p0023230"/>
+<w xml:id="w0023100" n="1.1.159">To</w>
+<c xml:id="c0023110" n="1.1.159"> </c>
+<w xml:id="w0023120" n="1.1.159">offer</w>
+<c xml:id="c0023130" n="1.1.159"> </c>
+<w xml:id="w0023140" n="1.1.159">it</w>
+<c xml:id="c0023150" n="1.1.159"> </c>
+<w xml:id="w0023160" n="1.1.159">the</w>
+<c xml:id="c0023170" n="1.1.159"> </c>
+<w xml:id="w0023180" n="1.1.159">show</w>
+<c xml:id="c0023190" n="1.1.159"> </c>
+<w xml:id="w0023200" n="1.1.159">of</w>
+<c xml:id="c0023210" n="1.1.159"> </c>
+<w xml:id="w0023220" n="1.1.159">violence</w>
+<pc xml:id="p0023230" n="1.1.159">,</pc>
+<lb xml:id="lb-01590"/>
+<join type="line" xml:id="ftln-0160" n="1.1.160" ana="#verse" target="#w0023240 #c0023250 #w0023260 #c0023270 #w0023280 #c0023290 #w0023300 #c0023310 #w0023320 #c0023330 #w0023340 #p0023350 #c0023360 #w0023370 #p0023380"/>
+<w xml:id="w0023240" n="1.1.160">For</w>
+<c xml:id="c0023250" n="1.1.160"> </c>
+<w xml:id="w0023260" n="1.1.160">it</w>
+<c xml:id="c0023270" n="1.1.160"> </c>
+<w xml:id="w0023280" n="1.1.160">is</w>
+<c xml:id="c0023290" n="1.1.160"> </c>
+<w xml:id="w0023300" n="1.1.160">as</w>
+<c xml:id="c0023310" n="1.1.160"> </c>
+<w xml:id="w0023320" n="1.1.160">the</w>
+<c xml:id="c0023330" n="1.1.160"> </c>
+<w xml:id="w0023340" n="1.1.160">air</w>
+<pc xml:id="p0023350" n="1.1.160">,</pc>
+<c xml:id="c0023360" n="1.1.160"> </c>
+<w xml:id="w0023370" n="1.1.160">invulnerable</w>
+<pc xml:id="p0023380" n="1.1.160">,</pc>
+<lb xml:id="lb-01600"/>
+<join type="line" xml:id="ftln-0161" n="1.1.161" ana="#verse" target="#w0023390 #c0023400 #w0023410 #c0023420 #w0023430 #c0023440 #w0023450 #c0023460 #w0023470 #c0023480 #w0023490 #p0023500"/>
+<w xml:id="w0023390" n="1.1.161">And</w>
+<c xml:id="c0023400" n="1.1.161"> </c>
+<w xml:id="w0023410" n="1.1.161">our</w>
+<c xml:id="c0023420" n="1.1.161"> </c>
+<w xml:id="w0023430" n="1.1.161">vain</w>
+<c xml:id="c0023440" n="1.1.161"> </c>
+<w xml:id="w0023450" n="1.1.161">blows</w>
+<c xml:id="c0023460" n="1.1.161"> </c>
+<w xml:id="w0023470" n="1.1.161">malicious</w>
+<c xml:id="c0023480" n="1.1.161"> </c>
+<w xml:id="w0023490" n="1.1.161">mockery</w>
+<pc xml:id="p0023500" n="1.1.161">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01610"/>
+<sp xml:id="sp-0162" who="#BARNARDO">
+<speaker xml:id="spk-0162">
+<w xml:id="w0023510">BARNARDO</w>
+</speaker>
+<ab xml:id="ab-0162">
+<lb xml:id="lb-01611"/>
+<join type="line" xml:id="ftln-0162" n="1.1.162" ana="#verse" target="#w0023520 #c0023530 #w0023540 #c0023550 #w0023560 #c0023570 #w0023580 #c0023590 #w0023600 #c0023610 #w0023620 #c0023630 #w0023640 #c0023650 #w0023660 #c0023670 #w0023680 #p0023690"/>
+<w xml:id="w0023520" n="1.1.162">It</w>
+<c xml:id="c0023530" n="1.1.162"> </c>
+<w xml:id="w0023540" n="1.1.162">was</w>
+<c xml:id="c0023550" n="1.1.162"> </c>
+<w xml:id="w0023560" n="1.1.162">about</w>
+<c xml:id="c0023570" n="1.1.162"> </c>
+<w xml:id="w0023580" n="1.1.162">to</w>
+<c xml:id="c0023590" n="1.1.162"> </c>
+<w xml:id="w0023600" n="1.1.162">speak</w>
+<c xml:id="c0023610" n="1.1.162"> </c>
+<w xml:id="w0023620" n="1.1.162">when</w>
+<c xml:id="c0023630" n="1.1.162"> </c>
+<w xml:id="w0023640" n="1.1.162">the</w>
+<c xml:id="c0023650" n="1.1.162"> </c>
+<w xml:id="w0023660" n="1.1.162">cock</w>
+<c xml:id="c0023670" n="1.1.162"> </c>
+<w xml:id="w0023680" n="1.1.162">crew</w>
+<pc xml:id="p0023690" n="1.1.162">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01620"/>
+<sp xml:id="sp-0163" who="#HORATIO">
+<speaker xml:id="spk-0163">
+<w xml:id="w0023700">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0163">
+<lb xml:id="lb-01621"/>
+<join type="line" xml:id="ftln-0163" n="1.1.163" ana="#verse" target="#w0023710 #c0023720 #w0023730 #c0023740 #w0023750 #c0023760 #w0023770 #c0023780 #w0023790 #c0023800 #w0023810 #c0023820 #w0023830 #c0023840 #w0023850"/>
+<w xml:id="w0023710" n="1.1.163">And</w>
+<c xml:id="c0023720" n="1.1.163"> </c>
+<w xml:id="w0023730" n="1.1.163">then</w>
+<c xml:id="c0023740" n="1.1.163"> </c>
+<w xml:id="w0023750" n="1.1.163">it</w>
+<c xml:id="c0023760" n="1.1.163"> </c>
+<w xml:id="w0023770" n="1.1.163">started</w>
+<c xml:id="c0023780" n="1.1.163"> </c>
+<w xml:id="w0023790" n="1.1.163">like</w>
+<c xml:id="c0023800" n="1.1.163"> </c>
+<w xml:id="w0023810" n="1.1.163">a</w>
+<c xml:id="c0023820" n="1.1.163"> </c>
+<w xml:id="w0023830" n="1.1.163">guilty</w>
+<c xml:id="c0023840" n="1.1.163"> </c>
+<w xml:id="w0023850" n="1.1.163">thing</w>
+<lb xml:id="lb-01630"/>
+<join type="line" xml:id="ftln-0164" n="1.1.164" ana="#verse" target="#w0023860 #c0023870 #w0023880 #c0023890 #w0023900 #c0023910 #w0023920 #p0023930 #c0023940 #w0023950 #c0023960 #w0023970 #c0023980 #w0023990"/>
+<w xml:id="w0023860" n="1.1.164">Upon</w>
+<c xml:id="c0023870" n="1.1.164"> </c>
+<w xml:id="w0023880" n="1.1.164">a</w>
+<c xml:id="c0023890" n="1.1.164"> </c>
+<w xml:id="w0023900" n="1.1.164">fearful</w>
+<c xml:id="c0023910" n="1.1.164"> </c>
+<w xml:id="w0023920" n="1.1.164">summons</w>
+<pc xml:id="p0023930" n="1.1.164">.</pc>
+<c xml:id="c0023940" n="1.1.164"> </c>
+<w xml:id="w0023950" n="1.1.164">I</w>
+<c xml:id="c0023960" n="1.1.164"> </c>
+<w xml:id="w0023970" n="1.1.164">have</w>
+<c xml:id="c0023980" n="1.1.164"> </c>
+<w xml:id="w0023990" n="1.1.164">heard</w>
+<lb xml:id="lb-01640"/>
+<milestone xml:id="ms-017" n="17" unit="page"/>
+<pb xml:id="pb-019" n="19" spanTo="#ms-019"/>
+<fw xml:id="ph-019" type="header" n="19">ACT 1. SC. 1</fw>
+<join type="line" xml:id="ftln-0165" n="1.1.165" ana="#verse" target="#w0024000 #c0024010 #w0024020 #p0024030 #c0024040 #w0024050 #c0024060 #w0024070 #c0024080 #w0024090 #c0024100 #w0024110 #c0024120 #w0024130 #c0024140 #w0024150 #c0024160 #w0024170 #p0024180"/>
+<w xml:id="w0024000" n="1.1.165">The</w>
+<c xml:id="c0024010" n="1.1.165"> </c>
+<w xml:id="w0024020" n="1.1.165">cock</w>
+<pc xml:id="p0024030" n="1.1.165">,</pc>
+<c xml:id="c0024040" n="1.1.165"> </c>
+<w xml:id="w0024050" n="1.1.165">that</w>
+<c xml:id="c0024060" n="1.1.165"> </c>
+<w xml:id="w0024070" n="1.1.165">is</w>
+<c xml:id="c0024080" n="1.1.165"> </c>
+<w xml:id="w0024090" n="1.1.165">the</w>
+<c xml:id="c0024100" n="1.1.165"> </c>
+<w xml:id="w0024110" n="1.1.165">trumpet</w>
+<c xml:id="c0024120" n="1.1.165"> </c>
+<w xml:id="w0024130" n="1.1.165">to</w>
+<c xml:id="c0024140" n="1.1.165"> </c>
+<w xml:id="w0024150" n="1.1.165">the</w>
+<c xml:id="c0024160" n="1.1.165"> </c>
+<w xml:id="w0024170" n="1.1.165">morn</w>
+<pc xml:id="p0024180" n="1.1.165">,</pc>
+<lb xml:id="lb-01650"/>
+<join type="line" xml:id="ftln-0166" n="1.1.166" ana="#verse" target="#w0024190 #c0024200 #w0024210 #c0024220 #w0024230 #c0024240 #w0024250 #c0024260 #w0024270 #c0024280 #w0024290 #c0024300 #w0024310"/>
+<w xml:id="w0024190" n="1.1.166">Doth</w>
+<c xml:id="c0024200" n="1.1.166"> </c>
+<w xml:id="w0024210" n="1.1.166">with</w>
+<c xml:id="c0024220" n="1.1.166"> </c>
+<w xml:id="w0024230" n="1.1.166">his</w>
+<c xml:id="c0024240" n="1.1.166"> </c>
+<w xml:id="w0024250" n="1.1.166">lofty</w>
+<c xml:id="c0024260" n="1.1.166"> </c>
+<w xml:id="w0024270" n="1.1.166">and</w>
+<c xml:id="c0024280" n="1.1.166"> </c>
+<w xml:id="w0024290" n="1.1.166">shrill-sounding</w>
+<c xml:id="c0024300" n="1.1.166"> </c>
+<w xml:id="w0024310" n="1.1.166">throat</w>
+<lb xml:id="lb-01660"/>
+<join type="line" xml:id="ftln-0167" n="1.1.167" ana="#verse" target="#w0024320 #c0024330 #w0024340 #c0024350 #w0024360 #c0024370 #w0024380 #c0024390 #w0024400 #p0024410 #c0024420 #w0024430 #c0024440 #w0024450 #c0024460 #w0024470 #c0024480 #w0024490 #p0024500"/>
+<w xml:id="w0024320" n="1.1.167">Awake</w>
+<c xml:id="c0024330" n="1.1.167"> </c>
+<w xml:id="w0024340" n="1.1.167">the</w>
+<c xml:id="c0024350" n="1.1.167"> </c>
+<w xml:id="w0024360" n="1.1.167">god</w>
+<c xml:id="c0024370" n="1.1.167"> </c>
+<w xml:id="w0024380" n="1.1.167">of</w>
+<c xml:id="c0024390" n="1.1.167"> </c>
+<w xml:id="w0024400" n="1.1.167">day</w>
+<pc xml:id="p0024410" n="1.1.167">,</pc>
+<c xml:id="c0024420" n="1.1.167"> </c>
+<w xml:id="w0024430" n="1.1.167">and</w>
+<c xml:id="c0024440" n="1.1.167"> </c>
+<w xml:id="w0024450" n="1.1.167">at</w>
+<c xml:id="c0024460" n="1.1.167"> </c>
+<w xml:id="w0024470" n="1.1.167">his</w>
+<c xml:id="c0024480" n="1.1.167"> </c>
+<w xml:id="w0024490" n="1.1.167">warning</w>
+<pc xml:id="p0024500" n="1.1.167">,</pc>
+<lb xml:id="lb-01670"/>
+<join type="line" xml:id="ftln-0168" n="1.1.168" ana="#verse" target="#w0024510 #c0024520 #w0024530 #c0024540 #w0024550 #c0024560 #w0024570 #c0024580 #w0024590 #p0024600 #c0024610 #w0024620 #c0024630 #w0024640 #c0024650 #w0024660 #c0024670 #w0024680 #p0024690"/>
+<w xml:id="w0024510" n="1.1.168">Whether</w>
+<c xml:id="c0024520" n="1.1.168"> </c>
+<w xml:id="w0024530" n="1.1.168">in</w>
+<c xml:id="c0024540" n="1.1.168"> </c>
+<w xml:id="w0024550" n="1.1.168">sea</w>
+<c xml:id="c0024560" n="1.1.168"> </c>
+<w xml:id="w0024570" n="1.1.168">or</w>
+<c xml:id="c0024580" n="1.1.168"> </c>
+<w xml:id="w0024590" n="1.1.168">fire</w>
+<pc xml:id="p0024600" n="1.1.168">,</pc>
+<c xml:id="c0024610" n="1.1.168"> </c>
+<w xml:id="w0024620" n="1.1.168">in</w>
+<c xml:id="c0024630" n="1.1.168"> </c>
+<w xml:id="w0024640" n="1.1.168">earth</w>
+<c xml:id="c0024650" n="1.1.168"> </c>
+<w xml:id="w0024660" n="1.1.168">or</w>
+<c xml:id="c0024670" n="1.1.168"> </c>
+<w xml:id="w0024680" n="1.1.168">air</w>
+<pc xml:id="p0024690" n="1.1.168">,</pc>
+<lb xml:id="lb-01680"/>
+<join type="line" xml:id="ftln-0169" n="1.1.169" ana="#verse" target="#w0024700 #c0024710 #w0024720 #c0024730 #w0024740 #c0024750 #w0024760 #c0024770 #w0024780 #c0024790 #w0024800"/>
+<w xml:id="w0024700" n="1.1.169">Th’</w>
+<c xml:id="c0024710" n="1.1.169"> </c>
+<w xml:id="w0024720" n="1.1.169">extravagant</w>
+<c xml:id="c0024730" n="1.1.169"> </c>
+<w xml:id="w0024740" n="1.1.169">and</w>
+<c xml:id="c0024750" n="1.1.169"> </c>
+<w xml:id="w0024760" n="1.1.169">erring</w>
+<c xml:id="c0024770" n="1.1.169"> </c>
+<w xml:id="w0024780" n="1.1.169">spirit</w>
+<c xml:id="c0024790" n="1.1.169"> </c>
+<w xml:id="w0024800" n="1.1.169">hies</w>
+<lb xml:id="lb-01690"/>
+<join type="line" xml:id="ftln-0170" n="1.1.170" ana="#verse" target="#w0024810 #c0024820 #w0024830 #c0024840 #w0024850 #p0024860 #c0024870 #w0024880 #c0024890 #w0024900 #c0024910 #w0024920 #c0024930 #w0024940 #c0024950 #w0024960"/>
+<w xml:id="w0024810" n="1.1.170">To</w>
+<c xml:id="c0024820" n="1.1.170"> </c>
+<w xml:id="w0024830" n="1.1.170">his</w>
+<c xml:id="c0024840" n="1.1.170"> </c>
+<w xml:id="w0024850" n="1.1.170">confine</w>
+<pc xml:id="p0024860" n="1.1.170">,</pc>
+<c xml:id="c0024870" n="1.1.170"> </c>
+<w xml:id="w0024880" n="1.1.170">and</w>
+<c xml:id="c0024890" n="1.1.170"> </c>
+<w xml:id="w0024900" n="1.1.170">of</w>
+<c xml:id="c0024910" n="1.1.170"> </c>
+<w xml:id="w0024920" n="1.1.170">the</w>
+<c xml:id="c0024930" n="1.1.170"> </c>
+<w xml:id="w0024940" n="1.1.170">truth</w>
+<c xml:id="c0024950" n="1.1.170"> </c>
+<w xml:id="w0024960" n="1.1.170">herein</w>
+<lb xml:id="lb-01700"/>
+<join type="line" xml:id="ftln-0171" n="1.1.171" ana="#verse" target="#w0024970 #c0024980 #w0024990 #c0025000 #w0025010 #c0025020 #w0025030 #c0025040 #w0025050 #p0025060"/>
+<w xml:id="w0024970" n="1.1.171">This</w>
+<c xml:id="c0024980" n="1.1.171"> </c>
+<w xml:id="w0024990" n="1.1.171">present</w>
+<c xml:id="c0025000" n="1.1.171"> </c>
+<w xml:id="w0025010" n="1.1.171">object</w>
+<c xml:id="c0025020" n="1.1.171"> </c>
+<w xml:id="w0025030" n="1.1.171">made</w>
+<c xml:id="c0025040" n="1.1.171"> </c>
+<w xml:id="w0025050" n="1.1.171">probation</w>
+<pc xml:id="p0025060" n="1.1.171">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01710"/>
+<sp xml:id="sp-0172" who="#MARCELLUS">
+<speaker xml:id="spk-0172">
+<w xml:id="w0025070">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0172">
+<lb xml:id="lb-01711"/>
+<join type="line" xml:id="ftln-0172" n="1.1.172" ana="#verse" target="#w0025080 #c0025090 #w0025100 #c0025110 #w0025120 #c0025130 #w0025140 #c0025150 #w0025160 #c0025170 #w0025180 #c0025190 #w0025200 #c0025210 #w0025220 #p0025230"/>
+<w xml:id="w0025080" n="1.1.172">It</w>
+<c xml:id="c0025090" n="1.1.172"> </c>
+<w xml:id="w0025100" n="1.1.172">faded</w>
+<c xml:id="c0025110" n="1.1.172"> </c>
+<w xml:id="w0025120" n="1.1.172">on</w>
+<c xml:id="c0025130" n="1.1.172"> </c>
+<w xml:id="w0025140" n="1.1.172">the</w>
+<c xml:id="c0025150" n="1.1.172"> </c>
+<w xml:id="w0025160" n="1.1.172">crowing</w>
+<c xml:id="c0025170" n="1.1.172"> </c>
+<w xml:id="w0025180" n="1.1.172">of</w>
+<c xml:id="c0025190" n="1.1.172"> </c>
+<w xml:id="w0025200" n="1.1.172">the</w>
+<c xml:id="c0025210" n="1.1.172"> </c>
+<w xml:id="w0025220" n="1.1.172">cock</w>
+<pc xml:id="p0025230" n="1.1.172">.</pc>
+<lb xml:id="lb-01720"/>
+<join type="line" xml:id="ftln-0173" n="1.1.173" ana="#verse" target="#w0025240 #c0025250 #w0025260 #c0025270 #w0025280 #c0025290 #w0025300 #c0025310 #w0025320 #c0025330 #w0025340 #c0025350 #w0025360 #c0025370 #w0025380"/>
+<w xml:id="w0025240" n="1.1.173">Some</w>
+<c xml:id="c0025250" n="1.1.173"> </c>
+<w xml:id="w0025260" n="1.1.173">say</w>
+<c xml:id="c0025270" n="1.1.173"> </c>
+<w xml:id="w0025280" n="1.1.173">that</w>
+<c xml:id="c0025290" n="1.1.173"> </c>
+<w xml:id="w0025300" n="1.1.173">ever</w>
+<c xml:id="c0025310" n="1.1.173"> </c>
+<w xml:id="w0025320" n="1.1.173">’gainst</w>
+<c xml:id="c0025330" n="1.1.173"> </c>
+<w xml:id="w0025340" n="1.1.173">that</w>
+<c xml:id="c0025350" n="1.1.173"> </c>
+<w xml:id="w0025360" n="1.1.173">season</w>
+<c xml:id="c0025370" n="1.1.173"> </c>
+<w xml:id="w0025380" n="1.1.173">comes</w>
+<lb xml:id="lb-01730"/>
+<join type="line" xml:id="ftln-0174" n="1.1.174" ana="#verse" target="#w0025390 #c0025400 #w0025410 #c0025420 #w0025430 #c0025440 #w0025450 #c0025460 #w0025470 #c0025480 #w0025490 #p0025500"/>
+<w xml:id="w0025390" n="1.1.174">Wherein</w>
+<c xml:id="c0025400" n="1.1.174"> </c>
+<w xml:id="w0025410" n="1.1.174">our</w>
+<c xml:id="c0025420" n="1.1.174"> </c>
+<w xml:id="w0025430" n="1.1.174">Savior’s</w>
+<c xml:id="c0025440" n="1.1.174"> </c>
+<w xml:id="w0025450" n="1.1.174">birth</w>
+<c xml:id="c0025460" n="1.1.174"> </c>
+<w xml:id="w0025470" n="1.1.174">is</w>
+<c xml:id="c0025480" n="1.1.174"> </c>
+<w xml:id="w0025490" n="1.1.174">celebrated</w>
+<pc xml:id="p0025500" n="1.1.174">,</pc>
+<lb xml:id="lb-01740"/>
+<join type="line" xml:id="ftln-0175" n="1.1.175" ana="#verse" target="#w0025510 #c0025520 #w0025530 #c0025540 #w0025550 #c0025560 #w0025570 #c0025580 #w0025590 #c0025600 #w0025610 #c0025620 #w0025630 #c0025640 #w0025650 #p0025660"/>
+<w xml:id="w0025510" n="1.1.175">This</w>
+<c xml:id="c0025520" n="1.1.175"> </c>
+<w xml:id="w0025530" n="1.1.175">bird</w>
+<c xml:id="c0025540" n="1.1.175"> </c>
+<w xml:id="w0025550" n="1.1.175">of</w>
+<c xml:id="c0025560" n="1.1.175"> </c>
+<w xml:id="w0025570" n="1.1.175">dawning</w>
+<c xml:id="c0025580" n="1.1.175"> </c>
+<w xml:id="w0025590" n="1.1.175">singeth</w>
+<c xml:id="c0025600" n="1.1.175"> </c>
+<w xml:id="w0025610" n="1.1.175">all</w>
+<c xml:id="c0025620" n="1.1.175"> </c>
+<w xml:id="w0025630" n="1.1.175">night</w>
+<c xml:id="c0025640" n="1.1.175"> </c>
+<w xml:id="w0025650" n="1.1.175">long</w>
+<pc xml:id="p0025660" n="1.1.175">;</pc>
+<lb xml:id="lb-01750"/>
+<join type="line" xml:id="ftln-0176" n="1.1.176" ana="#verse" target="#w0025670 #c0025680 #w0025690 #p0025700 #c0025710 #w0025720 #c0025730 #w0025740 #p0025750 #c0025760 #w0025770 #c0025780 #w0025790 #c0025800 #w0025810 #c0025820 #w0025830 #c0025840 #w0025850 #p0025860"/>
+<w xml:id="w0025670" n="1.1.176">And</w>
+<c xml:id="c0025680" n="1.1.176"> </c>
+<w xml:id="w0025690" n="1.1.176">then</w>
+<pc xml:id="p0025700" n="1.1.176">,</pc>
+<c xml:id="c0025710" n="1.1.176"> </c>
+<w xml:id="w0025720" n="1.1.176">they</w>
+<c xml:id="c0025730" n="1.1.176"> </c>
+<w xml:id="w0025740" n="1.1.176">say</w>
+<pc xml:id="p0025750" n="1.1.176">,</pc>
+<c xml:id="c0025760" n="1.1.176"> </c>
+<w xml:id="w0025770" n="1.1.176">no</w>
+<c xml:id="c0025780" n="1.1.176"> </c>
+<w xml:id="w0025790" n="1.1.176">spirit</w>
+<c xml:id="c0025800" n="1.1.176"> </c>
+<w xml:id="w0025810" n="1.1.176">dare</w>
+<c xml:id="c0025820" n="1.1.176"> </c>
+<w xml:id="w0025830" n="1.1.176">stir</w>
+<c xml:id="c0025840" n="1.1.176"> </c>
+<w xml:id="w0025850" n="1.1.176">abroad</w>
+<pc xml:id="p0025860" n="1.1.176">,</pc>
+<lb xml:id="lb-01760"/>
+<join type="line" xml:id="ftln-0177" n="1.1.177" ana="#verse" target="#w0025870 #c0025880 #w0025890 #c0025900 #w0025910 #c0025920 #w0025930 #p0025940 #c0025950 #w0025960 #c0025970 #w0025980 #c0025990 #w0026000 #c0026010 #w0026020 #p0026030"/>
+<w xml:id="w0025870" n="1.1.177">The</w>
+<c xml:id="c0025880" n="1.1.177"> </c>
+<w xml:id="w0025890" n="1.1.177">nights</w>
+<c xml:id="c0025900" n="1.1.177"> </c>
+<w xml:id="w0025910" n="1.1.177">are</w>
+<c xml:id="c0025920" n="1.1.177"> </c>
+<w xml:id="w0025930" n="1.1.177">wholesome</w>
+<pc xml:id="p0025940" n="1.1.177">;</pc>
+<c xml:id="c0025950" n="1.1.177"> </c>
+<w xml:id="w0025960" n="1.1.177">then</w>
+<c xml:id="c0025970" n="1.1.177"> </c>
+<w xml:id="w0025980" n="1.1.177">no</w>
+<c xml:id="c0025990" n="1.1.177"> </c>
+<w xml:id="w0026000" n="1.1.177">planets</w>
+<c xml:id="c0026010" n="1.1.177"> </c>
+<w xml:id="w0026020" n="1.1.177">strike</w>
+<pc xml:id="p0026030" n="1.1.177">,</pc>
+<lb xml:id="lb-01770"/>
+<join type="line" xml:id="ftln-0178" n="1.1.178" ana="#verse" target="#w0026040 #c0026050 #w0026060 #c0026070 #w0026080 #p0026090 #c0026100 #w0026110 #c0026120 #w0026130 #c0026140 #w0026150 #c0026160 #w0026170 #c0026180 #w0026190 #c0026200 #w0026210 #p0026220"/>
+<w xml:id="w0026040" n="1.1.178">No</w>
+<c xml:id="c0026050" n="1.1.178"> </c>
+<w xml:id="w0026060" n="1.1.178">fairy</w>
+<c xml:id="c0026070" n="1.1.178"> </c>
+<w xml:id="w0026080" n="1.1.178">takes</w>
+<pc xml:id="p0026090" n="1.1.178">,</pc>
+<c xml:id="c0026100" n="1.1.178"> </c>
+<w xml:id="w0026110" n="1.1.178">nor</w>
+<c xml:id="c0026120" n="1.1.178"> </c>
+<w xml:id="w0026130" n="1.1.178">witch</w>
+<c xml:id="c0026140" n="1.1.178"> </c>
+<w xml:id="w0026150" n="1.1.178">hath</w>
+<c xml:id="c0026160" n="1.1.178"> </c>
+<w xml:id="w0026170" n="1.1.178">power</w>
+<c xml:id="c0026180" n="1.1.178"> </c>
+<w xml:id="w0026190" n="1.1.178">to</w>
+<c xml:id="c0026200" n="1.1.178"> </c>
+<w xml:id="w0026210" n="1.1.178">charm</w>
+<pc xml:id="p0026220" n="1.1.178">,</pc>
+<lb xml:id="lb-01780"/>
+<join type="line" xml:id="ftln-0179" n="1.1.179" ana="#verse" target="#w0026230 #c0026240 #w0026250 #c0026260 #w0026270 #c0026280 #w0026290 #c0026300 #w0026310 #c0026320 #w0026330 #c0026340 #w0026350 #c0026360 #w0026370 #p0026380"/>
+<w xml:id="w0026230" n="1.1.179">So</w>
+<c xml:id="c0026240" n="1.1.179"> </c>
+<w xml:id="w0026250" n="1.1.179">hallowed</w>
+<c xml:id="c0026260" n="1.1.179"> </c>
+<w xml:id="w0026270" n="1.1.179">and</w>
+<c xml:id="c0026280" n="1.1.179"> </c>
+<w xml:id="w0026290" n="1.1.179">so</w>
+<c xml:id="c0026300" n="1.1.179"> </c>
+<w xml:id="w0026310" n="1.1.179">gracious</w>
+<c xml:id="c0026320" n="1.1.179"> </c>
+<w xml:id="w0026330" n="1.1.179">is</w>
+<c xml:id="c0026340" n="1.1.179"> </c>
+<w xml:id="w0026350" n="1.1.179">that</w>
+<c xml:id="c0026360" n="1.1.179"> </c>
+<w xml:id="w0026370" n="1.1.179">time</w>
+<pc xml:id="p0026380" n="1.1.179">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01790"/>
+<sp xml:id="sp-0180" who="#HORATIO">
+<speaker xml:id="spk-0180">
+<w xml:id="w0026390">HORATIO</w>
+</speaker>
+<ab xml:id="ab-0180">
+<lb xml:id="lb-01791"/>
+<join type="line" xml:id="ftln-0180" n="1.1.180" ana="#verse" target="#w0026400 #c0026410 #w0026420 #c0026430 #w0026440 #c0026450 #w0026460 #c0026470 #w0026480 #c0026490 #w0026500 #c0026510 #w0026520 #c0026530 #w0026540 #c0026550 #w0026560 #c0026570 #w0026580 #p0026590"/>
+<w xml:id="w0026400" n="1.1.180">So</w>
+<c xml:id="c0026410" n="1.1.180"> </c>
+<w xml:id="w0026420" n="1.1.180">have</w>
+<c xml:id="c0026430" n="1.1.180"> </c>
+<w xml:id="w0026440" n="1.1.180">I</w>
+<c xml:id="c0026450" n="1.1.180"> </c>
+<w xml:id="w0026460" n="1.1.180">heard</w>
+<c xml:id="c0026470" n="1.1.180"> </c>
+<w xml:id="w0026480" n="1.1.180">and</w>
+<c xml:id="c0026490" n="1.1.180"> </c>
+<w xml:id="w0026500" n="1.1.180">do</w>
+<c xml:id="c0026510" n="1.1.180"> </c>
+<w xml:id="w0026520" n="1.1.180">in</w>
+<c xml:id="c0026530" n="1.1.180"> </c>
+<w xml:id="w0026540" n="1.1.180">part</w>
+<c xml:id="c0026550" n="1.1.180"> </c>
+<w xml:id="w0026560" n="1.1.180">believe</w>
+<c xml:id="c0026570" n="1.1.180"> </c>
+<w xml:id="w0026580" n="1.1.180">it</w>
+<pc xml:id="p0026590" n="1.1.180">.</pc>
+<lb xml:id="lb-01800"/>
+<join type="line" xml:id="ftln-0181" n="1.1.181" ana="#verse" target="#w0026600 #c0026610 #w0026620 #p0026630 #c0026640 #w0026650 #c0026660 #w0026670 #c0026680 #w0026690 #c0026700 #w0026710 #c0026720 #w0026730 #c0026740 #w0026750"/>
+<w xml:id="w0026600" n="1.1.181">But</w>
+<c xml:id="c0026610" n="1.1.181"> </c>
+<w xml:id="w0026620" n="1.1.181">look</w>
+<pc xml:id="p0026630" n="1.1.181">,</pc>
+<c xml:id="c0026640" n="1.1.181"> </c>
+<w xml:id="w0026650" n="1.1.181">the</w>
+<c xml:id="c0026660" n="1.1.181"> </c>
+<w xml:id="w0026670" n="1.1.181">morn</w>
+<c xml:id="c0026680" n="1.1.181"> </c>
+<w xml:id="w0026690" n="1.1.181">in</w>
+<c xml:id="c0026700" n="1.1.181"> </c>
+<w xml:id="w0026710" n="1.1.181">russet</w>
+<c xml:id="c0026720" n="1.1.181"> </c>
+<w xml:id="w0026730" n="1.1.181">mantle</w>
+<c xml:id="c0026740" n="1.1.181"> </c>
+<w xml:id="w0026750" n="1.1.181">clad</w>
+<lb xml:id="lb-01810"/>
+<join type="line" xml:id="ftln-0182" n="1.1.182" ana="#verse" target="#w0026760 #c0026770 #w0026780 #c0026790 #w0026800 #c0026810 #w0026820 #c0026830 #w0026840 #c0026850 #w0026860 #c0026870 #w0026880 #c0026890 #w0026900 #c0026910 #w0026920 #p0026930"/>
+<w xml:id="w0026760" n="1.1.182">Walks</w>
+<c xml:id="c0026770" n="1.1.182"> </c>
+<w xml:id="w0026780" n="1.1.182">o’er</w>
+<c xml:id="c0026790" n="1.1.182"> </c>
+<w xml:id="w0026800" n="1.1.182">the</w>
+<c xml:id="c0026810" n="1.1.182"> </c>
+<w xml:id="w0026820" n="1.1.182">dew</w>
+<c xml:id="c0026830" n="1.1.182"> </c>
+<w xml:id="w0026840" n="1.1.182">of</w>
+<c xml:id="c0026850" n="1.1.182"> </c>
+<w xml:id="w0026860" n="1.1.182">yon</w>
+<c xml:id="c0026870" n="1.1.182"> </c>
+<w xml:id="w0026880" n="1.1.182">high</w>
+<c xml:id="c0026890" n="1.1.182"> </c>
+<w xml:id="w0026900" n="1.1.182">eastward</w>
+<c xml:id="c0026910" n="1.1.182"> </c>
+<w xml:id="w0026920" n="1.1.182">hill</w>
+<pc xml:id="p0026930" n="1.1.182">.</pc>
+<lb xml:id="lb-01820"/>
+<join type="line" xml:id="ftln-0183" n="1.1.183" ana="#verse" target="#w0026940 #c0026950 #w0026960 #c0026970 #w0026980 #c0026990 #w0027000 #c0027010 #w0027020 #p0027030 #c0027040 #w0027050 #c0027060 #w0027070 #c0027080 #w0027090 #c0027100 #w0027110"/>
+<w xml:id="w0026940" n="1.1.183">Break</w>
+<c xml:id="c0026950" n="1.1.183"> </c>
+<w xml:id="w0026960" n="1.1.183">we</w>
+<c xml:id="c0026970" n="1.1.183"> </c>
+<w xml:id="w0026980" n="1.1.183">our</w>
+<c xml:id="c0026990" n="1.1.183"> </c>
+<w xml:id="w0027000" n="1.1.183">watch</w>
+<c xml:id="c0027010" n="1.1.183"> </c>
+<w xml:id="w0027020" n="1.1.183">up</w>
+<pc xml:id="p0027030" n="1.1.183">,</pc>
+<c xml:id="c0027040" n="1.1.183"> </c>
+<w xml:id="w0027050" n="1.1.183">and</w>
+<c xml:id="c0027060" n="1.1.183"> </c>
+<w xml:id="w0027070" n="1.1.183">by</w>
+<c xml:id="c0027080" n="1.1.183"> </c>
+<w xml:id="w0027090" n="1.1.183">my</w>
+<c xml:id="c0027100" n="1.1.183"> </c>
+<w xml:id="w0027110" n="1.1.183">advice</w>
+<lb xml:id="lb-01830"/>
+<join type="line" xml:id="ftln-0184" n="1.1.184" ana="#verse" target="#w0027120 #c0027130 #w0027140 #c0027150 #w0027160 #c0027170 #w0027180 #c0027190 #w0027200 #c0027210 #w0027220 #c0027230 #w0027240 #c0027250 #w0027260"/>
+<w xml:id="w0027120" n="1.1.184">Let</w>
+<c xml:id="c0027130" n="1.1.184"> </c>
+<w xml:id="w0027140" n="1.1.184">us</w>
+<c xml:id="c0027150" n="1.1.184"> </c>
+<w xml:id="w0027160" n="1.1.184">impart</w>
+<c xml:id="c0027170" n="1.1.184"> </c>
+<w xml:id="w0027180" n="1.1.184">what</w>
+<c xml:id="c0027190" n="1.1.184"> </c>
+<w xml:id="w0027200" n="1.1.184">we</w>
+<c xml:id="c0027210" n="1.1.184"> </c>
+<w xml:id="w0027220" n="1.1.184">have</w>
+<c xml:id="c0027230" n="1.1.184"> </c>
+<w xml:id="w0027240" n="1.1.184">seen</w>
+<c xml:id="c0027250" n="1.1.184"> </c>
+<w xml:id="w0027260" n="1.1.184">tonight</w>
+<lb xml:id="lb-01840"/>
+<join type="line" xml:id="ftln-0185" n="1.1.185" ana="#verse" target="#w0027270 #c0027280 #w0027290 #c0027300 #w0027310 #p0027320 #c0027330 #w0027340 #p0027350 #c0027360 #w0027370 #c0027380 #w0027390 #c0027400 #w0027410 #p0027420"/>
+<w xml:id="w0027270" n="1.1.185">Unto</w>
+<c xml:id="c0027280" n="1.1.185"> </c>
+<w xml:id="w0027290" n="1.1.185">young</w>
+<c xml:id="c0027300" n="1.1.185"> </c>
+<w xml:id="w0027310" n="1.1.185">Hamlet</w>
+<pc xml:id="p0027320" n="1.1.185">;</pc>
+<c xml:id="c0027330" n="1.1.185"> </c>
+<w xml:id="w0027340" n="1.1.185">for</w>
+<pc xml:id="p0027350" n="1.1.185">,</pc>
+<c xml:id="c0027360" n="1.1.185"> </c>
+<w xml:id="w0027370" n="1.1.185">upon</w>
+<c xml:id="c0027380" n="1.1.185"> </c>
+<w xml:id="w0027390" n="1.1.185">my</w>
+<c xml:id="c0027400" n="1.1.185"> </c>
+<w xml:id="w0027410" n="1.1.185">life</w>
+<pc xml:id="p0027420" n="1.1.185">,</pc>
+<lb xml:id="lb-01850"/>
+<join type="line" xml:id="ftln-0186" n="1.1.186" ana="#verse" target="#w0027430 #c0027440 #w0027450 #p0027460 #c0027470 #w0027480 #c0027490 #w0027500 #c0027510 #w0027520 #p0027530 #c0027540 #w0027550 #c0027560 #w0027570 #c0027580 #w0027590 #c0027600 #w0027610 #p0027620"/>
+<w xml:id="w0027430" n="1.1.186">This</w>
+<c xml:id="c0027440" n="1.1.186"> </c>
+<w xml:id="w0027450" n="1.1.186">spirit</w>
+<pc xml:id="p0027460" n="1.1.186">,</pc>
+<c xml:id="c0027470" n="1.1.186"> </c>
+<w xml:id="w0027480" n="1.1.186">dumb</w>
+<c xml:id="c0027490" n="1.1.186"> </c>
+<w xml:id="w0027500" n="1.1.186">to</w>
+<c xml:id="c0027510" n="1.1.186"> </c>
+<w xml:id="w0027520" n="1.1.186">us</w>
+<pc xml:id="p0027530" n="1.1.186">,</pc>
+<c xml:id="c0027540" n="1.1.186"> </c>
+<w xml:id="w0027550" n="1.1.186">will</w>
+<c xml:id="c0027560" n="1.1.186"> </c>
+<w xml:id="w0027570" n="1.1.186">speak</w>
+<c xml:id="c0027580" n="1.1.186"> </c>
+<w xml:id="w0027590" n="1.1.186">to</w>
+<c xml:id="c0027600" n="1.1.186"> </c>
+<w xml:id="w0027610" n="1.1.186">him</w>
+<pc xml:id="p0027620" n="1.1.186">.</pc>
+<lb xml:id="lb-01860"/>
+<join type="line" xml:id="ftln-0187" n="1.1.187" ana="#verse" target="#w0027630 #c0027640 #w0027650 #c0027660 #w0027670 #c0027680 #w0027690 #c0027700 #w0027710 #c0027720 #w0027730 #c0027740 #w0027750 #c0027760 #w0027770 #c0027780 #w0027790"/>
+<w xml:id="w0027630" n="1.1.187">Do</w>
+<c xml:id="c0027640" n="1.1.187"> </c>
+<w xml:id="w0027650" n="1.1.187">you</w>
+<c xml:id="c0027660" n="1.1.187"> </c>
+<w xml:id="w0027670" n="1.1.187">consent</w>
+<c xml:id="c0027680" n="1.1.187"> </c>
+<w xml:id="w0027690" n="1.1.187">we</w>
+<c xml:id="c0027700" n="1.1.187"> </c>
+<w xml:id="w0027710" n="1.1.187">shall</w>
+<c xml:id="c0027720" n="1.1.187"> </c>
+<w xml:id="w0027730" n="1.1.187">acquaint</w>
+<c xml:id="c0027740" n="1.1.187"> </c>
+<w xml:id="w0027750" n="1.1.187">him</w>
+<c xml:id="c0027760" n="1.1.187"> </c>
+<w xml:id="w0027770" n="1.1.187">with</w>
+<c xml:id="c0027780" n="1.1.187"> </c>
+<w xml:id="w0027790" n="1.1.187">it</w>
+<lb xml:id="lb-01870"/>
+<join type="line" xml:id="ftln-0188" n="1.1.188" ana="#verse" target="#w0027800 #c0027810 #w0027820 #c0027830 #w0027840 #c0027850 #w0027860 #c0027870 #w0027880 #p0027890 #c0027900 #w0027910 #c0027920 #w0027930 #c0027940 #w0027950 #p0027960"/>
+<w xml:id="w0027800" n="1.1.188">As</w>
+<c xml:id="c0027810" n="1.1.188"> </c>
+<w xml:id="w0027820" n="1.1.188">needful</w>
+<c xml:id="c0027830" n="1.1.188"> </c>
+<w xml:id="w0027840" n="1.1.188">in</w>
+<c xml:id="c0027850" n="1.1.188"> </c>
+<w xml:id="w0027860" n="1.1.188">our</w>
+<c xml:id="c0027870" n="1.1.188"> </c>
+<w xml:id="w0027880" n="1.1.188">loves</w>
+<pc xml:id="p0027890" n="1.1.188">,</pc>
+<c xml:id="c0027900" n="1.1.188"> </c>
+<w xml:id="w0027910" n="1.1.188">fitting</w>
+<c xml:id="c0027920" n="1.1.188"> </c>
+<w xml:id="w0027930" n="1.1.188">our</w>
+<c xml:id="c0027940" n="1.1.188"> </c>
+<w xml:id="w0027950" n="1.1.188">duty</w>
+<pc xml:id="p0027960" n="1.1.188">?</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01880"/>
+<sp xml:id="sp-0189" who="#MARCELLUS">
+<speaker xml:id="spk-0189">
+<w xml:id="w0027970">MARCELLUS</w>
+</speaker>
+<ab xml:id="ab-0189">
+<lb xml:id="lb-01881"/>
+<join type="line" xml:id="ftln-0189" n="1.1.189" ana="#verse" target="#w0027980 #c0027990 #w0028000 #c0028010 #w0028020 #p0028030 #c0028040 #w0028050 #c0028060 #w0028070 #p0028080 #c0028090 #w0028100 #c0028110 #w0028120 #c0028130 #w0028140 #c0028150 #w0028160 #c0028170 #w0028180"/>
+<w xml:id="w0027980" n="1.1.189">Let’s</w>
+<c xml:id="c0027990" n="1.1.189"> </c>
+<w xml:id="w0028000" n="1.1.189">do</w>
+<c xml:id="c0028010" n="1.1.189"> </c>
+<w xml:id="w0028020" n="1.1.189">’t</w>
+<pc xml:id="p0028030" n="1.1.189">,</pc>
+<c xml:id="c0028040" n="1.1.189"> </c>
+<w xml:id="w0028050" n="1.1.189">I</w>
+<c xml:id="c0028060" n="1.1.189"> </c>
+<w xml:id="w0028070" n="1.1.189">pray</w>
+<pc xml:id="p0028080" n="1.1.189">,</pc>
+<c xml:id="c0028090" n="1.1.189"> </c>
+<w xml:id="w0028100" n="1.1.189">and</w>
+<c xml:id="c0028110" n="1.1.189"> </c>
+<w xml:id="w0028120" n="1.1.189">I</w>
+<c xml:id="c0028130" n="1.1.189"> </c>
+<w xml:id="w0028140" n="1.1.189">this</w>
+<c xml:id="c0028150" n="1.1.189"> </c>
+<w xml:id="w0028160" n="1.1.189">morning</w>
+<c xml:id="c0028170" n="1.1.189"> </c>
+<w xml:id="w0028180" n="1.1.189">know</w>
+<lb xml:id="lb-01890"/>
+<join type="line" xml:id="ftln-0190" n="1.1.190" ana="#verse" target="#w0028190 #c0028200 #w0028210 #c0028220 #w0028230 #c0028240 #w0028250 #c0028260 #w0028270 #c0028280 #w0028290 #c0028300 #w0028310 #p0028320"/>
+<w xml:id="w0028190" n="1.1.190">Where</w>
+<c xml:id="c0028200" n="1.1.190"> </c>
+<w xml:id="w0028210" n="1.1.190">we</w>
+<c xml:id="c0028220" n="1.1.190"> </c>
+<w xml:id="w0028230" n="1.1.190">shall</w>
+<c xml:id="c0028240" n="1.1.190"> </c>
+<w xml:id="w0028250" n="1.1.190">find</w>
+<c xml:id="c0028260" n="1.1.190"> </c>
+<w xml:id="w0028270" n="1.1.190">him</w>
+<c xml:id="c0028280" n="1.1.190"> </c>
+<w xml:id="w0028290" n="1.1.190">most</w>
+<c xml:id="c0028300" n="1.1.190"> </c>
+<w xml:id="w0028310" n="1.1.190">convenient</w>
+<pc xml:id="p0028320" n="1.1.190">.</pc>
+</ab>
+</sp>
+<lb xml:id="lb-01900"/>
+<stage xml:id="stg-0190.1" n="SD 1.1.190.1" type="exit" ana="#BARNARDO #HORATIO #MARCELLUS">
+<w xml:id="w0028330" n="SD 1.1.190.1">They</w>
+<c xml:id="c0028340" n="SD 1.1.190.1"> </c>
+<w xml:id="w0028350" n="SD 1.1.190.1">exit</w>
+<pc xml:id="p0028360" n="SD 1.1.190.1">.</pc>
+</stage>
+</div2>
+</div1>
+</body> 
+</text>
+</TEI>
+
