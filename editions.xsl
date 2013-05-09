@@ -318,6 +318,7 @@
      <a name="line-{@n}.0.0"/>
      <div id="dialogOnly"> 
 	     <h2>Raw Dialog Output</h2> 
+	     <p>This is the raw dialog from the characters selected above. Copy and paste this into a text file if you want. The line numbers will not show up in your copied text.</p> 
      </div> 
      <div class="div1 act"><xsl:apply-templates/></div>
      <hr/>

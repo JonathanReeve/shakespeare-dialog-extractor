@@ -3,7 +3,9 @@ body { font-family: 'Times New Roman'; font-size:13pt; margin:10px 0px; padding:
 br { clear:both; }
 
 /* I added this */
-.dialog {} 
+#dialogOnly .dialog { 
+	display: block;  /* fix line overlap in raw dialog output box */ 
+} 
 .red { color: red; } 
 .blue { color: blue; } 
 
