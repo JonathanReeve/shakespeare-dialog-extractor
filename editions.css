@@ -19,7 +19,7 @@ br { clear:both; }
 } 
 
 /* pageHeadings shouldn't be in the raw dialog box */
-#dialogOnly .pageHeading, #dialogOnly hr, #dialogOnly .stage { display: none; } 
+#dialogOnly .pageHeading, #dialogOnly hr, #dialogOnly .stage, #dialogOnly .imgTxt { display: none; } 
 
 #dialogOnly { 
 	width: 90%; 
