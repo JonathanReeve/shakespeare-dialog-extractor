@@ -358,7 +358,7 @@
 			  <xsl:value-of select="substring(../@who, 2)"/>
 		  </xsl:attribute> 
 		  <xsl:apply-templates/> 
-	  </span> 
+	  </span><br/>
   </xsl:template>
 
 
