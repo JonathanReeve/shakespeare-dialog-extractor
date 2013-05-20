@@ -21,8 +21,8 @@ parser.add_option("-q", "--quiet",
 
 #Error check TEI files
 (options, args) = parser.parse_args()
-if len(args) != 1:
-    parser.error("Please specify a TEI filename.")
+if len(args) < 1:
+    parser.error("Please specify at least one XML file.")
 
 if not options.characters: 
 	charactersFile='characters.txt'
