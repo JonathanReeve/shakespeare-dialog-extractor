@@ -1,0 +1,5 @@
+Using these characters: 
+  Hamlet
+Using these files: 
+  1 ham.xml
+Files loaded successfully.
