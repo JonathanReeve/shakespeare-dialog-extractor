@@ -18,7 +18,7 @@ To get all the dialog from all of Shakespeare's fools, and store it in a file ca
     python parse.py *.xml > fools-dialog.txt
 
 #Characters.txt
-Your characters.txt file should contain a comma-separated list of the XML IDs for all the characters whose dialog you want to extract. See example files in this directory.  
+Your characters.txt file should contain a comma-separated list of the XML IDs for all the characters whose dialog you want to extract. Newlines and spaces are OK, since the program will ignore those. See example files in this directory.  
 
 #Contents of this Directory
  * parse.py: The python script that extracts the dialog. 
