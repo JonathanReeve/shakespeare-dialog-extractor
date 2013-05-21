@@ -381,29 +381,29 @@ The <att>ana</att> attribute identifies the characters associated with that stag
 </sp>
 <lb xml:id="lb-00010"/>
 <sp xml:id="sp-0002" who="#FRANCISCO-HAM">
-<speaker xml:id="spk-0002">
-<w xml:id="w0000250">FRANCISCO</w>
-</speaker>
-<ab xml:id="ab-0002">
-<lb xml:id="lb-00011"/>
-<join type="line" xml:id="ftln-0002" n="1.1.2" ana="#verse" target="#w0000260 #p0000270 #c0000280 #w0000290 #c0000300 #w0000310 #p0000320 #c0000330 #w0000340 #c0000350 #w0000360 #c0000370 #w0000380 #c0000390 #w0000400 #p0000410"/>
-<w xml:id="w0000260" n="1.1.2">Nay</w>
-<pc xml:id="p0000270" n="1.1.2">,</pc>
-<c xml:id="c0000280" n="1.1.2"> </c>
-<w xml:id="w0000290" n="1.1.2">answer</w>
-<c xml:id="c0000300" n="1.1.2"> </c>
-<w xml:id="w0000310" n="1.1.2">me</w>
-<pc xml:id="p0000320" n="1.1.2">.</pc>
-<c xml:id="c0000330" n="1.1.2"> </c>
-<w xml:id="w0000340" n="1.1.2">Stand</w>
-<c xml:id="c0000350" n="1.1.2"> </c>
-<w xml:id="w0000360" n="1.1.2">and</w>
-<c xml:id="c0000370" n="1.1.2"> </c>
-<w xml:id="w0000380" n="1.1.2">unfold</w>
-<c xml:id="c0000390" n="1.1.2"> </c>
-<w xml:id="w0000400" n="1.1.2">yourself</w>
-<pc xml:id="p0000410" n="1.1.2">.</pc>
-</ab>
+	<speaker xml:id="spk-0002">
+		<w xml:id="w0000250">FRANCISCO</w>
+	</speaker>
+	<ab xml:id="ab-0002">
+		<lb xml:id="lb-00011"/>
+		<join type="line" xml:id="ftln-0002" n="1.1.2" ana="#verse" target="#w0000260 #p0000270 #c0000280 #w0000290 #c0000300 #w0000310 #p0000320 #c0000330 #w0000340 #c0000350 #w0000360 #c0000370 #w0000380 #c0000390 #w0000400 #p0000410"/>
+		<w xml:id="w0000260" n="1.1.2">Nay</w>
+		<pc xml:id="p0000270" n="1.1.2">,</pc>
+		<c xml:id="c0000280" n="1.1.2"> </c>
+		<w xml:id="w0000290" n="1.1.2">answer</w>
+		<c xml:id="c0000300" n="1.1.2"> </c>
+		<w xml:id="w0000310" n="1.1.2">me</w>
+		<pc xml:id="p0000320" n="1.1.2">.</pc>
+		<c xml:id="c0000330" n="1.1.2"> </c>
+		<w xml:id="w0000340" n="1.1.2">Stand</w>
+		<c xml:id="c0000350" n="1.1.2"> </c>
+		<w xml:id="w0000360" n="1.1.2">and</w>
+		<c xml:id="c0000370" n="1.1.2"> </c>
+		<w xml:id="w0000380" n="1.1.2">unfold</w>
+		<c xml:id="c0000390" n="1.1.2"> </c>
+		<w xml:id="w0000400" n="1.1.2">yourself</w>
+		<pc xml:id="p0000410" n="1.1.2">.</pc>
+	</ab>
 </sp>
 <lb xml:id="lb-00020"/>
 <sp xml:id="sp-0003" who="#BARNARDO">

@@ -1,14 +1,23 @@
+""" 
+This is a Python program to extract dialog from TEI XML documents, like the Shakespeare TEI files available at the MONK project, provided that the dialog is marked up with the speakers' names in the format <sp who="speaker"> with the dialog in child <l> tags. 
+
+Run this program with the command: 
+	python parse.py your-xml-file-here.xml
+Or optionally: 
+	python parse.py -c list-of-characters.txt your-xml-file-here.xml
+
+If you don't provide a list of characters whose dialog to extract, this program will look for characters.txt in the current working directory. 
+
+The characters.txt file should contain a comma-separated list of character xml IDs for all the characters whose dialog you want to extract. For example: 
+	Hamlet,aww-stew.,aww-clo.,Reynaldo
+
+This has only been tested with TEI XML Shakespeare plays. 
+
+"""
 import sys # library for doing system things 
 from optparse import OptionParser #parse options from the command line!
 from lxml import etree # for parsing XML
 import re # need regex for doing fancy split
-
-#filenames=[filename for filename in sys.argv[1:]] #store filenames
-#print "Using files: " #Display filenames
-#for filename in filenames:
-#	print filename
-#xmls=[etree.parse(file) for file in sys.argv[1:]] #open and parse files
-#print 'Files loaded successfully.'  
 
 usage = 'usage: %prog [options] file1.xml [file2.xml]'
 parser = OptionParser(usage)
@@ -33,7 +42,7 @@ else:
 try: 
 	rawCharacters=open(charactersFile).read()
 except IOError: 
-	parser.error("Can't find characters.txt.") 
+	parser.error("Can't find characters file. Do you have a characters.txt in this directory, or did you specify its location in an option?") 
 
 #Parse characters file
 charactersMessy=re.split('\n|,',rawCharacters) #split by commas or newlines and strip out whitespace

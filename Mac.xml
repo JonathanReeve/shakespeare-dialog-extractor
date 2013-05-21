@@ -310,7 +310,7 @@ The <att>ana</att> attribute identifies the characters associated with that stag
 <persName><name>Hecate</name></persName>
 </person>
 <personGrp xml:id="APPARITIONS-MAC">
-<p>Apparitions: an Armed Head, a Bloody Child, a Crowned Child, and eight nonspeaking kings</p>
+	<p>Apparitions: an Armed Head, a Bloody Child, a Crowned Child, and eight nonspeaking kings</p>
 </personGrp>
 <person xml:id="APPARITION1-MAC" corresp="#APPARITIONS-MAC"/>
 <person xml:id="APPARITION2-MAC" corresp="#APPARITIONS-MAC"/>
@@ -318,14 +318,14 @@ The <att>ana</att> attribute identifies the characters associated with that stag
 <personGrp xml:id="APPARITION_KINGS-MAC" corresp="#APPARITIONS-MAC"/>
 </listPerson>
 <listPerson>
-<head>Three Messengers, Three Servants, a Lord, a Soldier</head>
-<personGrp xml:id="MESSENGERS"/>
-<person xml:id="MESSENGER1-MAC" corresp="#MESSENGERS"/>
-<person xml:id="MESSENGER2-MAC" corresp="#MESSENGERS"/>
-<person xml:id="MESSENGER3-MAC" corresp="#MESSENGERS"/>
-<personGrp xml:id="SERVANTS"/>
-<person xml:id="LORD-MAC"/>
-<person xml:id="SOLDIER-MAC" corresp="#SOLDIERS"/>
+	<head>Three Messengers, Three Servants, a Lord, a Soldier</head>
+	<personGrp xml:id="MESSENGERS"/>
+	<person xml:id="MESSENGER1-MAC" corresp="#MESSENGERS"/>
+	<person xml:id="MESSENGER2-MAC" corresp="#MESSENGERS"/>
+	<person xml:id="MESSENGER3-MAC" corresp="#MESSENGERS"/>
+	<personGrp xml:id="SERVANTS"/>
+	<person xml:id="LORD-MAC"/>
+	<person xml:id="SOLDIER-MAC" corresp="#SOLDIERS"/>
 </listPerson>
 <listPerson>
 <head>Attendants, a Sewer, Servants, Lords, Thanes, Soldiers (all nonspeaking)</head>
