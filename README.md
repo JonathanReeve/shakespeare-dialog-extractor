@@ -23,6 +23,7 @@ Your characters.txt file should contain a comma-separated list of the XML IDs fo
  * parse.py: The python script that extracts the dialog. 
  * characters.txt: This is just a sample characters.txt file showing the ways you can list the characters whose dialog you want to extract. Use the XML IDs for character names. 
  * ham.xml, mac.xml, oth.xml: Sample TEI XML Shakespeare plays. 
+ * /character-lists: This directory contains sample character list files. 
  
 #License 
 This software is released under the GPLv3. 
