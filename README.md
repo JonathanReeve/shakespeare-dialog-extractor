@@ -13,6 +13,7 @@ To get all of Ophelia's speech from the play Hamlet, and store the dialog in a f
     python parse.py ham.xml > ophelia-dialog.txt
 
 To get all the dialog from all of Shakespeare's fools, and store it in a file called `fools-dialog.txt`, first make sure your directory contains [XML files for all of Shakespeare's plays](http://www.monkproject.org/downloads/texts/sha.gz), then run: 
+
     echo "Touchstone,kil-fool.,Trinculo,Costard,Feste,Launcelot,aww-clo.,tim-fool.,Bottom,Thersites,oth-clo.,DromioS,DromioE,Speed,Launce,ham-sec.-clo.,ham-first-clo.,juc-cit1.,juc-cit2.,juc-cit3.,juc-cit4.,juc-cits.,PompeyBum,win-clo.,Grumio,mac-porter.,mac-port.,Peter1,Cloten,Falstaff1" > characters.txt
     python parse.py *.xml > fools-dialog.txt
 
