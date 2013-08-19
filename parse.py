@@ -1,3 +1,5 @@
+#!/usr/bin/python 
+
 """ 
 This is a Python program to extract dialog from TEI XML documents, like the Shakespeare TEI files available at the MONK project, provided that the dialog is marked up with the speakers' names in the format <sp who="speaker"> with the dialog in child <l> tags. 
 
@@ -80,9 +82,12 @@ for xml in xmls:
 		output+=xml.xpath('.//s:sp[@who="'+character+'"]/s:l/text()', namespaces=nsmap)
 
 clean=""
-for line in output: 
-	clean+=line.strip()+'\n' #strip all extra space and then make them individual lines
+#new way 
+clean = '\n'.join(line.strip() for line in output)
+#old way
+#for line in output: 
+#	clean+=line.strip()+'\n' #strip all extra space and then make them individual lines
 
 #encoding it makes it work with piping as described here: http://stackoverflow.com/questions/492483/setting-the-correct-encoding-when-piping-stdout-in-python 
-encoded=clean.encode('utf-8')
-sys.stdout.write(encoded)
+encoded=
+sys.stdout.write(clean.encode('utf-8'))
